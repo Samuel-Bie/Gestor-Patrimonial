@@ -32,7 +32,7 @@ class CreateMovimentacoesTable extends Migration
             $table->string('referencia_entrega')->nullable();
             $table->date('data_entrega')->nullable();
             $table->string('funcionario_receptor')->nullable();
-            $table->string('obs', 45)->nullable();
+            $table->string('obs' )->nullable();
             $table->unsignedBigInteger('users_id');
 
             $table->index(["patrimonio_id"], 'fk_movimentacoes_patrimonio1_idx');

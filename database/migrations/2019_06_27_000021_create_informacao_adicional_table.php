@@ -24,7 +24,7 @@ class CreateInformacaoAdicionalTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('fornecedor');
-            $table->string('nuit', 45)->nullable();
+            $table->string('nuit' )->nullable();
             $table->string('endereco')->nullable();
             $table->string('cidade')->nullable();
             $table->string('tipo_comprovativo')->nullable();
@@ -34,6 +34,9 @@ class CreateInformacaoAdicionalTable extends Migration
             $table->string('utilizador')->nullable()->comment('Utilizador do bem (Ex: nome do funcionarioo)');
             $table->text('obs')->nullable();
             $table->unsignedInteger('patrimonio_id');
+            $table->tinyInteger('seguro')->nullable();
+            $table->tinyInteger('ferramentas')->nullable();
+            $table->tinyInteger('extintor')->nullable();
 
             $table->index(["patrimonio_id"], 'fk_informacao_adicional_patrimonio1_idx');
             $table->softDeletes();

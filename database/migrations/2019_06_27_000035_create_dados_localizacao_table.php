@@ -38,6 +38,8 @@ class CreateDadosLocalizacaoTable extends Migration
             $table->index(["uges_id"], 'fk_dados_localizacao_uges1_idx');
 
             $table->index(["depatamentos_id"], 'fk_dados_localizacao_depatamentos1_idx');
+            $table->softDeletes();
+            $table->nullableTimestamps();
 
 
             $table->foreign('ugbs_id', 'fk_dados_localizacao_ugbs1_idx')
@@ -61,7 +63,7 @@ class CreateDadosLocalizacaoTable extends Migration
                 ->onUpdate('no action');
 
             $table->foreign('depatamentos_id', 'fk_dados_localizacao_depatamentos1_idx')
-                ->references('iddepatamento')->on('depatamentos')
+                ->references('id')->on('depatamentos')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

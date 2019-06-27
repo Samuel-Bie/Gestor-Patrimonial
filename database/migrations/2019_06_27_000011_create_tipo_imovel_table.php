@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstadoBemTable extends Migration
+class CreateTipoImovelTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'estado_bem';
+    public $tableName = 'tipo_imovel';
 
     /**
      * Run the migrations.
-     * @table estado_bem
+     * @table tipo_imovel
      *
      * @return void
      */
@@ -23,10 +23,7 @@ class CreateEstadoBemTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('designacao', 45);
-            $table->text('descricao')->nullable();
-            $table->softDeletes();
-            $table->nullableTimestamps();
+            $table->string('nome' )->nullable();
         });
     }
 

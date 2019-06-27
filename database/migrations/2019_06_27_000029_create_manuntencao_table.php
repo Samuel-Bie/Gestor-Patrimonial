@@ -31,7 +31,7 @@ class CreateManuntencaoTable extends Migration
             $table->string('referencia_entrega')->nullable();
             $table->date('data_entrega')->nullable();
             $table->string('funcionario_receptor')->nullable();
-            $table->string('obs', 45)->nullable();
+            $table->string('obs' )->nullable();
             $table->string('entidate_manuntencao')->nullable();
             $table->integer('periodo_manuntencao')->nullable()->comment('Periodo em dias');
             $table->string('local_manuntencao')->nullable();

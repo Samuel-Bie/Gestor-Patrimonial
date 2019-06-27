@@ -24,13 +24,6 @@ class CreatePatrimonioTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('nip')->nullable();
-            $table->string('marca')->nullable();
-            $table->string('nr_serie')->nullable();
-            $table->string('modelo')->nullable();
-            $table->float('comprimento')->nullable()->comment('Comprimento em metros');
-            $table->float('largura')->nullable();
-            $table->string('cor', 45)->nullable();
-            $table->string('material')->nullable()->comment('Material predominante no bem');
             $table->unsignedInteger('classificador_geral_id');
             $table->unsignedInteger('formas_aquisicao_id');
             $table->unsignedInteger('estado_aquisicao_bem_id');

@@ -28,7 +28,7 @@ class CreateFicheirosTable extends Migration
             $table->unsignedInteger('dados_abate_id')->nullable();
             $table->unsignedInteger('dados_transferencia_id')->nullable();
             $table->unsignedInteger('movimentacoes_id')->nullable();
-            $table->unsignedInteger('manuntencao_id');
+            $table->unsignedInteger('manuntencao_id')->nullable();
 
             $table->index(["manuntencao_id"], 'fk_ficheiros_manuntencao1_idx');
 

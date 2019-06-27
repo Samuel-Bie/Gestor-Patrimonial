@@ -31,14 +31,14 @@ class CreateUgbsTable extends Migration
             $table->string('bairro')->nullable();
             $table->string('endereco')->nullable();
             $table->string('classificador_territorial')->nullable();
-            $table->unsignedInteger('delegacoes_iddelegacao');
+            $table->unsignedInteger('delegacoes_id');
 
-            $table->index(["delegacoes_iddelegacao"], 'fk_ugbs_delegacoes1_idx');
+            $table->index(["delegacoes_id"], 'fk_ugbs_delegacoes1_idx');
             $table->softDeletes();
             $table->nullableTimestamps();
 
 
-            $table->foreign('delegacoes_iddelegacao', 'fk_ugbs_delegacoes1_idx')
+            $table->foreign('delegacoes_id', 'fk_ugbs_delegacoes1_idx')
                 ->references('id')->on('delegacoes')
                 ->onDelete('no action')
                 ->onUpdate('no action');
