@@ -9,7 +9,7 @@ mix.webpackConfig({
     }
 })
 
-mix.browserSync()
+// mix.browserSync()
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

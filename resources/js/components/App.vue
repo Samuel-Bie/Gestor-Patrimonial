@@ -7,7 +7,6 @@
     <core-drawer />
 
     <core-view />
-    <dropzone-index></dropzone-index>
   </v-app>
 </template>
 

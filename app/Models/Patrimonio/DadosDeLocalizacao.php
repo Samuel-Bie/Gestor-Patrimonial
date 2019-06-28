@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DadosDeLocalizacao extends Model
 {
-    // //
     use SoftDeletes;
     protected $table        = 'dados_localizacao';
     protected $primaryKey   = "id";

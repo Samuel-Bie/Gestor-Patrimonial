@@ -9,13 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DadosTransferencia extends Model
 {
-    // //
     use SoftDeletes;
     protected $table        = 'dados_transferencia';
     protected $primaryKey   = "id";
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
-
 
     public function patrimonio()
     {

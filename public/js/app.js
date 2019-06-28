@@ -46416,9 +46416,7 @@ var render = function() {
       _vm._v(" "),
       _c("core-drawer"),
       _vm._v(" "),
-      _c("core-view"),
-      _vm._v(" "),
-      _c("dropzone-index")
+      _c("core-view")
     ],
     1
   )

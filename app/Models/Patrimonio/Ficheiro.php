@@ -12,7 +12,6 @@ use App\Models\Patrimonio\Transferencia\DadosTransferencia;
 
 class Ficheiro extends Model
 {
-    // //
     use SoftDeletes;
     protected $table        = 'ficheiros';
     protected $primaryKey   = "id";
