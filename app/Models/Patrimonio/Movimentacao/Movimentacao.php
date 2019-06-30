@@ -16,6 +16,10 @@ class Movimentacao extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
+    public function id(){
+        return $this->id;
+    }
+
     public function patrimonio()
     {
         return $this->belongsTo(Patrimonio::class, 'patrimonio_id');

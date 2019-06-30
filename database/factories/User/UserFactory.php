@@ -4,6 +4,7 @@
 use App\Models\User\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
+use App\Models\Universidade\Universidade;
 
 /*
 |--------------------------------------------------------------------------

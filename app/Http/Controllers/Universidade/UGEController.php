@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\UGE;
 use Illuminate\Http\Request;
 
 class UGEController extends Controller

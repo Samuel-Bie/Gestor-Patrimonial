@@ -12,6 +12,10 @@ class TipoImovel extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
+    public function id(){
+        return $this->id;
+    }
+
 
     public function imoveis()
     {

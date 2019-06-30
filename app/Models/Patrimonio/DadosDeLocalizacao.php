@@ -2,10 +2,7 @@
 
 namespace App\Models\Patrimonio;
 
-use App\Model\UGE;
-use App\Models\UGB;
-use App\Models\Setor;
-use App\Models\Departamento;
+
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,6 +14,10 @@ class DadosDeLocalizacao extends Model
     protected $primaryKey   = "id";
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
+
+    public function id(){
+        return $this->id;
+    }
 
     public function ugb()
     {

@@ -13,6 +13,10 @@ class Livro extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
+    public function id(){
+        return $this->id;
+    }
+
     public function patrimonio()
     {
         return $this->belongsTo(Patrimonio::class, 'patrimonio_id');

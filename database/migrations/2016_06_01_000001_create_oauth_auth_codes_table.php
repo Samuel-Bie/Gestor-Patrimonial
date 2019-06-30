@@ -7,27 +7,19 @@ use Illuminate\Database\Migrations\Migration;
 class CreateOauthAuthCodesTable extends Migration
 {
     /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $tableName = 'oauth_auth_codes';
-
-    /**
      * Run the migrations.
-     * @table oauth_auth_codes
      *
      * @return void
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
+        Schema::create('oauth_auth_codes', function (Blueprint $table) {
+            $table->string('id', 100)->primary();
             $table->integer('user_id');
             $table->unsignedInteger('client_id');
-            $table->text('scopes')->nullable()->default(null);
-            $table->tinyInteger('revoked');
-            $table->dateTime('expires_at')->nullable()->default(null);
+            $table->text('scopes')->nullable();
+            $table->boolean('revoked');
+            $table->dateTime('expires_at')->nullable();
         });
     }
 
@@ -36,8 +28,8 @@ class CreateOauthAuthCodesTable extends Migration
      *
      * @return void
      */
-     public function down()
-     {
-       Schema::dropIfExists($this->tableName);
-     }
+    public function down()
+    {
+        Schema::dropIfExists('oauth_auth_codes');
+    }
 }

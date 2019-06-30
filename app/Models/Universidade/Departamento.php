@@ -1,6 +1,7 @@
 <?php
+namespace App\Models\Universidade;
 
-namespace App\Models;
+
 
 use App\Models\Delegacoes;
 use App\Models\Patrimonio\Patrimonio;
@@ -15,6 +16,10 @@ class Departamento extends Model
     protected $primaryKey   = "id";
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
+
+    public function id(){
+        return $this->id;
+    }
 
     public function delegacao()
     {

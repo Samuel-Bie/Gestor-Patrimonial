@@ -4,30 +4,34 @@ namespace App\Models\Patrimonio;
 
 use App\Models\User\User;
 use App\Models\Patrimonio\Ficheiro;
+use App\Models\Patrimonio\Tipo\Livro;
+use App\Models\Patrimonio\Tipo\Movel;
+use App\Models\Patrimonio\Tipo\Imovel;
+use App\Models\Patrimonio\Tipo\Veiculo;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Patrimonio\Tools\EstadoBem;
 use App\Models\Patrimonio\Abate\DadosAbate;
 use App\Models\Patrimonio\DadosDeLocalizacao;
-use App\Models\Patrimonio\InformacaoAdicional;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Patrimonio\Info\AdicionalGeral;
 use App\Models\Patrimonio\Manutencao\Manutencao;
+use App\Models\Patrimonio\Tools\EstadoAquisicao;
 use App\Models\Patrimonio\Tools\FormaDeAquisicao;
+use App\Models\Patrimonio\Tools\EstadoConservacao;
 use App\Models\Patrimonio\Tools\ClassificadorGeral;
 use App\Models\Patrimonio\Movimentacao\Movimentacao;
 use App\Models\Patrimonio\Transferencia\DadosTransferencia;
-use App\Models\Patrimonio\Tipo\Imovel;
-use App\Models\Patrimonio\Tipo\Veiculo;
-use App\Models\Patrimonio\Tipo\Livro;
-use App\Models\Patrimonio\Tipo\Movel;
-use App\Models\Patrimonio\Info\AdicionalImovel;
 
 class Patrimonio extends Model
 {
-    // //
     use SoftDeletes;
     protected $table        = 'patrimonio';
     protected $primaryKey   = "id";
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
+
+    public function id(){
+        return $this->id;
+    }
 
     public function classe()
     {
@@ -39,15 +43,15 @@ class Patrimonio extends Model
         return $this->belongsTo(FormaDeAquisicao::class, 'formas_aquisicao_id');
     }
 
-    public function estadoAtual()
+    public function estadoAquisicao()
     {
-        return $this->belongsTo(EstadoBem::class, 'estado_conservacao_bem_id');
+        return $this->belongsTo(EstadoAquisicao::class, 'estado_conservacao_id');
     }
 
 
-    public function estadoAquisicao()
+    public function estadoConservacao()
     {
-        return $this->belongsTo(EstadoBem::class, 'estado_aquisicao_bem_id');
+        return $this->belongsTo(EstadoConservacao::class, 'estado_aquisicao_id');
     }
 
     public function user()
@@ -55,10 +59,12 @@ class Patrimonio extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
     /* Informacoes */
-        public function informacaoAdicional(){
-            return $this->hasOne(InformacaoAdicional::class, 'patrimonio_id');
+        public function informacao()
+        {
+            return $this->hasOne(AdicionalGeral::class, 'patrimonio_id');
         }
-        public function localizacao(){
+        public function localizacao()
+        {
             return $this->hasOne(DadosDeLocalizacao::class, 'patrimonio_id');
         }
 
@@ -66,9 +72,7 @@ class Patrimonio extends Model
         {
             return $this->hasOne(Imovel::class, 'patrimonio_id');
         }
-            public function imovelInfo(){
-                return $this->hasOne(AdicionalImovel::class, 'patrimonio_id');
-            }
+
 
         public function veiculo()
         {
@@ -88,23 +92,27 @@ class Patrimonio extends Model
 
 
     /* Operacoes */
-        public function abate(){
+        public function abate()
+        {
             return $this->hasOne(DadosAbate::class, 'patrimonio_id');
         }
-        public function transferencia(){
+        public function transferencia()
+        {
             return $this->hasOne(DadosTransferencia::class, 'patrimonio_id');
         }
 
-        public function movimentacoes(){
+        public function movimentacoes()
+        {
             return $this->hasMany(Movimentacao::class, 'patrimonio_id');
         }
-        public function manutencoes(){
+        public function manutencoes()
+        {
             return $this->hasMany(Manutencao::class, 'patrimonio_id');
         }
     /* Operacoes */
 
-    public function ficheiros(){
+    public function ficheiros()
+    {
         return $this->hasMany(Ficheiro::class, 'patrimonio_id');
     }
-
 }

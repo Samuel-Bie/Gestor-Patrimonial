@@ -7,26 +7,16 @@ use Illuminate\Database\Migrations\Migration;
 class CreateOauthPersonalAccessClientsTable extends Migration
 {
     /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $tableName = 'oauth_personal_access_clients';
-
-    /**
      * Run the migrations.
-     * @table oauth_personal_access_clients
      *
      * @return void
      */
     public function up()
     {
-        Schema::create($this->tableName, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('client_id');
-
-            $table->index(["client_id"], 'oauth_personal_access_clients_client_id_index');
-            $table->nullableTimestamps();
+            $table->unsignedInteger('client_id')->index();
+            $table->timestamps();
         });
     }
 
@@ -35,8 +25,8 @@ class CreateOauthPersonalAccessClientsTable extends Migration
      *
      * @return void
      */
-     public function down()
-     {
-       Schema::dropIfExists($this->tableName);
-     }
+    public function down()
+    {
+        Schema::dropIfExists('oauth_personal_access_clients');
+    }
 }

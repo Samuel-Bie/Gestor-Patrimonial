@@ -14,6 +14,10 @@ class ClassificadorGeral extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
+    public function id(){
+        return $this->id;
+    }
+
 
     public function patrimonios()
     {

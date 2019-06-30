@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(ClassificadorGeral::class, function (Faker $faker) {
     return [
-        "codigo"        => $faker->postcode,
+        "codigo"        => $faker->unique()->randomNumber(5),
         "designacao"    =>$faker->name
     ];
 });

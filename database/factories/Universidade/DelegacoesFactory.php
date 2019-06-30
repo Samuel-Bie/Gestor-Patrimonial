@@ -2,13 +2,14 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Models\Delegacoes;
 use Faker\Generator as Faker;
-use App\Models\Universidade;
+use App\Models\Universidade\Delegacoes;
+use App\Models\Universidade\Universidade;
 
 $factory->define(Delegacoes::class, function (Faker $faker) {
+    $uni = Universidade::all()->random();
     return [
-        'nome' => $faker->words(2),
-        'universidade_iduniversidade' => Universidade::all()->random()
+        'nome' => $faker->sentence(2),
+        'universidade_id' => $uni,
     ];
 });

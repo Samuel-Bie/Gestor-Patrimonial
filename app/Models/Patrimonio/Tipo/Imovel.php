@@ -4,6 +4,7 @@ namespace App\Models\Patrimonio\Tipo;
 
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Patrimonio\Info\AdicionalImovel;
 use App\Models\Patrimonio\Tipo\Imovel\TipoImovel;
 use App\Models\Patrimonio\Tipo\Imovel\TipoDominio;
 use App\Models\Patrimonio\Tipo\Imovel\TipoEdificio;
@@ -15,9 +16,18 @@ class Imovel extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
+    public function id(){
+        return $this->id;
+    }
+
     public function patrimonio()
     {
         return $this->belongsTo(Patrimonio::class, 'patrimonio_id');
+    }
+
+    public function info()
+    {
+        return $this->hasOne(AdicionalImovel::class, 'imoveis_id');
     }
     public function tipoEdificio()
     {
@@ -29,6 +39,6 @@ class Imovel extends Model
     }
     public function tipoImovel()
     {
-        return $this->belongsTo(TipoImovel::class, 'tipo_imovel_id');
+        return $this->belongsTo(TipoImovel::class, 'tipo_imoveis_id');
     }
 }

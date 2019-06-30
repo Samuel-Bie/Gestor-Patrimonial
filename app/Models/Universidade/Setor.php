@@ -1,6 +1,6 @@
 <?php
+namespace App\Models\Universidade;
 
-namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,6 +13,10 @@ class Setor extends Model
     protected $primaryKey   = "id";
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
+
+    public function id(){
+        return $this->id;
+    }
 
     public function delegacao()
     {

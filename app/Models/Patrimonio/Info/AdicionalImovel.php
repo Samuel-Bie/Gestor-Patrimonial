@@ -2,7 +2,9 @@
 
 namespace App\Models\Patrimonio\Info;
 
+use App\Models\Patrimonio\Tipo\Imovel;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AdicionalImovel extends Model
 {
@@ -12,10 +14,12 @@ class AdicionalImovel extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function patrimonio()
-    {
-        return $this->belongsTo(Patrimonio::class, 'patrimonio_id');
+    public function id(){
+        return $this->id;
     }
 
-    //
+    public function imovel()
+    {
+        return $this->belongsTo(Imovel::class, 'imoveis_id');
+    }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patrimonio\InformacaoAdicional;
 use Illuminate\Http\Request;
+use App\Models\Patrimonio\Info\AdicionalGeral;
 
-class InformacaoAdicionalController extends Controller
+class AdicionalGeralController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class InformacaoAdicionalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patrimonio\InformacaoAdicional  $informacaoAdicional
+     * @param  \App\Models\Patrimonio\AdicionalGeral  $info
      * @return \Illuminate\Http\Response
      */
-    public function show(InformacaoAdicional $informacaoAdicional)
+    public function show(AdicionalGeral $info)
     {
         //
     }
@@ -52,10 +52,10 @@ class InformacaoAdicionalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Patrimonio\InformacaoAdicional  $informacaoAdicional
+     * @param  \App\Models\Patrimonio\AdicionalGeral  $info
      * @return \Illuminate\Http\Response
      */
-    public function edit(InformacaoAdicional $informacaoAdicional)
+    public function edit(AdicionalGeral $info)
     {
         //
     }
@@ -64,10 +64,10 @@ class InformacaoAdicionalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patrimonio\InformacaoAdicional  $informacaoAdicional
+     * @param  \App\Models\Patrimonio\AdicionalGeral  $info
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InformacaoAdicional $informacaoAdicional)
+    public function update(Request $request, AdicionalGeral $info)
     {
         //
     }
@@ -75,10 +75,10 @@ class InformacaoAdicionalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patrimonio\InformacaoAdicional  $informacaoAdicional
+     * @param  \App\Models\Patrimonio\AdicionalGeral  $info
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InformacaoAdicional $informacaoAdicional)
+    public function destroy(AdicionalGeral $info)
     {
         //
     }
