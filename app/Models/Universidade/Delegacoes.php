@@ -32,4 +32,13 @@ class Delegacoes extends Model
         return $this->belongsToMany(User::class, 'permissoes', 'delegacoes_id', 'user_id')
             ->withPivot('cargo_id');
     }
+
+    public function departamentos()
+    {
+        return $this->hasMany(Departamento::class, 'delegacoes_id');
+    }
+    public function setores()
+    {
+        return $this->hasMany(Setor::class, 'delegacoes_id');
+    }
 }

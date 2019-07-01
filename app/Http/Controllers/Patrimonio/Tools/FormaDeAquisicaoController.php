@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patrimonio\Tools\FormaDeAquisicao;
 use Illuminate\Http\Request;
+use App\Models\Patrimonio\Tools\FormaDeAquisicao;
+use App\Http\Resources\Patrimonio\Tools\FormaDeAquisicao\FormaDeAquisicaoCollection;
 
 class FormaDeAquisicaoController extends Controller
 {
@@ -15,17 +16,10 @@ class FormaDeAquisicaoController extends Controller
     public function index()
     {
         //
+        $formas = FormaDeAquisicao::paginate();
+        return (new FormaDeAquisicaoCollection($formas));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,17 +39,6 @@ class FormaDeAquisicaoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(FormaDeAquisicao $formaDeAquisicao)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $formaDeAquisicao
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(FormaDeAquisicao $formaDeAquisicao)
     {
         //
     }

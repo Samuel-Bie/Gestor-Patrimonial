@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Universidade;
 use Illuminate\Http\Request;
+use App\Http\Resources\Universidade\Universidade\UniversidadeCollection;
 
 class UniversidadeController extends Controller
 {
@@ -15,28 +16,13 @@ class UniversidadeController extends Controller
     public function index()
     {
         //
+        $universidades = Universidade::paginate();
+        return (new UniversidadeCollection($universidades));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+
+
 
     /**
      * Display the specified resource.
@@ -49,24 +35,9 @@ class UniversidadeController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Universidade  $universidade
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Universidade $universidade)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Universidade  $universidade
-     * @return \Illuminate\Http\Response
-     */
+
+    
     public function update(Request $request, Universidade $universidade)
     {
         //

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Departamento;
 use Illuminate\Http\Request;
+use App\Models\Universidade\Delegacoes;
+use App\Models\Universidade\Departamento;
+use App\Http\Resources\Universidade\Departamento\DepartamentoCollection;
 
 class DepartamentoController extends Controller
 {
@@ -12,20 +14,14 @@ class DepartamentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Delegacoes $delegacao)
     {
-        //
+        $departamentos = $delegacao->departamentos()->paginate();
+        return (new DepartamentoCollection($departamentos));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -49,17 +45,8 @@ class DepartamentoController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Departamento  $departamento
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Departamento $departamento)
-    {
-        //
-    }
 
+    
     /**
      * Update the specified resource in storage.
      *

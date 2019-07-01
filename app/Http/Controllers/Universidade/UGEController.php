@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Universidade\UGE;
+use App\Http\Resources\Universidade\UGE\UGECollection;
 
 class UGEController extends Controller
 {
@@ -13,28 +15,8 @@ class UGEController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $uges = UGE::paginate();
+        return (new UGECollection($uges));
     }
 
     /**
@@ -48,16 +30,8 @@ class UGEController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\UGE  $uGE
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(UGE $uGE)
-    {
-        //
-    }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -67,17 +41,6 @@ class UGEController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, UGE $uGE)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Model\UGE  $uGE
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(UGE $uGE)
     {
         //
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Delegacoes;
 use Illuminate\Http\Request;
+use App\Http\Resources\Universidade\Delegacao\DelegacaoCollection;
 
 class DelegacoesController extends Controller
 {
@@ -15,17 +16,11 @@ class DelegacoesController extends Controller
     public function index()
     {
         //
+        $delegacoes = Delegacoes::paginate();
+        return (new DelegacaoCollection($delegacoes));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -49,16 +44,8 @@ class DelegacoesController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Delegacoes  $delegacoes
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Delegacoes $delegacoes)
-    {
-        //
-    }
+
+    
 
     /**
      * Update the specified resource in storage.

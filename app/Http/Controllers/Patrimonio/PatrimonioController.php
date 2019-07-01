@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Http\Request;
+use App\Models\Patrimonio\Patrimonio;
+use App\Http\Resources\Patrimonio\Patrimonio\PatrimonioCollection;
 
 class PatrimonioController extends Controller
 {
@@ -14,17 +15,8 @@ class PatrimonioController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $bens = Patrimonio::paginate();
+        return (new PatrimonioCollection($bens));
     }
 
     /**
@@ -45,17 +37,6 @@ class PatrimonioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Patrimonio $patrimonio)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Patrimonio  $patrimonio
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Patrimonio $patrimonio)
     {
         //
     }

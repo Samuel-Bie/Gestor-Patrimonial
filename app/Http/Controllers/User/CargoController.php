@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User\Cargo;
 use Illuminate\Http\Request;
+use App\Http\Resources\User\Cargo\CargoCollection;
 
 class CargoController extends Controller
 {
@@ -14,18 +15,12 @@ class CargoController extends Controller
      */
     public function index()
     {
-        //
+        $cargos = Cargo::paginate();
+        return (new CargoCollection($cargos));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -48,17 +43,7 @@ class CargoController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User\Cargo  $cargo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cargo $cargo)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.

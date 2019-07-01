@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patrimonio\Tools\ClassificadorGeral;
 use Illuminate\Http\Request;
+use App\Models\Patrimonio\Tools\ClassificadorGeral;
+use App\Http\Resources\Patrimonio\Tools\ClassificadorGeral\ClassificadorGeralCollection;
 
 class ClassificadorGeralController extends Controller
 {
@@ -14,17 +15,8 @@ class ClassificadorGeralController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $classes = ClassificadorGeral::paginate();
+        return (new ClassificadorGeralCollection($classes));
     }
 
     /**
@@ -49,16 +41,6 @@ class ClassificadorGeralController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificadorGeral
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ClassificadorGeral $classificadorGeral)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

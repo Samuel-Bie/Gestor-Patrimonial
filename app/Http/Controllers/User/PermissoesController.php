@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User\Permissoes;
 use Illuminate\Http\Request;
+use App\Http\Resources\User\Permissao\PermissaoCollection;
 
 class PermissoesController extends Controller
 {
@@ -14,18 +15,12 @@ class PermissoesController extends Controller
      */
     public function index()
     {
-        //
+        $permissoes = Permissoes::paginate();
+        return (new PermissaoCollection($permissoes));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -49,16 +44,8 @@ class PermissoesController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User\Permissoes  $permissoes
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Permissoes $permissoes)
-    {
-        //
-    }
+
+    
 
     /**
      * Update the specified resource in storage.

@@ -1,11 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Patrimonio\Extensions;
+namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\Patrimonio\Tipo\Imovel;
+use App\Http\Resources\Patrimonio\Extensions\Imovel\ImovelCollection;
 
 class ImovelController extends Controller
 {
-    //
+    public function index()
+    {
+        $imoveis = Imovel::paginate();
+        return (new ImovelCollection($imoveis));
+    }
+
+    public function show(Imovel $imovel)
+    {
+        //
+    }
+
+    public function destroy(Imovel $imovel)
+    {
+        //
+    }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patrimonio\Movimentacao\Movimentacao;
 use Illuminate\Http\Request;
+use App\Models\Patrimonio\Patrimonio;
+use App\Models\Patrimonio\Movimentacao\Movimentacao;
+use App\Http\Resources\Patrimonio\Operations\Movimentacao\MovimentacaoCollection;
 
 class MovimentacaoController extends Controller
 {
@@ -12,19 +14,10 @@ class MovimentacaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Patrimonio $patrimonio)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $movimentacoes = $patrimonio->movimentacoes()->paginate();
+        return (new MovimentacaoCollection($movimentacoes));
     }
 
     /**
@@ -33,7 +26,7 @@ class MovimentacaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Patrimonio $patrimonio)
     {
         //
     }
@@ -49,16 +42,8 @@ class MovimentacaoController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Movimentacao\Movimentacao  $movimentacao
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Movimentacao $movimentacao)
-    {
-        //
-    }
+
+
 
     /**
      * Update the specified resource in storage.

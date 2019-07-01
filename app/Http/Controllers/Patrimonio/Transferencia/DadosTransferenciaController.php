@@ -4,61 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Patrimonio\Transferencia\DadosTransferencia;
 use Illuminate\Http\Request;
+use App\Http\Resources\Patrimonio\Operations\Transferencia\TransferenciaCollection;
 
 class DadosTransferenciaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
+        $transferencias = DadosTransferencia::paginate();
+        return (new TransferenciaCollection($transferencias));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Transferencia\DadosTransferencia  $dadosTransferencia
-     * @return \Illuminate\Http\Response
-     */
     public function show(DadosTransferencia $dadosTransferencia)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Transferencia\DadosTransferencia  $dadosTransferencia
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DadosTransferencia $dadosTransferencia)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

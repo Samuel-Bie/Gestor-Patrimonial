@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Setor;
 use Illuminate\Http\Request;
+use App\Models\Universidade\Delegacoes;
+use App\Http\Resources\Universidade\Setor\SetorCollection;
 
 class SetorController extends Controller
 {
@@ -12,20 +14,15 @@ class SetorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Delegacoes $delegacao)
     {
-        //
+
+        $setores = $delegacao->setores()->paginate();
+        return (new SetorCollection($setores));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,17 +42,6 @@ class SetorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Setor $setor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Setor  $setor
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Setor $setor)
     {
         //
     }

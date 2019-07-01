@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Patrimonio\Abate\DadosAbate;
 use Illuminate\Http\Request;
+use App\Http\Resources\Patrimonio\Operations\Abate\AbateCollection;
+use App\Models\Patrimonio\Patrimonio;
 
 class DadosAbateController extends Controller
 {
@@ -14,17 +16,8 @@ class DadosAbateController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $abates = DadosAbate::paginate();
+        return (new AbateCollection($abates));
     }
 
     /**
@@ -33,7 +26,7 @@ class DadosAbateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Patrimonio $patrimonio)
     {
         //
     }
@@ -45,17 +38,6 @@ class DadosAbateController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(DadosAbate $dadosAbate)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Abate\DadosAbate  $dadosAbate
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DadosAbate $dadosAbate)
     {
         //
     }
