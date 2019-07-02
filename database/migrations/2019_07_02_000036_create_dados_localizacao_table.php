@@ -38,6 +38,8 @@ class CreateDadosLocalizacaoTable extends Migration
             $table->index(["uges_id"], 'fk_dados_localizacao_uges1_idx');
 
             $table->index(["departamentos_id"], 'fk_dados_localizacao_departamentos1_idx');
+
+            $table->unique(["patrimonio_id"], 'patrimonio_id_UNIQUE');
             $table->softDeletes();
             $table->nullableTimestamps();
 

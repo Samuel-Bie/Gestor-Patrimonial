@@ -39,6 +39,8 @@ class CreateInformacaoAdicionalTable extends Migration
             $table->tinyInteger('extintor')->nullable();
 
             $table->index(["patrimonio_id"], 'fk_informacao_adicional_patrimonio1_idx');
+
+            $table->unique(["patrimonio_id"], 'patrimonio_id_UNIQUE');
             $table->softDeletes();
             $table->nullableTimestamps();
 

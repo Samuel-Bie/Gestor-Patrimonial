@@ -7,7 +7,7 @@ use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DadosTransferencia extends Model
+class Transferencia extends Model
 {
     use SoftDeletes;
     protected $table        = 'dados_transferencia';

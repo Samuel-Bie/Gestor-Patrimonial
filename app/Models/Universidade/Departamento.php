@@ -3,10 +3,11 @@ namespace App\Models\Universidade;
 
 
 
-use App\Models\Delegacoes;
+use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Patrimonio;
+use App\Models\Universidade\Delegacao;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Patrimonio\DadosDeLocalizacao;
+use App\Models\Patrimonio\Localizacao;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Departamento extends Model
@@ -23,11 +24,15 @@ class Departamento extends Model
 
     public function delegacao()
     {
-        return $this->belongsTo(Delegacoes::class, 'delegacao_id');
+        return $this->belongsTo(Delegacao::class, 'delegacao_id');
     }
 
-    public function patrimonios()
+    public function localizacoes()
     {
-        return $this->hasMany(DadosDeLocalizacao::class, 'departamentos_id');
+        return $this->hasMany(Localizacao::class, 'departamentos_id');
+    }
+
+    public function link(){
+        return URL::route('departamento.show', ['departamento' => $this->id()]);
     }
 }

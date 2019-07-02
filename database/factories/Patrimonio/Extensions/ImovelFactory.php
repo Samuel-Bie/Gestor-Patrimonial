@@ -3,7 +3,6 @@
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use App\Models\Patrimonio\Patrimonio;
 use App\Models\Patrimonio\Tipo\Imovel;
 use App\Models\Patrimonio\Tipo\Imovel\TipoImovel;
 use App\Models\Patrimonio\Tipo\Imovel\TipoDominio;
@@ -22,12 +21,5 @@ $factory->define(Imovel::class, function (Faker $faker) {
         'elevadores'        => $faker->boolean,
         'sistema_incendio'  => $faker->boolean,
         'ano_construcao'    => $faker->year(),
-        'patrimonio_id'     => Patrimonio::
-            doesntHave('imovel')
-            ->doesntHave('veiculo')
-            ->doesntHave('livro')
-            ->doesntHave('movel')
-            ->get()
-        ->random(),
     ];
 });

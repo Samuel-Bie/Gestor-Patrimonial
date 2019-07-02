@@ -2,6 +2,7 @@
 
 namespace App\Models\Patrimonio\Tipo;
 
+use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,5 +21,9 @@ class Movel extends Model
     public function patrimonio()
     {
         return $this->belongsTo(Patrimonio::class, 'patrimonio_id');
+    }
+
+    public function link(){
+        return URL::route('movel.show', ['movel' => $this->id()]);
     }
 }

@@ -1,12 +1,19 @@
 <?php
+namespace App\Http\Controllers\Patrimonio;
 
-namespace App\Http\Controllers;
-
-use App\Models\Patrimonio\Ficheiro;
 use Illuminate\Http\Request;
+use App\Models\Patrimonio\Ficheiro;
+use App\Http\Controllers\Controller;
+use App\Models\Patrimonio\Patrimonio;
+use App\Http\Resources\Patrimonio\Ficheiro\FicheiroCollection;
 
 class FicheiroController extends Controller
 {
+    public function index()
+    {
+        $ficheiros = Ficheiros::paginate();
+        return (new FicheiroCollection($ficheiros));
+    }
     /**
      * Display the specified resource.
      *
@@ -18,16 +25,6 @@ class FicheiroController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Patrimonio\Ficheiro  $ficheiro
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ficheiro $ficheiro)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

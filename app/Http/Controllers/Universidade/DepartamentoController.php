@@ -1,9 +1,10 @@
 <?php
+namespace App\Http\Controllers\Universidade;
 
-namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Universidade\Delegacoes;
+use App\Http\Controllers\Controller;
+use App\Models\Universidade\Delegacao;
 use App\Models\Universidade\Departamento;
 use App\Http\Resources\Universidade\Departamento\DepartamentoCollection;
 
@@ -14,7 +15,7 @@ class DepartamentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Delegacoes $delegacao)
+    public function index(Delegacao $delegacao)
     {
         $departamentos = $delegacao->departamentos()->paginate();
         return (new DepartamentoCollection($departamentos));
@@ -46,7 +47,7 @@ class DepartamentoController extends Controller
     }
 
 
-    
+
     /**
      * Update the specified resource in storage.
      *

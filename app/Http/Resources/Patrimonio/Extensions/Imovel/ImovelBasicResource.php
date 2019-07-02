@@ -14,6 +14,17 @@ class ImovelBasicResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id(),
+            'tipo_imovel'   => $this->tipoImovel->nome,
+            'tipo_edificio' => $this->tipoEdificio->nome,
+            'tipo_dominio'   => $this->tipoDominio->nome,
+            // patrimonio
+            'details'=>[
+                'registro_predial' => [
+                    'conservatoria' => $this->info->conservatoria_registro_predial
+                ]
+            ],
+        ];
     }
 }

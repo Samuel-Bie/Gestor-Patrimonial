@@ -14,6 +14,16 @@ class FicheiroGeneralResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'src'              => $this->path,
+            'links' => [
+                'self' => [
+                    'href' => $this->link()
+                ],
+                'rel'=>[
+                    'href' => $this->relLink()
+                ]
+            ]
+        ];
     }
 }

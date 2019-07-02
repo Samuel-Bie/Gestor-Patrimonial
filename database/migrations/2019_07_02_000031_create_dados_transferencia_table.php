@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDadosTransferenciaTable extends Migration
+class CreateTransferenciaTable extends Migration
 {
     /**
      * Schema table name to migrate

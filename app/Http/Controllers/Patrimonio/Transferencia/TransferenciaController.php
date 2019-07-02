@@ -1,18 +1,18 @@
 <?php
+namespace App\Http\Controllers\Patrimonio\Transferencia;
 
-namespace App\Http\Controllers;
-
-use App\Models\Patrimonio\Transferencia\DadosTransferencia;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Patrimonio\Transferencia\Transferencia;
 use App\Http\Resources\Patrimonio\Operations\Transferencia\TransferenciaCollection;
 
-class DadosTransferenciaController extends Controller
+class TransferenciaController extends Controller
 {
 
     public function index()
     {
         //
-        $transferencias = DadosTransferencia::paginate();
+        $transferencias = Transferencia::paginate();
         return (new TransferenciaCollection($transferencias));
     }
 
@@ -22,7 +22,7 @@ class DadosTransferenciaController extends Controller
         //
     }
 
-    public function show(DadosTransferencia $dadosTransferencia)
+    public function show(Transferencia $Transferencia)
     {
         //
     }
@@ -32,10 +32,10 @@ class DadosTransferenciaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patrimonio\Transferencia\DadosTransferencia  $dadosTransferencia
+     * @param  \App\Models\Patrimonio\Transferencia\Transferencia  $Transferencia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DadosTransferencia $dadosTransferencia)
+    public function update(Request $request, Transferencia $Transferencia)
     {
         //
     }
@@ -43,10 +43,10 @@ class DadosTransferenciaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patrimonio\Transferencia\DadosTransferencia  $dadosTransferencia
+     * @param  \App\Models\Patrimonio\Transferencia\Transferencia  $Transferencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DadosTransferencia $dadosTransferencia)
+    public function destroy(Transferencia $Transferencia)
     {
         //
     }

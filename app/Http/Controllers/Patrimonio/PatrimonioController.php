@@ -1,10 +1,13 @@
 <?php
+namespace App\Http\Controllers\Patrimonio;
 
-namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Patrimonio;
+use App\Http\Resources\Patrimonio\Ficheiro\FicheiroCollection;
 use App\Http\Resources\Patrimonio\Patrimonio\PatrimonioCollection;
+use App\Http\Resources\Patrimonio\Patrimonio\PatrimonioBasicResource;
 
 class PatrimonioController extends Controller
 {
@@ -38,7 +41,13 @@ class PatrimonioController extends Controller
      */
     public function show(Patrimonio $patrimonio)
     {
-        //
+        return new PatrimonioBasicResource($patrimonio);
+    }
+
+    public function files(Patrimonio $patrimonio)
+    {
+        $ficheiros = $patrimonio->ficheiros()->paginate();
+        return (new FicheiroCollection($ficheiros));
     }
 
     /**

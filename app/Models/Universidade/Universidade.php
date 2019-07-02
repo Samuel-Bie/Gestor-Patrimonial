@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Models\Universidade;
 
-
 use App\Models\Universidade\UGE;
-use App\Models\Universidade\Delegacoes;
+use Illuminate\Support\Facades\URL;
+use App\Models\Universidade\Delegacao;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -28,6 +27,10 @@ class Universidade extends Model
 
     public function delegacoes()
     {
-        return $this->hasMany(Delegacoes::class, 'universidade_id');
+        return $this->hasMany(Delegacao::class, 'universidade_id');
+    }
+
+    public function link(){
+        return URL::route('universidade.show', ['universidade' => $this->id()]);
     }
 }

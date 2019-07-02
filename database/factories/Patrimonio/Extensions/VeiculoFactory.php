@@ -21,12 +21,6 @@ $factory->define(Veiculo::class, function (Faker $faker) {
         'lotacao' => $faker->randomNumber(1),
         'tonelagem' => $faker->randomFloat(2,1,2),
         'cor' => $faker->colorName,
-        'patrimonio_id'     => Patrimonio::
-            doesntHave('imovel')
-            ->doesntHave('veiculo')
-            ->doesntHave('livro')
-            ->doesntHave('movel')
-            ->get()
-        ->random(),
+
     ];
 });

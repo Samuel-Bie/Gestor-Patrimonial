@@ -3,7 +3,6 @@
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use App\Models\Patrimonio\Patrimonio;
 use App\Models\Patrimonio\Info\AdicionalGeral;
 
 $factory->define( AdicionalGeral::class,function (Faker $faker) {
@@ -18,7 +17,6 @@ $factory->define( AdicionalGeral::class,function (Faker $faker) {
         "garantia" => $faker->randomDigitNotNull,
         "utilizador" => $faker->name,
         "obs" => $faker->text,
-        "patrimonio_id" =>  Patrimonio::doesntHave('informacao')->get()->random(),
         "seguro" => $faker->boolean,
     ];
 });

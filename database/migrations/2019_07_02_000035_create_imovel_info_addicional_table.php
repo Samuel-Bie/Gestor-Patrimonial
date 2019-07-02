@@ -36,6 +36,8 @@ class CreateImovelInfoAddicionalTable extends Migration
             $table->unsignedInteger('imoveis_id');
 
             $table->index(["imoveis_id"], 'fk_imovel_info_addicional_imoveis1_idx');
+
+            $table->unique(["imoveis_id"], 'imoveis_id_UNIQUE');
             $table->softDeletes();
             $table->nullableTimestamps();
 

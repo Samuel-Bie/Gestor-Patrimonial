@@ -1,8 +1,8 @@
 <?php
-
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Patrimonio\Tools;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Tools\ClassificadorGeral;
 use App\Http\Resources\Patrimonio\Tools\ClassificadorGeral\ClassificadorGeralCollection;
 
@@ -36,9 +36,12 @@ class ClassificadorGeralController extends Controller
      * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificadorGeral
      * @return \Illuminate\Http\Response
      */
-    public function show(ClassificadorGeral $classificadorGeral)
+    public function show(ClassificadorGeral $classificador)
     {
         //
+    }
+    public function bens(ClassificadorGeral $classificador){
+        
     }
 
 

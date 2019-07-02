@@ -1,6 +1,6 @@
 <?php
+namespace App\Http\Controllers\User;
 
-namespace App\Http\Controllers;
 
 use App\Models\User\Permissoes;
 use Illuminate\Http\Request;
@@ -45,7 +45,7 @@ class PermissoesController extends Controller
     }
 
 
-    
+
 
     /**
      * Update the specified resource in storage.

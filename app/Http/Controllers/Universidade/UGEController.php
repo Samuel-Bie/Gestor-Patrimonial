@@ -1,9 +1,10 @@
 <?php
+namespace App\Http\Controllers\Universidade;
 
-namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Universidade\UGE;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Universidade\UGE\UGECollection;
 
 class UGEController extends Controller

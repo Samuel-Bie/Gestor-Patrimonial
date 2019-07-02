@@ -1,10 +1,8 @@
 <?php
+namespace App\Http\Controllers\Patrimonio\Extensions;
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Tipo\Livro;
-use App\Models\Patrimonio\Movimentacao\Movimentacao;
 use App\Http\Resources\Patrimonio\Extensions\Livro\LivroCollection;
 
 class LivroController extends Controller

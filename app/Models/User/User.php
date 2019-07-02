@@ -2,21 +2,22 @@
 namespace App\Models\User;
 
 
-use App\Models\Delegacoes;
+use App\Models\Delegacao;
 use App\Models\User\Cargo;
 use App\Models\User\Permissoes;
+use Laravel\Passport\HasApiTokens;
 use App\Models\Patrimonio\Patrimonio;
+use App\Models\Patrimonio\Abate\Abate;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Patrimonio\Abate\DadosAbate;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Patrimonio\Manutencao\Manutencao;
 use App\Models\Patrimonio\Movimentacao\Movimentacao;
+use App\Models\Patrimonio\Transferencia\Transferencia;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Patrimonio\Transferencia\DadosTransferencia;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -61,14 +62,14 @@ class User extends Authenticatable
 
     public function delegacoes()
     {
-        return $this->belongsToMany(Delegacoes::class, 'permissoes', 'user_id', 'delegacoes_id');
+        return $this->belongsToMany(Delegacao::class, 'permissoes', 'user_id', 'delegacoes_id');
     }
 
     public function abates(){
-        return $this->hasMany(DadosAbate::class, 'user_id');
+        return $this->hasMany(Abate::class, 'user_id');
     }
     public function transferencias(){
-        return $this->hasMany(DadosTransferencia::class, 'user_id');
+        return $this->hasMany(Transferencia::class, 'user_id');
     }
     public function movimentacoes(){
         return $this->hasMany(Movimentacao::class, 'user_id');

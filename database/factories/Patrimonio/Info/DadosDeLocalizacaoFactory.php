@@ -6,11 +6,10 @@ use Faker\Generator as Faker;
 use App\Models\Universidade\UGB;
 use App\Models\Universidade\UGE;
 use App\Models\Universidade\Setor;
-use App\Models\Patrimonio\Patrimonio;
 use App\Models\Universidade\Departamento;
-use App\Models\Patrimonio\DadosDeLocalizacao;
+use App\Models\Patrimonio\Localizacao;
 
-$factory->define(DadosDeLocalizacao::class, function (Faker $faker) {
+$factory->define(Localizacao::class, function (Faker $faker) {
 
     $ugb = UGB::all()->random();
 
@@ -24,7 +23,6 @@ $factory->define(DadosDeLocalizacao::class, function (Faker $faker) {
     return [
         'ugbs_id'           => $ugb,
         'uges_id'           => UGE::all()->random(),
-        'patrimonio_id'     => Patrimonio::doesntHave('localizacao')->get()->random(),
         'setores_id'        => $setor,
         'departamentos_id'   => $departamento
     ];

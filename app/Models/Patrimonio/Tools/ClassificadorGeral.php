@@ -2,6 +2,7 @@
 
 namespace App\Models\Patrimonio\Tools;
 
+use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,6 +23,14 @@ class ClassificadorGeral extends Model
     public function patrimonios()
     {
         return $this->hasMany(Patrimonio::class, 'classificador_geral_id');
+    }
+
+    public function link(){
+        return URL::route('classificador.show', ['classificador'=>$this->id()]);
+    }
+
+    public function bensLink(){
+        return URL::route('classificador.bens', ['classificador'=>$this->id()]);
     }
 
 }

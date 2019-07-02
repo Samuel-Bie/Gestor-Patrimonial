@@ -2,6 +2,7 @@
 
 namespace App\Models\Patrimonio\Tipo;
 
+use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,5 +20,9 @@ class Veiculo extends Model
     public function patrimonio()
     {
         return $this->belongsTo(Patrimonio::class, 'patrimonio_id');
+    }
+
+    public function link(){
+        return URL::route('veiculo.show', ['veiculo' => $this->id()]);
     }
 }

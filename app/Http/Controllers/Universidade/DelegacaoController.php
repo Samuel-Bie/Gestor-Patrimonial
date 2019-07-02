@@ -1,13 +1,13 @@
 <?php
+namespace App\Http\Controllers\Universidade;
 
-namespace App\Http\Controllers;
 
-use App\Models\Patrimonio\Abate\DadosAbate;
+use App\Models\Delegacao;
 use Illuminate\Http\Request;
-use App\Http\Resources\Patrimonio\Operations\Abate\AbateCollection;
-use App\Models\Patrimonio\Patrimonio;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Universidade\Delegacao\DelegacaoCollection;
 
-class DadosAbateController extends Controller
+class DelegacaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,12 @@ class DadosAbateController extends Controller
      */
     public function index()
     {
-        $abates = DadosAbate::paginate();
-        return (new AbateCollection($abates));
+        //
+        $delegacoes = Delegacao::paginate();
+        return (new DelegacaoCollection($delegacoes));
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -26,7 +29,7 @@ class DadosAbateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Patrimonio $patrimonio)
+    public function store(Request $request)
     {
         //
     }
@@ -34,22 +37,25 @@ class DadosAbateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patrimonio\Abate\DadosAbate  $dadosAbate
+     * @param  \App\Models\Delegacao  $delegacoes
      * @return \Illuminate\Http\Response
      */
-    public function show(DadosAbate $dadosAbate)
+    public function show(Delegacao $delegacoes)
     {
         //
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patrimonio\Abate\DadosAbate  $dadosAbate
+     * @param  \App\Models\Delegacao  $delegacoes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DadosAbate $dadosAbate)
+    public function update(Request $request, Delegacao $delegacoes)
     {
         //
     }
@@ -57,10 +63,10 @@ class DadosAbateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patrimonio\Abate\DadosAbate  $dadosAbate
+     * @param  \App\Models\Delegacao  $delegacoes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DadosAbate $dadosAbate)
+    public function destroy(Delegacao $delegacoes)
     {
         //
     }

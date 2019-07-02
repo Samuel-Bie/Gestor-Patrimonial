@@ -1,8 +1,8 @@
 <?php
-
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Patrimonio\Movimentacao;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Patrimonio;
 use App\Models\Patrimonio\Movimentacao\Movimentacao;
 use App\Http\Resources\Patrimonio\Operations\Movimentacao\MovimentacaoCollection;

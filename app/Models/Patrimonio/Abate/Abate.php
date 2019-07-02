@@ -7,7 +7,7 @@ use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DadosAbate extends Model
+class Abate extends Model
 {
     // //
     use SoftDeletes;

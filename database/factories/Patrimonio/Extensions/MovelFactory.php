@@ -15,12 +15,6 @@ $factory->define(Movel::class, function (Faker $faker) {
         'largura' =>$faker->randomFloat(2,1,2),
         'cor' => $faker->colorName,
         'material' => $faker->word,
-        'patrimonio_id'     => Patrimonio::
-            doesntHave('imovel')
-            ->doesntHave('veiculo')
-            ->doesntHave('livro')
-            ->doesntHave('movel')
-            ->get()
-        ->random(),
+        
     ];
 });

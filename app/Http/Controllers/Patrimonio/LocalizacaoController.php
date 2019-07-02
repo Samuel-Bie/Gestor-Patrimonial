@@ -2,40 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patrimonio\Localizacao;
 use Illuminate\Http\Request;
-use App\Models\Patrimonio\Info\AdicionalGeral;
 
-class AdicionalGeralController extends Controller
+class LocalizacaoController extends Controller
 {
-
-
-
-
-
-
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patrimonio\AdicionalGeral  $info
+     * @param  \App\Models\Patrimonio\Localizacao  $Localizacao
      * @return \Illuminate\Http\Response
      */
-    public function show(AdicionalGeral $info)
+    public function show(Localizacao $Localizacao)
     {
         //
     }
-
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patrimonio\AdicionalGeral  $info
+     * @param  \App\Models\Patrimonio\Localizacao  $Localizacao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdicionalGeral $info)
+    public function update(Request $request, Localizacao $Localizacao)
     {
         //
     }
-
-     
 }

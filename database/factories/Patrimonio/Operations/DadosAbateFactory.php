@@ -3,9 +3,9 @@
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use App\Models\Patrimonio\Abate\DadosAbate;
+use App\Models\Patrimonio\Abate\Abate;
 
-$factory->define(DadosAbate::class, function (Faker $faker) {
+$factory->define(Abate::class, function (Faker $faker) {
     return [
         //
     ];

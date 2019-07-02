@@ -1,10 +1,10 @@
 <?php
+namespace App\Http\Controllers\Patrimonio\Manutencao;
 
-namespace App\Http\Controllers;
-
-use App\Models\Patrimonio\Manutencao\Manutencao;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Patrimonio;
+use App\Models\Patrimonio\Manutencao\Manutencao;
 use App\Http\Resources\Patrimonio\Operations\Manutencao\ManutencaoCollection;
 
 class ManutencaoController extends Controller

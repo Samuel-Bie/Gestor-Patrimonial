@@ -15,12 +15,6 @@ $factory->define(Livro::class, function (Faker $faker) {
         'volumes' => $faker->randomNumber(1),
         'autor' => $faker->sentence(3),
         'editora' => $faker->sentence(3),
-        'patrimonio_id'     => Patrimonio::
-            doesntHave('imovel')
-            ->doesntHave('veiculo')
-            ->doesntHave('livro')
-            ->doesntHave('movel')
-            ->get()
-        ->random(),
+
     ];
 });

@@ -4,13 +4,14 @@ namespace App\Models\Patrimonio;
 
 use App\Models\User\User;
 use App\Models\Patrimonio\Ficheiro;
+use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Tipo\Livro;
 use App\Models\Patrimonio\Tipo\Movel;
 use App\Models\Patrimonio\Tipo\Imovel;
 use App\Models\Patrimonio\Tipo\Veiculo;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Patrimonio\Abate\DadosAbate;
-use App\Models\Patrimonio\DadosDeLocalizacao;
+use App\Models\Patrimonio\Abate\Abate;
+use App\Models\Patrimonio\Localizacao;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Patrimonio\Info\AdicionalGeral;
 use App\Models\Patrimonio\Manutencao\Manutencao;
@@ -19,7 +20,7 @@ use App\Models\Patrimonio\Tools\FormaDeAquisicao;
 use App\Models\Patrimonio\Tools\EstadoConservacao;
 use App\Models\Patrimonio\Tools\ClassificadorGeral;
 use App\Models\Patrimonio\Movimentacao\Movimentacao;
-use App\Models\Patrimonio\Transferencia\DadosTransferencia;
+use App\Models\Patrimonio\Transferencia\Transferencia;
 
 class Patrimonio extends Model
 {
@@ -45,13 +46,13 @@ class Patrimonio extends Model
 
     public function estadoAquisicao()
     {
-        return $this->belongsTo(EstadoAquisicao::class, 'estado_conservacao_id');
+        return $this->belongsTo(EstadoAquisicao::class, 'estado_aquisicao_id');
     }
 
 
     public function estadoConservacao()
     {
-        return $this->belongsTo(EstadoConservacao::class, 'estado_aquisicao_id');
+        return $this->belongsTo(EstadoConservacao::class, 'estado_conservacao_id');
     }
 
     public function user()
@@ -65,7 +66,7 @@ class Patrimonio extends Model
         }
         public function localizacao()
         {
-            return $this->hasOne(DadosDeLocalizacao::class, 'patrimonio_id');
+            return $this->hasOne(Localizacao::class, 'patrimonio_id');
         }
 
         public function imovel()
@@ -94,11 +95,11 @@ class Patrimonio extends Model
     /* Operacoes */
         public function abate()
         {
-            return $this->hasOne(DadosAbate::class, 'patrimonio_id');
+            return $this->hasOne(Abate::class, 'patrimonio_id');
         }
         public function transferencia()
         {
-            return $this->hasOne(DadosTransferencia::class, 'patrimonio_id');
+            return $this->hasOne(Transferencia::class, 'patrimonio_id');
         }
 
         public function movimentacoes()
@@ -115,4 +116,39 @@ class Patrimonio extends Model
     {
         return $this->hasMany(Ficheiro::class, 'patrimonio_id');
     }
+
+    /* Helpers */
+        public function link(){
+            return URL::route('patrimonio.show', ['patrimonio'=>$this->id()]);
+        }
+
+        public function linkFicheiros(){
+            return URL::route('patrimonio.ficheiros', ['patrimonio'=>$this->id()]);
+        }
+
+        public function linkTipo(){
+            if($this->imovel()->exists())
+                return $this->imovel->link();
+            if($this->veiculo()->exists())
+                return $this->veiculo->link();
+            if($this->livro()->exists())
+                return $this->livro->link();
+            if($this->movel()->exists())
+                return $this->movel->link();
+        }
+
+        public function infoLink(){
+            return URL::route('patrimonio.info', ['patrimonio'=> $this->id()]);
+        }
+
+        /* Operations link */
+            public function movimentacoesLink(){
+
+            }
+            public function manutencoesLink(){
+
+            }
+        /* Operations link */
+    /* Helpers */
+
 }

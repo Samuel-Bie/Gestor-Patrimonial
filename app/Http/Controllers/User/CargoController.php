@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\User\Cargo;
 use Illuminate\Http\Request;
@@ -43,7 +42,7 @@ class CargoController extends Controller
     {
         //
     }
-    
+
 
     /**
      * Update the specified resource in storage.

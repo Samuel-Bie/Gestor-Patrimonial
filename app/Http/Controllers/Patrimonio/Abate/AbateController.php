@@ -1,12 +1,14 @@
 <?php
+namespace App\Http\Controllers\Patrimonio\Abate;
 
-namespace App\Http\Controllers;
 
-use App\Models\Delegacoes;
 use Illuminate\Http\Request;
-use App\Http\Resources\Universidade\Delegacao\DelegacaoCollection;
+use App\Http\Controllers\Controller;
+use App\Models\Patrimonio\Patrimonio;
+use App\Models\Patrimonio\Abate\Abate;
+use App\Http\Resources\Patrimonio\Operations\Abate\AbateCollection;
 
-class DelegacoesController extends Controller
+class AbateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +17,9 @@ class DelegacoesController extends Controller
      */
     public function index()
     {
-        //
-        $delegacoes = Delegacoes::paginate();
-        return (new DelegacaoCollection($delegacoes));
+        $abates = Abate::paginate();
+        return (new AbateCollection($abates));
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -28,7 +27,7 @@ class DelegacoesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Patrimonio $patrimonio)
     {
         //
     }
@@ -36,25 +35,22 @@ class DelegacoesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Delegacoes  $delegacoes
+     * @param  \App\Models\Patrimonio\Abate\Abate  $Abate
      * @return \Illuminate\Http\Response
      */
-    public function show(Delegacoes $delegacoes)
+    public function show(Abate $Abate)
     {
         //
     }
-
-
-    
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Delegacoes  $delegacoes
+     * @param  \App\Models\Patrimonio\Abate\Abate  $Abate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Delegacoes $delegacoes)
+    public function update(Request $request, Abate $Abate)
     {
         //
     }
@@ -62,10 +58,10 @@ class DelegacoesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Delegacoes  $delegacoes
+     * @param  \App\Models\Patrimonio\Abate\Abate  $Abate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Delegacoes $delegacoes)
+    public function destroy(Abate $Abate)
     {
         //
     }

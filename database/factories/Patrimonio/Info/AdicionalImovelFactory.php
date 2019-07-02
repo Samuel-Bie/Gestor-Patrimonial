@@ -4,10 +4,8 @@
 
 use Faker\Generator as Faker;
 use App\Models\Patrimonio\Info\AdicionalImovel;
-use App\Models\Patrimonio\Tipo\Imovel;
 
 $factory->define( AdicionalImovel::class, function (Faker $faker) {
-    $imovel = Imovel::doesntHave('info')->get()->random();
     return [
         'conservatoria_registro_predial'=> $faker->sentence(3),
         'nr_registro_predial'           => $faker->randomNumber(3),
@@ -19,6 +17,5 @@ $factory->define( AdicionalImovel::class, function (Faker $faker) {
         'folhas_matriz_predial'         => $faker->randomNumber(2),
         'ano_matriz_predial'            => $faker->year(),
         'livro_matriz_predial'          => $faker->sentence(2),
-        'imoveis_id'                     => $imovel,
     ];
 });

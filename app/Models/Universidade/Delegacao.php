@@ -1,11 +1,16 @@
 <?php
 namespace App\Models\Universidade;
 
-use App\Models\Universidade;
+use App\Models\User\User;
+use App\Models\Universidade\UGB;
+use App\Models\Universidade\Setor;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Universidade\Departamento;
+use App\Models\Universidade\Universidade;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Delegacoes extends Model
+class Delegacao extends Model
 {
     use SoftDeletes;
     protected $table        = 'delegacoes';
@@ -40,5 +45,9 @@ class Delegacoes extends Model
     public function setores()
     {
         return $this->hasMany(Setor::class, 'delegacoes_id');
+    }
+
+    public function link(){
+        return URL::route('delegacao.show', ['delegacao' => $this->id()]);
     }
 }

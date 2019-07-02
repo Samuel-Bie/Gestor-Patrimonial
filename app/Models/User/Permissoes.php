@@ -3,7 +3,7 @@
 namespace App\Models\User;
 
 use App\Models\User\User;
-use App\Models\Delegacoes;
+use App\Models\Delegacao;
 use App\Models\User\Cargo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -27,7 +27,7 @@ class Permissoes extends Model
 
     public function delegacao()
     {
-        return $this->belongsTo(Delegacoes::class, 'delegacoes_id');
+        return $this->belongsTo(Delegacao::class, 'delegacoes_id');
     }
 
     public function user()

@@ -4,10 +4,10 @@
 
 use Faker\Generator as Faker;
 use App\Models\Universidade\UGB;
-use App\Models\Universidade\Delegacoes;
+use App\Models\Universidade\Delegacao;
 
 $factory->define(UGB::class, function (Faker $faker) {
-    $delegacao = Delegacoes::doesntHave('ugb')->get()->random();
+    $delegacao = Delegacao::doesntHave('ugb')->get()->random();
     return [
         "designacao"    => $delegacao->nome,
         'provincia'     => $faker->city,

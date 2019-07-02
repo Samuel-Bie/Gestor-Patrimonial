@@ -4,12 +4,12 @@
 
 use Faker\Generator as Faker;
 use App\Models\Universidade\Departamento;
-use App\Models\Universidade\Delegacoes;
+use App\Models\Universidade\Delegacao;
 
 $factory->define(Departamento::class, function (Faker $faker) {
     return [
 
         'nome' => $faker->sentence(2),
-        'delegacoes_id' => Delegacoes::all()->random()
+        'delegacoes_id' => Delegacao::all()->random()
     ];
 });

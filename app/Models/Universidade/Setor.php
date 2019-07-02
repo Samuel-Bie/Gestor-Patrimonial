@@ -2,9 +2,11 @@
 namespace App\Models\Universidade;
 
 
+use Illuminate\Support\Facades\URL;
+use App\Models\Universidade\Delegacao;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Patrimonio\Localizacao;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Patrimonio\DadosDeLocalizacao;
 
 class Setor extends Model
 {
@@ -20,12 +22,16 @@ class Setor extends Model
 
     public function delegacao()
     {
-        return $this->belongsTo(Delegacoes::class, 'delegacao_id');
+        return $this->belongsTo(Delegacao::class, 'delegacao_id');
     }
 
     public function patrimonios()
     {
-        return $this->hasMany(DadosDeLocalizacao::class, 'setores_id');
+        return $this->hasMany(Localizacao::class, 'setores_id');
+    }
+
+    public function link(){
+        return URL::route('setor.show', ['setor' => $this->id()]);
     }
 
 }

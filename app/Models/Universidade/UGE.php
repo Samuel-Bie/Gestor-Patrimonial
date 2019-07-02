@@ -3,6 +3,7 @@
 namespace App\Models\Universidade;
 
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Universidade\Universidade;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,5 +23,9 @@ class UGE extends Model
     public function universidade()
     {
         return $this->belongsTo(Universidade::class, 'universidade_id');
+    }
+
+    public function link(){
+        return URL::route('uge.show', ['uge' => $this->id()]);
     }
 }

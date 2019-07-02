@@ -1,10 +1,11 @@
 <?php
+namespace App\Http\Controllers\Universidade;
 
-namespace App\Http\Controllers;
 
 use App\Models\Setor;
 use Illuminate\Http\Request;
-use App\Models\Universidade\Delegacoes;
+use App\Http\Controllers\Controller;
+use App\Models\Universidade\Delegacao;
 use App\Http\Resources\Universidade\Setor\SetorCollection;
 
 class SetorController extends Controller
@@ -14,7 +15,7 @@ class SetorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Delegacoes $delegacao)
+    public function index(Delegacao $delegacao)
     {
 
         $setores = $delegacao->setores()->paginate();

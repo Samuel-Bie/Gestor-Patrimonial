@@ -1,8 +1,9 @@
 <?php
+namespace App\Http\Controllers\Patrimonio\Tools;
 
-namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Tools\FormaDeAquisicao;
 use App\Http\Resources\Patrimonio\Tools\FormaDeAquisicao\FormaDeAquisicaoCollection;
 
@@ -35,10 +36,10 @@ class FormaDeAquisicaoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $formaDeAquisicao
+     * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $forma
      * @return \Illuminate\Http\Response
      */
-    public function show(FormaDeAquisicao $formaDeAquisicao)
+    public function show(FormaDeAquisicao $forma)
     {
         //
     }
@@ -47,10 +48,10 @@ class FormaDeAquisicaoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $formaDeAquisicao
+     * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $forma
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FormaDeAquisicao $formaDeAquisicao)
+    public function update(Request $request, FormaDeAquisicao $forma)
     {
         //
     }
@@ -58,10 +59,10 @@ class FormaDeAquisicaoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $formaDeAquisicao
+     * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $forma
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FormaDeAquisicao $formaDeAquisicao)
+    public function destroy(FormaDeAquisicao $forma)
     {
         //
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Patrimonio\Ficheiro;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Models\Patrimonio\Ficheiro;
 
 class FicheiroCollection extends ResourceCollection
 {
@@ -14,6 +15,9 @@ class FicheiroCollection extends ResourceCollection
      */
     public function toArray($request)
     {
+        $this->collection->transform(function (Ficheiro $file) {
+            return (new FicheiroGeneralResource($file));
+        });
         return parent::toArray($request);
     }
 }

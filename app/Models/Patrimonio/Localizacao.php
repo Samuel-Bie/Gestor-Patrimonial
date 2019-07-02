@@ -3,11 +3,15 @@
 namespace App\Models\Patrimonio;
 
 
+use App\Models\Universidade\UGB;
+use App\Models\Universidade\UGE;
+use App\Models\Universidade\Setor;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Universidade\Departamento;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DadosDeLocalizacao extends Model
+class Localizacao extends Model
 {
     use SoftDeletes;
     protected $table        = 'dados_localizacao';
@@ -21,7 +25,7 @@ class DadosDeLocalizacao extends Model
 
     public function ugb()
     {
-        return $this->belongsTo(UGB::clss, 'ugbs_id');
+        return $this->belongsTo(UGB::class, 'ugbs_id');
     }
 
     public function uge()
@@ -36,12 +40,21 @@ class DadosDeLocalizacao extends Model
 
     public function setor()
     {
-        return $this->belongsTo(Setor::class, 'setor_id');
+        return $this->belongsTo(Setor::class, 'setores_id');
     }
 
     public function departamento()
     {
-        return $this->belongsTo(Departamento::class, 'departamento_id');
+        return $this->belongsTo(Departamento::class, 'departamentos_id');
+    }
+
+    public function setorLink(){
+        return $this->setor()->exists()?
+            $this->setor->link():null;
+    }
+    public function departamentoLink(){
+        return $this->departamento()->exists()?
+            $this->departamento->link():null;
     }
 
 }

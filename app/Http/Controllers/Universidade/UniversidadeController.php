@@ -1,9 +1,9 @@
 <?php
-
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Universidade;
 
 use App\Models\Universidade;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Universidade\Universidade\UniversidadeCollection;
 
 class UniversidadeController extends Controller
@@ -37,7 +37,7 @@ class UniversidadeController extends Controller
 
 
 
-    
+
     public function update(Request $request, Universidade $universidade)
     {
         //
