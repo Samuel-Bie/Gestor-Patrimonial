@@ -17,7 +17,9 @@ use Illuminate\Http\Request;
 
     Route::prefix('patrimonio')->group(function () {
         Route::get('{patrimonio}/ficheros', 'Patrimonio\PatrimonioController@files')->name('patrimonio.ficheiros');
-        Route::get('{patrimonio}/info', 'Patrimonio\InformacaoController@show')->name('patrimonio.info');
+        Route::get('{patrimonio}/info',     'Patrimonio\InformacaoController@show')->name('patrimonio.info');
+        Route::get('{patrimonio}/localizacao', 'Patrimonio\LocalizacaoController@show')->name('patrimonio.localizacao.show');
+
 
         /* Movimentacaoes */
             Route::apiResource('{patrimonio}/abate',            'Patrimonio\Abate\AbateController');

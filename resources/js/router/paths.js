@@ -15,29 +15,14 @@ export default [
       view: 'UserProfile'
     },
     {
-      path: '/table-list',
-      name: 'Table List',
-      view: 'TableList'
+      path: '/patrimonio',
+      view: 'Patrimonio'
     },
     {
-      path: '/typography',
-      view: 'Typography'
+      props: true,
+      path: '/patrimonio/:id',
+      view: 'ViewPatrimonio',
+      name: 'Ver patrimonio',
     },
-    {
-      path: '/icons',
-      view: 'Icons'
-    },
-    {
-      path: '/maps',
-      view: 'Maps'
-    },
-    {
-      path: '/notifications',
-      view: 'Notifications'
-    },
-    {
-      path: '/upgrade',
-      name: 'Upgrade to PRO',
-      view: 'Upgrade'
-    }
+
   ]

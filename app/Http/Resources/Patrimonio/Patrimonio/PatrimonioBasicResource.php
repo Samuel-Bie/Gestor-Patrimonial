@@ -28,6 +28,9 @@ class PatrimonioBasicResource extends JsonResource
                 'setor' => $this->localizacao->setor()->exists()? $this->localizacao->setor->nome: null,
                 'departamento' => $this->localizacao->departamento()->exists()? $this->localizacao->departamento->nome: null,
                 'links' => [
+                    'self'=>[
+                        'href' => $this->localizacao->link()
+                    ],
                     'ugb'   => [
                         'href' => $this->localizacao->ugb->link()
                     ],

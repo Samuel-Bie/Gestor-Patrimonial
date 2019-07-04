@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patrimonio\Localizacao;
 use Illuminate\Http\Request;
+use App\Models\Patrimonio\Patrimonio;
 
 class LocalizacaoController extends Controller
 {
@@ -13,9 +14,9 @@ class LocalizacaoController extends Controller
      * @param  \App\Models\Patrimonio\Localizacao  $Localizacao
      * @return \Illuminate\Http\Response
      */
-    public function show(Localizacao $Localizacao)
+    public function show(Patrimonio $patrimonio)
     {
-        //
+        return $patrimonio->localizacao;
     }
 
     /**

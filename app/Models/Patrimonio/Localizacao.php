@@ -6,6 +6,7 @@ namespace App\Models\Patrimonio;
 use App\Models\Universidade\UGB;
 use App\Models\Universidade\UGE;
 use App\Models\Universidade\Setor;
+use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Universidade\Departamento;
@@ -46,6 +47,10 @@ class Localizacao extends Model
     public function departamento()
     {
         return $this->belongsTo(Departamento::class, 'departamentos_id');
+    }
+
+    public function link(){
+        return URL::route('patrimonio.localizacao.show', ['patrimonio' => $this->patrimonio->id()]);
     }
 
     public function setorLink(){

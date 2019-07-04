@@ -1,1 +1,274 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{mFyt:function(t,a,s){"use strict";s.r(a);var e={data:function(){return{dailySalesChart:{data:{labels:["M","T","W","T","F","S","S"],series:[[12,17,7,17,23,18,38]]},options:{lineSmooth:this.$chartist.Interpolation.cardinal({tension:0}),low:0,high:50,chartPadding:{top:0,right:0,bottom:0,left:0}}},dataCompletedTasksChart:{data:{labels:["12am","3pm","6pm","9pm","12pm","3am","6am","9am"],series:[[230,750,450,300,280,240,200,190]]},options:{lineSmooth:this.$chartist.Interpolation.cardinal({tension:0}),low:0,high:1e3,chartPadding:{top:0,right:0,bottom:0,left:0}}},emailsSubscriptionChart:{data:{labels:["Ja","Fe","Ma","Ap","Mai","Ju","Jul","Au","Se","Oc","No","De"],series:[[542,443,320,780,553,453,326,434,568,610,756,895]]},options:{axisX:{showGrid:!1},low:0,high:1e3,chartPadding:{top:0,right:5,bottom:0,left:0}},responsiveOptions:[["screen and (max-width: 640px)",{seriesBarDistance:5,axisX:{labelInterpolationFnc:function(t){return t[0]}}}]]},headers:[{sortable:!1,text:"ID",value:"id"},{sortable:!1,text:"Name",value:"name"},{sortable:!1,text:"Salary",value:"salary",align:"right"},{sortable:!1,text:"Country",value:"country",align:"right"},{sortable:!1,text:"City",value:"city",align:"right"}],items:[{name:"Dakota Rice",country:"Niger",city:"Oud-Tunrhout",salary:"$35,738"},{name:"Minerva Hooper",country:"Curaçao",city:"Sinaai-Waas",salary:"$23,738"},{name:"Sage Rodriguez",country:"Netherlands",city:"Overland Park",salary:"$56,142"},{name:"Philip Chanley",country:"Korea, South",city:"Gloucester",salary:"$38,735"},{name:"Doris Greene",country:"Malawi",city:"Feldkirchen in Kārnten",salary:"$63,542"}],tabs:0,list:{0:!1,1:!1,2:!1}}},methods:{complete:function(t){this.list[t]=!this.list[t]}}},i=s("KHd+"),o=Object(i.a)(e,function(){var t=this,a=t.$createElement,s=t._self._c||a;return s("v-container",{attrs:{"fill-height":"",fluid:"","grid-list-xl":""}},[s("v-layout",{attrs:{wrap:""}},[s("v-flex",{attrs:{md12:"",sm12:"",lg4:""}},[s("material-chart-card",{attrs:{data:t.dailySalesChart.data,options:t.dailySalesChart.options,color:"info",type:"Line"}},[s("h4",{staticClass:"title font-weight-light"},[t._v("Daily Sales")]),t._v(" "),s("p",{staticClass:"category d-inline-flex font-weight-light"},[s("v-icon",{attrs:{color:"green",small:""}},[t._v("\n            mdi-arrow-up\n          ")]),t._v(" "),s("span",{staticClass:"green--text"},[t._v("55%")]),t._v(" \n          increase in today's sales\n        ")],1),t._v(" "),s("template",{slot:"actions"},[s("v-icon",{staticClass:"mr-2",attrs:{small:""}},[t._v("\n            mdi-clock-outline\n          ")]),t._v(" "),s("span",{staticClass:"caption grey--text font-weight-light"},[t._v("updated 4 minutes ago")])],1)],2)],1),t._v(" "),s("v-flex",{attrs:{md12:"",sm12:"",lg4:""}},[s("material-chart-card",{attrs:{data:t.emailsSubscriptionChart.data,options:t.emailsSubscriptionChart.options,"responsive-options":t.emailsSubscriptionChart.responsiveOptions,color:"red",type:"Bar"}},[s("h4",{staticClass:"title font-weight-light"},[t._v("Email Subscription")]),t._v(" "),s("p",{staticClass:"category d-inline-flex font-weight-light"},[t._v("Last Campaign Performance")]),t._v(" "),s("template",{slot:"actions"},[s("v-icon",{staticClass:"mr-2",attrs:{small:""}},[t._v("\n            mdi-clock-outline\n          ")]),t._v(" "),s("span",{staticClass:"caption grey--text font-weight-light"},[t._v("updated 10 minutes ago")])],1)],2)],1),t._v(" "),s("v-flex",{attrs:{md12:"",sm12:"",lg4:""}},[s("material-chart-card",{attrs:{data:t.dataCompletedTasksChart.data,options:t.dataCompletedTasksChart.options,color:"green",type:"Line"}},[s("h3",{staticClass:"title font-weight-light"},[t._v("Completed Tasks")]),t._v(" "),s("p",{staticClass:"category d-inline-flex font-weight-light"},[t._v("Last Last Campaign Performance")]),t._v(" "),s("template",{slot:"actions"},[s("v-icon",{staticClass:"mr-2",attrs:{small:""}},[t._v("\n            mdi-clock-outline\n          ")]),t._v(" "),s("span",{staticClass:"caption grey--text font-weight-light"},[t._v("campaign sent 26 minutes ago")])],1)],2)],1),t._v(" "),s("v-flex",{attrs:{sm6:"",xs12:"",md6:"",lg3:""}},[s("material-stats-card",{attrs:{color:"green",icon:"mdi-store",title:"Revenue",value:"$34,245","sub-icon":"mdi-calendar","sub-text":"Last 24 Hours"}})],1),t._v(" "),s("v-flex",{attrs:{sm6:"",xs12:"",md6:"",lg3:""}},[s("material-stats-card",{attrs:{color:"orange",icon:"mdi-content-copy",title:"Used Space",value:"49/50","small-value":"GB","sub-icon":"mdi-alert","sub-icon-color":"error","sub-text":"Get More Space...","sub-text-color":"text-primary"}})],1),t._v(" "),s("v-flex",{attrs:{sm6:"",xs12:"",md6:"",lg3:""}},[s("material-stats-card",{attrs:{color:"red",icon:"mdi-information-outline",title:"Fixed Issues",value:"75","sub-icon":"mdi-tag","sub-text":"Tracked from Github"}})],1),t._v(" "),s("v-flex",{attrs:{sm6:"",xs12:"",md6:"",lg3:""}},[s("material-stats-card",{attrs:{color:"info",icon:"mdi-twitter",title:"Followers",value:"+245","sub-icon":"mdi-update","sub-text":"Just Updated"}})],1),t._v(" "),s("v-flex",{attrs:{md12:"",lg6:""}},[s("material-card",{attrs:{color:"orange",title:"Employee Stats",text:"New employees on 15th September, 2016"}},[s("v-data-table",{attrs:{headers:t.headers,items:t.items,"hide-actions":""},scopedSlots:t._u([{key:"headerCell",fn:function(a){var e=a.header;return[s("span",{staticClass:"font-weight-light text-warning text--darken-3",domProps:{textContent:t._s(e.text)}})]}},{key:"items",fn:function(a){var e=a.index,i=a.item;return[s("td",[t._v(t._s(e+1))]),t._v(" "),s("td",[t._v(t._s(i.name))]),t._v(" "),s("td",{staticClass:"text-xs-right"},[t._v(t._s(i.salary))]),t._v(" "),s("td",{staticClass:"text-xs-right"},[t._v(t._s(i.country))]),t._v(" "),s("td",{staticClass:"text-xs-right"},[t._v(t._s(i.city))])]}}])})],1)],1),t._v(" "),s("v-flex",{attrs:{md12:"",lg6:""}},[s("material-card",{staticClass:"card-tabs",attrs:{color:"green"}},[s("v-flex",{attrs:{slot:"header"},slot:"header"},[s("v-tabs",{attrs:{color:"transparent","slider-color":"white"},model:{value:t.tabs,callback:function(a){t.tabs=a},expression:"tabs"}},[s("span",{staticClass:"subheading font-weight-light mr-3",staticStyle:{"align-self":"center"}},[t._v("Tasks:")]),t._v(" "),s("v-tab",{staticClass:"mr-3"},[s("v-icon",{staticClass:"mr-2"},[t._v("mdi-bug")]),t._v("\n              Bugs\n            ")],1),t._v(" "),s("v-tab",{staticClass:"mr-3"},[s("v-icon",{staticClass:"mr-2"},[t._v("mdi-code-tags")]),t._v("\n              Website\n            ")],1),t._v(" "),s("v-tab",[s("v-icon",{staticClass:"mr-2"},[t._v("mdi-cloud")]),t._v("\n              Server\n            ")],1)],1)],1),t._v(" "),s("v-tabs-items",{model:{value:t.tabs,callback:function(a){t.tabs=a},expression:"tabs"}},t._l(3,function(a){return s("v-tab-item",{key:a},[s("v-list",{attrs:{"three-line":""}},[s("v-list-tile",{on:{click:function(a){return t.complete(0)}}},[s("v-list-tile-action",[s("v-checkbox",{attrs:{value:t.list[0],color:"green"}})],1),t._v(" "),s("v-list-tile-title",[t._v('\n                  Sign contract for "What are conference organized afraid of?"\n                ')]),t._v(" "),s("div",{staticClass:"d-flex"},[s("v-tooltip",{attrs:{top:"","content-class":"top"}},[s("v-btn",{staticClass:"v-btn--simple",attrs:{slot:"activator",color:"success",icon:""},slot:"activator"},[s("v-icon",{attrs:{color:"primary"}},[t._v("mdi-pencil")])],1),t._v(" "),s("span",[t._v("Edit")])],1),t._v(" "),s("v-tooltip",{attrs:{top:"","content-class":"top"}},[s("v-btn",{staticClass:"v-btn--simple",attrs:{slot:"activator",color:"danger",icon:""},slot:"activator"},[s("v-icon",{attrs:{color:"error"}},[t._v("mdi-close")])],1),t._v(" "),s("span",[t._v("Close")])],1)],1)],1),t._v(" "),s("v-divider"),t._v(" "),s("v-list-tile",{on:{click:function(a){return t.complete(1)}}},[s("v-list-tile-action",[s("v-checkbox",{attrs:{value:t.list[1],color:"success"}})],1),t._v(" "),s("v-list-tile-title",[t._v("\n                  Lines From Great Russian Literature? Or E-mails From My Boss?\n                ")]),t._v(" "),s("div",{staticClass:"d-flex"},[s("v-tooltip",{attrs:{top:"","content-class":"top"}},[s("v-btn",{staticClass:"v-btn--simple",attrs:{slot:"activator",color:"success",icon:""},slot:"activator"},[s("v-icon",{attrs:{color:"primary"}},[t._v("mdi-pencil")])],1),t._v(" "),s("span",[t._v("Edit")])],1),t._v(" "),s("v-tooltip",{attrs:{top:"","content-class":"top"}},[s("v-btn",{staticClass:"v-btn--simple",attrs:{slot:"activator",color:"danger",icon:""},slot:"activator"},[s("v-icon",{attrs:{color:"error"}},[t._v("mdi-close")])],1),t._v(" "),s("span",[t._v("Close")])],1)],1)],1),t._v(" "),s("v-divider"),t._v(" "),s("v-list-tile",{on:{click:function(a){return t.complete(2)}}},[s("v-list-tile-action",[s("v-checkbox",{attrs:{value:t.list[2],color:"success"}})],1),t._v(" "),s("v-list-tile-title",[t._v("\n                  Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit\n                ")]),t._v(" "),s("div",{staticClass:"d-flex"},[s("v-tooltip",{attrs:{top:"","content-class":"top"}},[s("v-btn",{staticClass:"v-btn--simple",attrs:{slot:"activator",color:"success",icon:""},slot:"activator"},[s("v-icon",{attrs:{color:"primary"}},[t._v("mdi-pencil")])],1),t._v(" "),s("span",[t._v("Edit")])],1),t._v(" "),s("v-tooltip",{attrs:{top:"","content-class":"top"}},[s("v-btn",{staticClass:"v-btn--simple",attrs:{slot:"activator",color:"danger",icon:""},slot:"activator"},[s("v-icon",{attrs:{color:"error"}},[t._v("mdi-close")])],1),t._v(" "),s("span",[t._v("Close")])],1)],1)],1)],1)],1)}),1)],1)],1)],1)],1)},[],!1,null,null,null);a.default=o.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Icons.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Icons.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      icons: ['mdi-access-point', 'mdi-access-point-network', 'mdi-account', 'mdi-account-alert', 'mdi-account-box', 'mdi-account-box-multiple', 'mdi-account-box-outline', 'mdi-account-card-details', 'mdi-account-check', 'mdi-account-circle', 'mdi-account-convert', 'mdi-account-edit', 'mdi-account-group', 'mdi-account-heart', 'mdi-account-key', 'mdi-account-location', 'mdi-account-minus', 'mdi-account-multiple', 'mdi-account-multiple-check', 'mdi-account-multiple-minus', 'mdi-account-multiple-outline', 'mdi-account-multiple-plus', 'mdi-account-multiple-plus-outline', 'mdi-account-network', 'mdi-account-off', 'mdi-account-outline', 'mdi-account-plus', 'mdi-account-plus-outline', 'mdi-account-remove', 'mdi-account-search', 'mdi-account-search-outline', 'mdi-account-settings', 'mdi-account-settings-variant', 'mdi-account-star', 'mdi-account-switch', 'mdi-accusoft', 'mdi-adjust', 'mdi-adobe', 'mdi-air-conditioner', 'mdi-airballoon', 'mdi-airplane', 'mdi-airplane-landing', 'mdi-airplane-off', 'mdi-airplane-takeoff', 'mdi-airplay', 'mdi-airport', 'mdi-alarm', 'mdi-alarm-bell', 'mdi-alarm-check', 'mdi-alarm-light', 'mdi-alarm-multiple', 'mdi-alarm-off', 'mdi-alarm-plus', 'mdi-alarm-snooze', 'mdi-album', 'mdi-alert', 'mdi-alert-box', 'mdi-alert-circle', 'mdi-alert-circle-outline', 'mdi-alert-decagram', 'mdi-alert-octagon', 'mdi-alert-octagram', 'mdi-alert-outline', 'mdi-alien', 'mdi-all-inclusive', 'mdi-alpha', 'mdi-alphabetical', 'mdi-altimeter', 'mdi-amazon', 'mdi-amazon-alexa', 'mdi-amazon-drive', 'mdi-ambulance', 'mdi-amplifier', 'mdi-anchor', 'mdi-android', 'mdi-android-debug-bridge', 'mdi-android-head', 'mdi-android-studio', 'mdi-angle-acute', 'mdi-angle-obtuse', 'mdi-angle-right', 'mdi-angular', 'mdi-angularjs', 'mdi-animation', 'mdi-animation-play', 'mdi-anvil', 'mdi-apple', 'mdi-apple-finder', 'mdi-apple-icloud', 'mdi-apple-ios', 'mdi-apple-keyboard-caps', 'mdi-apple-keyboard-command', 'mdi-apple-keyboard-control', 'mdi-apple-keyboard-option', 'mdi-apple-keyboard-shift', 'mdi-apple-safari', 'mdi-application', 'mdi-approval', 'mdi-apps', 'mdi-arch', 'mdi-archive', 'mdi-arrange-bring-forward', 'mdi-arrange-bring-to-front', 'mdi-arrange-send-backward', 'mdi-arrange-send-to-back', 'mdi-arrow-all', 'mdi-arrow-bottom-left', 'mdi-arrow-bottom-left-bold-outline', 'mdi-arrow-bottom-left-thick', 'mdi-arrow-bottom-right', 'mdi-arrow-bottom-right-bold-outline', 'mdi-arrow-bottom-right-thick', 'mdi-arrow-collapse', 'mdi-arrow-collapse-all', 'mdi-arrow-collapse-down', 'mdi-arrow-collapse-horizontal', 'mdi-arrow-collapse-left', 'mdi-arrow-collapse-right', 'mdi-arrow-collapse-up', 'mdi-arrow-collapse-vertical', 'mdi-arrow-decision', 'mdi-arrow-decision-auto', 'mdi-arrow-decision-auto-outline', 'mdi-arrow-decision-outline', 'mdi-arrow-down', 'mdi-arrow-down-bold', 'mdi-arrow-down-bold-box', 'mdi-arrow-down-bold-box-outline', 'mdi-arrow-down-bold-circle', 'mdi-arrow-down-bold-circle-outline', 'mdi-arrow-down-bold-hexagon-outline', 'mdi-arrow-down-bold-outline', 'mdi-arrow-down-box', 'mdi-arrow-down-drop-circle', 'mdi-arrow-down-drop-circle-outline', 'mdi-arrow-down-thick', 'mdi-arrow-expand', 'mdi-arrow-expand-all', 'mdi-arrow-expand-down', 'mdi-arrow-expand-horizontal', 'mdi-arrow-expand-left', 'mdi-arrow-expand-right', 'mdi-arrow-expand-up', 'mdi-arrow-expand-vertical', 'mdi-arrow-left', 'mdi-arrow-left-bold', 'mdi-arrow-left-bold-box', 'mdi-arrow-left-bold-box-outline', 'mdi-arrow-left-bold-circle', 'mdi-arrow-left-bold-circle-outline', 'mdi-arrow-left-bold-hexagon-outline', 'mdi-arrow-left-bold-outline', 'mdi-arrow-left-box', 'mdi-arrow-left-drop-circle', 'mdi-arrow-left-drop-circle-outline', 'mdi-arrow-left-right-bold-outline', 'mdi-arrow-left-thick', 'mdi-arrow-right', 'mdi-arrow-right-bold', 'mdi-arrow-right-bold-box', 'mdi-arrow-right-bold-box-outline', 'mdi-arrow-right-bold-circle', 'mdi-arrow-right-bold-circle-outline', 'mdi-arrow-right-bold-hexagon-outline', 'mdi-arrow-right-bold-outline', 'mdi-arrow-right-box', 'mdi-arrow-right-drop-circle', 'mdi-arrow-right-drop-circle-outline', 'mdi-arrow-right-thick', 'mdi-arrow-split-horizontal', 'mdi-arrow-split-vertical', 'mdi-arrow-top-left', 'mdi-arrow-top-left-bold-outline', 'mdi-arrow-top-left-thick', 'mdi-arrow-top-right', 'mdi-arrow-top-right-bold-outline', 'mdi-arrow-top-right-thick', 'mdi-arrow-up', 'mdi-arrow-up-bold', 'mdi-arrow-up-bold-box', 'mdi-arrow-up-bold-box-outline', 'mdi-arrow-up-bold-circle', 'mdi-arrow-up-bold-circle-outline', 'mdi-arrow-up-bold-hexagon-outline', 'mdi-arrow-up-bold-outline', 'mdi-arrow-up-box', 'mdi-arrow-up-down-bold-outline', 'mdi-arrow-up-drop-circle', 'mdi-arrow-up-drop-circle-outline', 'mdi-arrow-up-thick', 'mdi-artist', 'mdi-assistant', 'mdi-asterisk', 'mdi-at', 'mdi-atlassian', 'mdi-atom', 'mdi-attachment', 'mdi-audio-video', 'mdi-audiobook', 'mdi-augmented-reality', 'mdi-auto-fix', 'mdi-auto-upload', 'mdi-autorenew', 'mdi-av-timer', 'mdi-axe', 'mdi-azure', 'mdi-baby', 'mdi-baby-buggy', 'mdi-backburger', 'mdi-backspace', 'mdi-backup-restore', 'mdi-badminton']
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Icons.vue?vue&type=template&id=279a5c8b&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Icons.vue?vue&type=template&id=279a5c8b& ***!
+  \***************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    {
+      staticStyle: { "flex-wrap": "wrap" },
+      attrs: { "fill-height": "", fluid: "" }
+    },
+    [
+      _c(
+        "material-card",
+        { attrs: { color: "green" } },
+        [
+          _c("div", { attrs: { slot: "header" }, slot: "header" }, [
+            _c("div", { staticClass: "title font-weight-light mb-2" }, [
+              _vm._v("Material Design Icons")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "category font-weight-thin" }, [
+              _vm._v("\n        See all available\n        "),
+              _c(
+                "a",
+                {
+                  staticClass: "white--text",
+                  attrs: {
+                    href: "https://materialdesignicons.com/",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("\n          Icons\n        ")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "v-layout",
+            { attrs: { "align-center": "", "justify-center": "", wrap: "" } },
+            _vm._l(_vm.icons, function(icon) {
+              return _c(
+                "v-flex",
+                { key: icon, attrs: { "ma-2": "" } },
+                [
+                  _c(
+                    "v-tooltip",
+                    { attrs: { top: "", "content-class": "top" } },
+                    [
+                      _c(
+                        "v-icon",
+                        { attrs: { slot: "activator" }, slot: "activator" },
+                        [
+                          _vm._v(
+                            "\n            " + _vm._s(icon) + "\n          "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(icon))])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mx-auto" },
+        [
+          _c(
+            "v-btn",
+            {
+              staticClass: "mx-0 font-weight-light",
+              attrs: {
+                large: "",
+                color: "success",
+                href: "https://materialdesignicons.com/",
+                target: "_blank",
+                round: ""
+              }
+            },
+            [
+              _c("v-icon", { attrs: { left: "" } }, [
+                _vm._v("mdi-material-design")
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("See all icons")])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Icons.vue":
+/*!**************************************!*\
+  !*** ./resources/js/views/Icons.vue ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Icons_vue_vue_type_template_id_279a5c8b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Icons.vue?vue&type=template&id=279a5c8b& */ "./resources/js/views/Icons.vue?vue&type=template&id=279a5c8b&");
+/* harmony import */ var _Icons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icons.vue?vue&type=script&lang=js& */ "./resources/js/views/Icons.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Icons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Icons_vue_vue_type_template_id_279a5c8b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Icons_vue_vue_type_template_id_279a5c8b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Icons.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Icons.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./resources/js/views/Icons.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Icons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Icons.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Icons.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Icons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/Icons.vue?vue&type=template&id=279a5c8b&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/views/Icons.vue?vue&type=template&id=279a5c8b& ***!
+  \*********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Icons_vue_vue_type_template_id_279a5c8b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Icons.vue?vue&type=template&id=279a5c8b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Icons.vue?vue&type=template&id=279a5c8b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Icons_vue_vue_type_template_id_279a5c8b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Icons_vue_vue_type_template_id_279a5c8b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

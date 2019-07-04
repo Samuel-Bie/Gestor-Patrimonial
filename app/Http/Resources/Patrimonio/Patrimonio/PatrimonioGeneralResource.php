@@ -22,6 +22,7 @@ class PatrimonioGeneralResource extends JsonResource
             'estado_aquisicao'  => $this->estadoAquisicao->designacao,
             'estado_conservacao'=> $this->estadoConservacao->designacao,
             'valor_aquisicao'   => $this->valor_aquisicao,
+            'ugb'               => $this->localizacao->ugb->designacao,
             'links' => [
                 'self' => [
                     'href' => $this->link()
@@ -34,6 +35,9 @@ class PatrimonioGeneralResource extends JsonResource
                 ],
                 'ficheiros'=>[
                     'href' => $this->linkFicheiros()
+                ],
+                'localizacao' =>[
+                    'href'=> $this->localizacao->link()
                 ]
             ]
         ];

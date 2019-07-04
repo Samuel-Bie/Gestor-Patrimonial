@@ -17,6 +17,7 @@ requireModule.keys().forEach(fileName => {
   }
 
   modules[moduleName][imported] = requireModule(fileName).default
+  // console.log(moduleName)
 })
 
 export default modules

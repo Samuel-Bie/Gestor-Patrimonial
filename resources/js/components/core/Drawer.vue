@@ -30,10 +30,14 @@
             />
           </v-list-tile-avatar>
           <v-list-tile-title class="title">
-            Vuetify MD
+            SGP
           </v-list-tile-title>
         </v-list-tile>
+
+
         <v-divider/>
+
+        <!-- Search area -->
         <v-list-tile
           v-if="responsive"
         >
@@ -43,6 +47,10 @@
             color="purple"
           />
         </v-list-tile>
+        <!-- Search area -->
+
+
+
         <v-list-tile
           v-for="(link, i) in links"
           :key="i"
@@ -58,6 +66,8 @@
             v-text="link.text"
           />
         </v-list-tile>
+
+
         <v-list-tile
           disabled
           active-class="primary"
@@ -85,7 +95,7 @@ import {
 
 export default {
   data: () => ({
-    logo: './img/vuetifylogo.png',
+    logo: 'img/uz.jpeg',
     links: [
       {
         to: '/dashboard',
@@ -98,29 +108,9 @@ export default {
         text: 'User Profile'
       },
       {
-        to: '/table-list',
-        icon: 'mdi-clipboard-outline',
-        text: 'Table List'
-      },
-      {
-        to: '/typography',
-        icon: 'mdi-format-font',
-        text: 'Typography'
-      },
-      {
-        to: '/icons',
-        icon: 'mdi-chart-bubble',
-        text: 'Icons'
-      },
-      {
-        to: '/maps',
-        icon: 'mdi-map-marker',
-        text: 'Maps'
-      },
-      {
-        to: '/notifications',
-        icon: 'mdi-bell',
-        text: 'Notifications'
+        to: '/patrimonio',
+        icon: 'mdi-office-building',
+        text: 'Patrimonio'
       }
     ],
     responsive: false
