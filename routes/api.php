@@ -20,7 +20,6 @@ use Illuminate\Http\Request;
         Route::get('{patrimonio}/info',     'Patrimonio\InformacaoController@show')->name('patrimonio.info');
         Route::get('{patrimonio}/localizacao', 'Patrimonio\LocalizacaoController@show')->name('patrimonio.localizacao.show');
 
-
         /* Movimentacaoes */
             Route::apiResource('{patrimonio}/abate',            'Patrimonio\Abate\AbateController');
             Route::apiResource('{patrimonio}/transferencia',    'Patrimonio\Transferencia\TransferenciaController');

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Tools\ClassificadorGeral;
 use App\Http\Resources\Patrimonio\Tools\ClassificadorGeral\ClassificadorGeralCollection;
+use App\Http\Resources\Patrimonio\Tools\ClassificadorGeral\ClassificadorGeralBasicResource;
 
 class ClassificadorGeralController extends Controller
 {
@@ -33,15 +34,15 @@ class ClassificadorGeralController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificadorGeral
+     * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificador
      * @return \Illuminate\Http\Response
      */
     public function show(ClassificadorGeral $classificador)
     {
-        //
+        return new ClassificadorGeralBasicResource($classificador);
     }
     public function bens(ClassificadorGeral $classificador){
-        
+
     }
 
 
@@ -49,10 +50,10 @@ class ClassificadorGeralController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificadorGeral
+     * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClassificadorGeral $classificadorGeral)
+    public function update(Request $request, ClassificadorGeral $classificador)
     {
         //
     }
@@ -60,10 +61,10 @@ class ClassificadorGeralController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificadorGeral
+     * @param  \App\Models\Patrimonio\Tools\ClassificadorGeral  $classificador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ClassificadorGeral $classificadorGeral)
+    public function destroy(ClassificadorGeral $classificador)
     {
         //
     }

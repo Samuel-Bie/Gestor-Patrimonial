@@ -14,6 +14,9 @@ class FormaDeAquisicaoBasicResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'codigo' => $this->codigo,
+            'designacao' => $this->designacao
+        ];
     }
 }

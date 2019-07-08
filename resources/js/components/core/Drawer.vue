@@ -69,6 +69,7 @@
 
 
         <v-list-tile
+          v-if="false"
           disabled
           active-class="primary"
           class="v-list-item v-list__tile--buy"

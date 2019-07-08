@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Tools\FormaDeAquisicao;
 use App\Http\Resources\Patrimonio\Tools\FormaDeAquisicao\FormaDeAquisicaoCollection;
+use App\Http\Resources\Patrimonio\Tools\FormaDeAquisicao\FormaDeAquisicaoBasicResource;
 
 class FormaDeAquisicaoController extends Controller
 {
@@ -16,22 +17,11 @@ class FormaDeAquisicaoController extends Controller
      */
     public function index()
     {
-        //
         $formas = FormaDeAquisicao::paginate();
         return (new FormaDeAquisicaoCollection($formas));
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -39,9 +29,9 @@ class FormaDeAquisicaoController extends Controller
      * @param  \App\Models\Patrimonio\Tools\FormaDeAquisicao  $forma
      * @return \Illuminate\Http\Response
      */
-    public function show(FormaDeAquisicao $forma)
+    public function show(FormaDeAquisicao $forma_aquisicao)
     {
-        //
+        return new FormaDeAquisicaoBasicResource($forma_aquisicao);
     }
 
     /**

@@ -7,6 +7,8 @@
     <core-drawer />
 
     <core-view />
+
+    <core-scroll-spy></core-scroll-spy>
   </v-app>
 </template>
 

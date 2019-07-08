@@ -9,6 +9,7 @@ use App\Models\Universidade\Delegacao;
 $factory->define(UGB::class, function (Faker $faker) {
     $delegacao = Delegacao::doesntHave('ugb')->get()->random();
     return [
+        "codigo" => $faker->unique()->randomNumber(6),
         "designacao"    => $delegacao->nome,
         'provincia'     => $faker->city,
         'destrito'      => $faker->city,

@@ -8,7 +8,8 @@ use App\Models\Universidade\Delegacao;
 
 $factory->define(Setor::class, function (Faker $faker) {
     return [
-        'nome' => $faker->sentence(2),
+        "codigo"    => $faker->unique()->randomNumber(6),
+        'nome'      => $faker->sentence(2),
         'delegacoes_id' => Delegacao::all()->random()
     ];
 });

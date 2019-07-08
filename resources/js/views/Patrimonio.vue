@@ -82,20 +82,20 @@ export default {
             sortable: false,
             text: 'Data de aquisição',
             value: 'estado',
-              // align: 'right'
           }
         ],
       };
     },
 
     methods: {
-      ...mapActions('patrimonio', ['carregarBens']),
+      ...mapActions('patrimonio', ['carregarBens','carregarBem']),
       showPatrimonio(item){
+        this.carregarBem(item)
         this.$router.push({ name: 'Ver patrimonio', params: { id: item.id }})
       }
     },
     mounted() {
-      this.carregarBens()
+      // this.carregarBens()
     },
 };
 </script>

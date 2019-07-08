@@ -32,8 +32,11 @@ class CreateUgbsTable extends Migration
             $table->string('endereco')->nullable();
             $table->string('classificador_territorial')->nullable();
             $table->unsignedInteger('delegacoes_id');
+            $table->string('codigo', 45)->nullable();
 
             $table->index(["delegacoes_id"], 'fk_ugbs_delegacoes1_idx');
+
+            $table->unique(["codigo"], 'codigo_UNIQUE');
             $table->softDeletes();
             $table->nullableTimestamps();
 

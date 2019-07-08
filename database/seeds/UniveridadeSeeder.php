@@ -25,6 +25,7 @@ class UniveridadeSeeder extends Seeder
 
         DB::table('uges')->insert([
             [
+                "codigo" => "012563522",
                 'endereco'      => $universidade->endereco,
                 'designacao'    => $universidade->nome,
                 'provincia'     => 'Sofala',

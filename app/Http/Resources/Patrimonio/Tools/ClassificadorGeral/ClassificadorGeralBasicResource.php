@@ -14,6 +14,14 @@ class ClassificadorGeralBasicResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'codigo' => $this->codigo,
+            'designacao' => $this->designacao,
+            'links'=>[
+                'self' => [
+                    'href' => $this->link()
+                ]
+            ]
+        ];
     }
 }

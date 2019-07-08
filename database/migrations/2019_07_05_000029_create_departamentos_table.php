@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSetoresTable extends Migration
+class CreateDepartamentosTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'setores';
+    public $tableName = 'departamentos';
 
     /**
      * Run the migrations.
-     * @table setores
+     * @table departamentos
      *
      * @return void
      */
@@ -25,8 +25,11 @@ class CreateSetoresTable extends Migration
             $table->increments('id');
             $table->string('nome')->nullable();
             $table->unsignedInteger('delegacoes_id');
+            $table->string('codigo', 45)->nullable();
 
-            $table->index(["delegacoes_id"], 'fk_setores_delegacoes1_idx');
+            $table->index(["delegacoes_id"], 'fk_depatamentos_delegacoes1_idx');
+
+            $table->unique(["codigo"], 'codigo_UNIQUE');
             $table->softDeletes();
             $table->nullableTimestamps();
         });

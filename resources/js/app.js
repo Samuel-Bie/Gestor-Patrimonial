@@ -46,4 +46,7 @@ const app = new Vue({
     router,
     store,
     el: '#app',
+    created () {
+        store.dispatch('patrimonio/carregarBens', null, {root:false})
+    }
 });

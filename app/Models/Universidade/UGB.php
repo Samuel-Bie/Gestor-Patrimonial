@@ -2,7 +2,6 @@
 
 namespace App\Models\Universidade;
 
-
 use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,7 +20,7 @@ class UGB extends Model
 
     public function delegacao()
     {
-        return $this->belongsTo(Delegacao::class, 'delegacao_id');
+        return $this->belongsTo(Delegacao::class, 'delegacoes_id');
     }
 
     public function link(){

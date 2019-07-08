@@ -1,10 +1,11 @@
 <?php
+namespace App\Http\Controllers\Patrimonio;
 
-namespace App\Http\Controllers;
 
-use App\Models\Patrimonio\Localizacao;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Patrimonio;
+use App\Models\Patrimonio\Localizacao;
 
 class LocalizacaoController extends Controller
 {

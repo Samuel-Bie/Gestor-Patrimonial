@@ -22,7 +22,7 @@ class Setor extends Model
 
     public function delegacao()
     {
-        return $this->belongsTo(Delegacao::class, 'delegacao_id');
+        return $this->belongsTo(Delegacao::class, 'delegacoes_id');
     }
 
     public function patrimonios()

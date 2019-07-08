@@ -17,7 +17,7 @@ class InformacaoBasicResource extends JsonResource
         // dd($this);
         return [
             'fornecedor' => [
-                'nome' => $this->fornecedor,
+                'nome'       => $this->fornecedor,
                 'nuit'       => $this->nuit,
                 'endereco'   => $this->endereco,
                 'cidade'     => $this->cidade,

@@ -32,8 +32,11 @@ class CreateUgesTable extends Migration
             $table->string('endereco')->nullable();
             $table->string('classificador_territorial')->nullable();
             $table->unsignedInteger('universidade_id');
+            $table->string('codigo', 45)->nullable();
 
             $table->index(["universidade_id"], 'fk_uges_universidade1_idx');
+
+            $table->unique(["codigo"], 'codigo_UNIQUE');
             $table->softDeletes();
             $table->nullableTimestamps();
 

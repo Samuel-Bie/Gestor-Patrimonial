@@ -4,6 +4,7 @@ namespace App\Http\Resources\Patrimonio\Patrimonio;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Patrimonio\Informacao\InformacaoBasicResource;
+use App\Http\Resources\Universidade\UGB\UGBBasicResource;
 
 class PatrimonioBasicResource extends JsonResource
 {
@@ -23,31 +24,29 @@ class PatrimonioBasicResource extends JsonResource
             'estado_conservacao'=> $this->estadoConservacao->designacao,
             'valor_aquisicao'   => $this->valor_aquisicao,
             'localizacao' => [
-                'ugb'   => $this->localizacao->ugb->designacao,
-                'uge'   => $this->localizacao->uge->designacao,
-                'setor' => $this->localizacao->setor()->exists()? $this->localizacao->setor->nome: null,
-                'departamento' => $this->localizacao->departamento()->exists()? $this->localizacao->departamento->nome: null,
+                'ugb'   => new UGBBasicResource($this->localizacao->ugb),
+                'uge'   =>[
+                    'codigo' => $this->localizacao->uge->codigo,
+                    'designacao' => $this->localizacao->uge->designacao,
+                    'href' => $this->localizacao->uge->link()
+                ],
+                'setor' => !$this->localizacao->setor()->exists()? null: [
+                    'codigo' => $this->localizacao->setor->codigo,
+                    'designacao' => $this->localizacao->setor->nome,
+                    'href' => $this->localizacao->setor->link()
+                ],
+                'departamento' => !$this->localizacao->departamento()->exists()? null:[
+                    'codigo' => $this->localizacao->departamento->codigo,
+                    'designacao' => $this->localizacao->departamento->nome,
+                    'href' => $this->localizacao->departamento->link()
+                ],
                 'links' => [
                     'self'=>[
                         'href' => $this->localizacao->link()
                     ],
-                    'ugb'   => [
-                        'href' => $this->localizacao->ugb->link()
-                    ],
-                    'uge'   => [
-                        'href' => $this->localizacao->uge->link()
-                    ],
-                    'setor' => [
-                        'href' => $this->localizacao->setor()->exists()? $this->localizacao->setor->link(): null
-                    ],
-                    'departamento' => [
-                        'href' => $this->localizacao->departamento()->exists()? $this->localizacao->departamento->link(): null
-                    ],
                 ]
             ],
-            'informacoes' => [
-                'href' => $this->infoLink()
-            ],
+            'informacoes' => new InformacaoBasicResource($this->informacao),
             'tipo' => [
                 'imovel' => $this->imovel()->exists()? [
                     'href' => $this->linkTipo()

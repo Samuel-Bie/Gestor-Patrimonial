@@ -1,4 +1,5 @@
 // https://vuex.vuejs.org/en/mutations.html
+import state from './state'
 
 export default {
   setLoading(state, payload) {
