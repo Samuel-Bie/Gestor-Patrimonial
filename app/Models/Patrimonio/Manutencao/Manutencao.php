@@ -16,7 +16,7 @@ class Manutencao extends Model
     protected $dates        = ['deleted_at'];
 
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -27,7 +27,7 @@ class Manutencao extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'users_id');
     }
 
 }

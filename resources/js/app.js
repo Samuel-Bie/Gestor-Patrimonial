@@ -32,12 +32,18 @@ import '@/components'
 
 // Plugins
 import '@/plugins'
+import '@/vuetify'
 
 // Sync router with store
 import { sync } from 'vuex-router-sync'
 
 import router from '@/router'
 import store from '@/vuex'
+
+import interceptorsSetup from '@/utils/axios'
+
+// and running it somewhere here
+interceptorsSetup()
 
 // Sync store with router
 sync(store, router)
@@ -47,6 +53,8 @@ const app = new Vue({
     store,
     el: '#app',
     created () {
-        store.dispatch('patrimonio/carregarBens', null, {root:false})
+        if(!store.getters.authUser && store.getters.savedCredencials){
+            this.$store.dispatch('login', store.getters.savedCredencials)
+        }
     }
 });

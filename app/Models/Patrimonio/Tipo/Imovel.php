@@ -17,7 +17,7 @@ class Imovel extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -48,6 +48,6 @@ class Imovel extends Model
     /* Tipos */
 
     public function link(){
-        return URL::route('imovel.show', ['imovel' => $this->id()]);
+        return URL::route('imovel.show', ['imovel' => $this->chave()]);
     }
 }

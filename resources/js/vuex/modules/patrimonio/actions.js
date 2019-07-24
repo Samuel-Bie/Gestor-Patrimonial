@@ -17,7 +17,7 @@ export default {
 
     carregarBem({commit}, payload){
         commit('setLoading', true, { root: true })
-        axios.get(payload.links.self.href)
+        axios.get(`api/patrimonio/${payload}`)
         .then((response) => {
             const data = response.data.data
             commit('setPS_data', data)

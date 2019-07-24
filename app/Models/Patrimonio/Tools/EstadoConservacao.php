@@ -16,7 +16,7 @@ class EstadoConservacao extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 

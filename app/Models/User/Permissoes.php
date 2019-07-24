@@ -3,10 +3,10 @@
 namespace App\Models\User;
 
 use App\Models\User\User;
-use App\Models\Delegacao;
 use App\Models\User\Cargo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Instituicao\UGB;
 
 class Permissoes extends Model
 {
@@ -16,7 +16,7 @@ class Permissoes extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -25,14 +25,14 @@ class Permissoes extends Model
         return $this->belongsTo(Cargo::class, 'cargo_id');
     }
 
-    public function delegacao()
+    public function ugb()
     {
-        return $this->belongsTo(Delegacao::class, 'delegacoes_id');
+        return $this->belongsTo(UGB::class, 'ugbs_id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'users_id');
     }
 
 }

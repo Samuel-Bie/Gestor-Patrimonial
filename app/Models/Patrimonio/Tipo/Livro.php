@@ -14,7 +14,7 @@ class Livro extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -24,6 +24,6 @@ class Livro extends Model
     }
 
     public function link(){
-        return URL::route('livro.show', ['livro' => $this->id()]);
+        return URL::route('livro.show', ['livro' => $this->chave()]);
     }
 }

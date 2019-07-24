@@ -4,24 +4,18 @@
 use App\Models\User\User;
 use App\Models\User\Permissoes;
 use Illuminate\Database\Seeder;
-use App\Models\Universidade\UGB;
-use App\Models\Universidade\Setor;
+use App\Models\Instituicao\UGB;
+use App\Models\Instituicao\Setor;
 use App\Models\Patrimonio\Ficheiro;
 use App\Models\Patrimonio\Patrimonio;
 use App\Models\Patrimonio\Tipo\Livro;
 use App\Models\Patrimonio\Tipo\Movel;
+use App\Models\Patrimonio\Localizacao;
 use App\Models\Patrimonio\Tipo\Imovel;
 use App\Models\Patrimonio\Tipo\Veiculo;
-use App\Models\Universidade\Delegacao;
-use App\Models\Universidade\Departamento;
-use App\Models\Patrimonio\Abate\Abate;
-use App\Models\Patrimonio\Localizacao;
 use App\Models\Patrimonio\Info\AdicionalGeral;
 use App\Models\Patrimonio\Info\AdicionalImovel;
-use App\Models\Patrimonio\Manutencao\Manutencao;
 use App\Models\Patrimonio\Tools\ClassificadorGeral;
-use App\Models\Patrimonio\Movimentacao\Movimentacao;
-use App\Models\Patrimonio\Transferencia\Transferencia;
 
 class DatabaseSeeder extends Seeder
 {
@@ -42,10 +36,11 @@ class DatabaseSeeder extends Seeder
                 UniveridadeSeeder::class,
             ]);
 
-            factory(Delegacao::class, 6)->create();
-            factory(UGB::class, 6)->create();
-            factory(Departamento::class, 20)->create();
-            factory(Setor::class, 10)->create();
+            factory(UGB::class, 6)->create()->each(function($ugb) {
+                $ugb->setores()->saveMany(
+                    factory(Setor::class, 4)->make()
+                );
+            });
             factory(Permissoes::class, 15)->create();
         /* Universiadade */
 

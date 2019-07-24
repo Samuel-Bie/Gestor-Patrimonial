@@ -3,35 +3,36 @@
 namespace App\Models\Patrimonio;
 
 
-use App\Models\Universidade\UGB;
-use App\Models\Universidade\UGE;
-use App\Models\Universidade\Setor;
+use App\Models\Instituicao\UGB;
+use App\Models\Instituicao\Setor;
 use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Universidade\Departamento;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 class Localizacao extends Model
 {
+    use  HasRelationships;
+
     use SoftDeletes;
     protected $table        = 'dados_localizacao';
     protected $primaryKey   = "id";
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
     public function ugb()
     {
-        return $this->belongsTo(UGB::class, 'ugbs_id');
+        return $this->hasOneDeepFromRelations($this->setor(), (new Setor())->ugb());
     }
 
     public function uge()
     {
-        return $this->belongsTo(UGE::class, 'uges_id');
+        return $this->hasOneDeepFromRelations($this->setor(), (new Setor())->ugb(), (new UGB())->uge());
     }
 
     public function patrimonio()
@@ -44,22 +45,13 @@ class Localizacao extends Model
         return $this->belongsTo(Setor::class, 'setores_id');
     }
 
-    public function departamento()
-    {
-        return $this->belongsTo(Departamento::class, 'departamentos_id');
-    }
 
     public function link(){
-        return URL::route('patrimonio.localizacao.show', ['patrimonio' => $this->patrimonio->id()]);
+        return URL::route('patrimonio.localizacao.show', ['patrimonio' => $this->patrimonio->chave()]);
     }
 
     public function setorLink(){
         return $this->setor()->exists()?
             $this->setor->link():null;
     }
-    public function departamentoLink(){
-        return $this->departamento()->exists()?
-            $this->departamento->link():null;
-    }
-
 }

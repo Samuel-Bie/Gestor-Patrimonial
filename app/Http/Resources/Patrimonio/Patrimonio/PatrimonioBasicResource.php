@@ -3,8 +3,8 @@
 namespace App\Http\Resources\Patrimonio\Patrimonio;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Instituicao\UGB\UGBBasicResource;
 use App\Http\Resources\Patrimonio\Informacao\InformacaoBasicResource;
-use App\Http\Resources\Universidade\UGB\UGBBasicResource;
 
 class PatrimonioBasicResource extends JsonResource
 {
@@ -17,7 +17,7 @@ class PatrimonioBasicResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id" => $this->id(),
+            "id" => $this->chave(),
             'nip'               => $this->nip,
             'data_aquisicao'    => $this->data_aquisicao,
             'estado_aquisicao'  => $this->estadoAquisicao->designacao,
@@ -34,11 +34,6 @@ class PatrimonioBasicResource extends JsonResource
                     'codigo' => $this->localizacao->setor->codigo,
                     'designacao' => $this->localizacao->setor->nome,
                     'href' => $this->localizacao->setor->link()
-                ],
-                'departamento' => !$this->localizacao->departamento()->exists()? null:[
-                    'codigo' => $this->localizacao->departamento->codigo,
-                    'designacao' => $this->localizacao->departamento->nome,
-                    'href' => $this->localizacao->departamento->link()
                 ],
                 'links' => [
                     'self'=>[

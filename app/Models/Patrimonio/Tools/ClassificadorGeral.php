@@ -15,7 +15,7 @@ class ClassificadorGeral extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -26,11 +26,11 @@ class ClassificadorGeral extends Model
     }
 
     public function link(){
-        return URL::route('classificador.show', ['classificador'=>$this->id()]);
+        return URL::route('classificador.show', ['classificador'=>$this->chave()]);
     }
 
     public function bensLink(){
-        return URL::route('classificador.bens', ['classificador'=>$this->id()]);
+        return URL::route('classificador.bens', ['classificador'=>$this->chave()]);
     }
 
 }

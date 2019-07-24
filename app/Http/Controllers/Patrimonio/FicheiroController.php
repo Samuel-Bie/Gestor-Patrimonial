@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Patrimonio;
 use Illuminate\Http\Request;
 use App\Models\Patrimonio\Ficheiro;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Patrimonio\Patrimonio;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\Patrimonio\Ficheiro\FicheiroCollection;
+use App\Http\Resources\Patrimonio\Ficheiro\FicheiroGeneralResource;
 
 class FicheiroController extends Controller
 {
@@ -22,9 +26,20 @@ class FicheiroController extends Controller
      */
     public function show(Ficheiro $ficheiro)
     {
-        //
+        //php 
     }
 
+    public function store(Request $request){
+        $file = $request->file('file');
+
+        $name = 'patrimonio/'.Hash::make($file);
+        $file = $file->store($name);
+
+        $ficheiro = new Ficheiro();
+        $ficheiro->path = $file;
+        $ficheiro->save();
+        return (new FicheiroGeneralResource($ficheiro));
+    }
 
     /**
      * Update the specified resource in storage.

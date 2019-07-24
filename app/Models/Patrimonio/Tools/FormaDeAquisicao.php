@@ -15,7 +15,7 @@ class FormaDeAquisicao extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -25,7 +25,7 @@ class FormaDeAquisicao extends Model
     }
 
     public function link(){
-        return URL::route('forma-aquisicao.show', ['forma'=>$this->id()]);
+        return URL::route('forma-aquisicao.show', ['forma'=>$this->chave()]);
     }
 
 }

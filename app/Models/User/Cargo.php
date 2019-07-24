@@ -15,12 +15,12 @@ class Cargo extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'permissoes', 'cargo_id', 'user_id');
+        return $this->belongsToMany(User::class, 'permissoes', 'cargo_id', 'users_id');
     }
 }

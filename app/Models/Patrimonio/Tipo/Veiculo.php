@@ -13,7 +13,7 @@ class Veiculo extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -23,6 +23,6 @@ class Veiculo extends Model
     }
 
     public function link(){
-        return URL::route('veiculo.show', ['veiculo' => $this->id()]);
+        return URL::route('veiculo.show', ['veiculo' => $this->chave()]);
     }
 }

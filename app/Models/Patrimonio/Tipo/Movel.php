@@ -14,7 +14,7 @@ class Movel extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -24,6 +24,6 @@ class Movel extends Model
     }
 
     public function link(){
-        return URL::route('movel.show', ['movel' => $this->id()]);
+        return URL::route('movel.show', ['movel' => $this->chave()]);
     }
 }

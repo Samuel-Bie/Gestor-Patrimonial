@@ -5,24 +5,44 @@
  */
 export default [
     {
+      path: '/login',
+      view: 'Login',
+      auth: false
+    },
+    {
       path: '/dashboard',
       // Relative to /src/views
-      view: 'Dashboard'
+      view: 'Pagina Inicial',
+      view: 'Dashboard',
+      auth: true
+
     },
     {
       path: '/user-profile',
       name: 'User Profile',
-      view: 'UserProfile'
+      view: 'UserProfile',
+      auth: true
+
     },
     {
       path: '/patrimonio',
-      view: 'Patrimonio'
+      view: 'Patrimonio',
+      auth: true
+
     },
     {
-      props: true,
+      path: '/patrimonio/novo',
+      view: 'NewPatrimonio',
+      name: 'Criar patrimonio',
+      auth: true
+
+    },
+    {
       path: '/patrimonio/:id',
       view: 'ViewPatrimonio',
       name: 'Ver patrimonio',
+      auth: true
+
     },
 
   ]

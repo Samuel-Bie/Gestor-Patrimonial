@@ -7,11 +7,11 @@ use App\Models\Patrimonio\Ficheiro;
 use Illuminate\Support\Facades\URL;
 use App\Models\Patrimonio\Tipo\Livro;
 use App\Models\Patrimonio\Tipo\Movel;
+use App\Models\Patrimonio\Abate\Abate;
+use App\Models\Patrimonio\Localizacao;
 use App\Models\Patrimonio\Tipo\Imovel;
 use App\Models\Patrimonio\Tipo\Veiculo;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Patrimonio\Abate\Abate;
-use App\Models\Patrimonio\Localizacao;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Patrimonio\Info\AdicionalGeral;
 use App\Models\Patrimonio\Manutencao\Manutencao;
@@ -30,7 +30,7 @@ class Patrimonio extends Model
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 
@@ -57,7 +57,7 @@ class Patrimonio extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'users_id');
     }
     /* Informacoes */
         public function informacao()
@@ -67,6 +67,17 @@ class Patrimonio extends Model
         public function localizacao()
         {
             return $this->hasOne(Localizacao::class, 'patrimonio_id');
+        }
+
+        public function tipoName(){
+            if($this->imovel()->exists())
+                return 'Imovel';
+            if($this->veiculo()->exists())
+                return 'Veiculo';
+            if($this->livro()->exists())
+                return 'Livro';
+            if($this->movel()->exists())
+                return 'Movel';
         }
 
         public function imovel()
@@ -119,11 +130,11 @@ class Patrimonio extends Model
 
     /* Helpers */
         public function link(){
-            return URL::route('patrimonio.show', ['patrimonio'=>$this->id()]);
+            return URL::route('patrimonio.show', ['patrimonio'=>$this->chave()]);
         }
 
         public function linkFicheiros(){
-            return URL::route('patrimonio.ficheiros', ['patrimonio'=>$this->id()]);
+            return URL::route('patrimonio.ficheiros', ['patrimonio'=>$this->chave()]);
         }
 
         public function linkTipo(){
@@ -138,7 +149,7 @@ class Patrimonio extends Model
         }
 
         public function infoLink(){
-            return URL::route('patrimonio.info', ['patrimonio'=> $this->id()]);
+            return URL::route('patrimonio.info', ['patrimonio'=> $this->chave()]);
         }
 
         /* Operations link */

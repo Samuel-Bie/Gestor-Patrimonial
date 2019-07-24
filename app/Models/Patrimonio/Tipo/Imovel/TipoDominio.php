@@ -12,7 +12,7 @@ class TipoDominio extends Model
     protected $perPage      = 15;
     public $timestamps      = false;
 
-    public function id(){
+    public function chave(){
         return $this->id;
     }
 

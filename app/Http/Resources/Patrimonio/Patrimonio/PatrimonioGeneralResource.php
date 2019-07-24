@@ -15,7 +15,7 @@ class PatrimonioGeneralResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id" => $this->id(),
+            "id" => $this->chave(),
             'nip'               => $this->nip,
             'classe'            => $this->classe->designacao,
             'data_aquisicao'    => $this->data_aquisicao,
@@ -23,6 +23,7 @@ class PatrimonioGeneralResource extends JsonResource
             'estado_conservacao'=> $this->estadoConservacao->designacao,
             'valor_aquisicao'   => $this->valor_aquisicao,
             'ugb'               => $this->localizacao->ugb->designacao,
+            'tipo' => $this->tipoName(),
             'links' => [
                 'self' => [
                     'href' => $this->link()

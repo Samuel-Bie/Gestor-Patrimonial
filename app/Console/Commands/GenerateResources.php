@@ -52,29 +52,17 @@ class GenerateResources extends Command
         Artisan::call('make:resource User/Permissao/PermissaoGeneralResource');
         Artisan::call('make:resource User/Permissao/PermissaoCollection');
 
-        Artisan::call('make:resource Universidade/Setor/SetorBasicResource');
-        Artisan::call('make:resource Universidade/Setor/SetorGeneralResource');
-        Artisan::call('make:resource Universidade/Setor/SetorCollection');
+        Artisan::call('make:resource Instituicao/Setor/SetorBasicResource');
+        Artisan::call('make:resource Instituicao/Setor/SetorGeneralResource');
+        Artisan::call('make:resource Instituicao/Setor/SetorCollection');
 
-        Artisan::call('make:resource Universidade/UGE/UGEBasicResource');
-        Artisan::call('make:resource Universidade/UGE/UGEGeneralResource');
-        Artisan::call('make:resource Universidade/UGE/UGECollection');
+        Artisan::call('make:resource Instituicao/UGE/UGEBasicResource');
+        Artisan::call('make:resource Instituicao/UGE/UGEGeneralResource');
+        Artisan::call('make:resource Instituicao/UGE/UGECollection');
 
-        Artisan::call('make:resource Universidade/UGB/UGBBasicResource');
-        Artisan::call('make:resource Universidade/UGB/UGBGeneralResource');
-        Artisan::call('make:resource Universidade/UGB/UGBCollection');
-
-        Artisan::call('make:resource Universidade/Universidade/UniversidadeBasicResource');
-        Artisan::call('make:resource Universidade/Universidade/UniversidadeGeneralResource');
-        Artisan::call('make:resource Universidade/Universidade/UniversidadeCollection');
-
-        Artisan::call('make:resource Universidade/Departamento/DepartamentoBasicResource');
-        Artisan::call('make:resource Universidade/Departamento/DepartamentoGeneralResource');
-        Artisan::call('make:resource Universidade/Departamento/DepartamentoCollection');
-
-        Artisan::call('make:resource Universidade/Delegacao/DelegacaoBasicResource');
-        Artisan::call('make:resource Universidade/Delegacao/DelegacaoGeneralResource');
-        Artisan::call('make:resource Universidade/Delegacao/DelegacaoCollection');
+        Artisan::call('make:resource Instituicao/UGB/UGBBasicResource');
+        Artisan::call('make:resource Instituicao/UGB/UGBGeneralResource');
+        Artisan::call('make:resource Instituicao/UGB/UGBCollection');
 
         Artisan::call('make:resource Patrimonio/Patrimonio/PatrimonioBasicResource');
         Artisan::call('make:resource Patrimonio/Patrimonio/PatrimonioGeneralResource');

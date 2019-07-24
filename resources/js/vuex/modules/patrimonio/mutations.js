@@ -11,9 +11,6 @@ export default {
   set_setor(state, payload){
     state.setor = payload
   },
-  set_departamento(state, payload){
-    state.departamento = payload
-  },
   set_ficheiros(state, payload){
     state.selectedPatrimonio.ficheiros = payload
   },

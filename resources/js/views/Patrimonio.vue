@@ -4,43 +4,115 @@
     fluid
     grid-list-xl
   >
-    <v-layout wrap>
-         <v-flex
-        md12
-      >
-          <v-data-table
-            :headers="headers"
-            :items="items"
-            hide-actions
-            v-if="patrimonios"
-          >
-            <template
-              slot="headerCell"
-              slot-scope="{ header }"
-            >
-              <span
-                class="subheading font-weight-light text-success text--darken-3"
-                v-text="header.text"
-              />
-            </template>
-            <template
-              slot="items"
-              slot-scope="{ item }"
+    <v-layout wrap >
 
-            >
-              <tr>
-                <tr @click="showPatrimonio(item)">
-                <td>{{ item.nip }}</td>
-                <td>{{ item.classe }}</td>
-                <td>{{ item.ugb }}</td>
-                <td>{{ item.data_aquisicao }}</td>
-              </tr>
+      <v-flex xs12>
+        <template>
+          <v-bottom-sheet v-model="sheet">
+            <template v-slot:activator>
+
+            <v-btn
+                color="primary"
+                dark
+              >
+                <v-icon>mdi-share-variant</v-icon> Exportar
+              </v-btn>
+
             </template>
-          </v-data-table>
+            <v-list>
+              <v-subheader>Exportar em</v-subheader>
+              <v-list-tile
+                v-for="tile in tiles"
+                :key="tile.title"
+                @click="sheet = false"
+              >
+                <v-list-tile-avatar>
+                  <v-avatar size="32px" tile>
+                    <img
+                      :src="`${tile.img}`"
+                      :alt="tile.title"
+                    >
+                  </v-avatar>
+                </v-list-tile-avatar>
+                <v-list-tile-title>{{ tile.title }}</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-bottom-sheet>
+        </template>
+      </v-flex>
+
+      <v-flex md12 mt-1 >
+        <patrimonio-listagem-datatable></patrimonio-listagem-datatable>
       </v-flex>
     </v-layout>
+
+    <template>
+      <v-card id="create">
+          <v-speed-dial
+              v-model="fab"
+
+              :top="top"
+              :bottom="bottom"
+              :right="right"
+              :left="left"
+              :direction="direction"
+              :open-on-hover="hover"
+              :transition="transition"
+              >
+              <template v-slot:activator>
+                  <v-btn
+                  v-model="fab"
+                  color="blue darken-2"
+                  dark
+                  fab
+                  >
+                  <v-icon>mdi-plus</v-icon>
+                  <v-icon>mdi-close</v-icon>
+                  </v-btn>
+              </template>
+
+                  <router-link :to="{ name: 'Criar patrimonio'}">
+                    <v-btn
+                      fab
+                      dark
+                      small
+                      color="indigo"
+                      >
+                        <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                  </router-link>
+
+
+                  <v-btn
+                    fab
+                    dark
+                    small
+                    color="red"
+                    >
+                      <v-icon>mdi-database-import</v-icon>
+                  </v-btn>
+
+
+          </v-speed-dial>
+      </v-card>
+    </template>
+
   </v-container>
 </template>
+
+
+<style scoped>
+  /* This is for documentation purposes and will not be needed in your application */
+  #create .v-speed-dial {
+    position: fixed;
+    z-index:100;
+  }
+
+  #create .v-btn--floating {
+    position: relative;
+  }
+</style>
+
 
 
 <script>
@@ -55,47 +127,52 @@ import {
 export default {
     name: 'Patrimonio',
     computed: {
-      items(){
-        return this.patrimonios
-      },
-      ...mapGetters('patrimonio', ['patrimonios'])
+      ...mapState('app', ['image', 'color']),
     },
     data() {
       return {
-        headers: [
-          {
-            sortable: true,
-            text: 'NIP',
-            value: 'nip'
-          },
-          {
-            sortable: true,
-            text: 'Designação',
-            value: 'designacao'
-          },
-          {
-            sortable: true,
-            text: 'Localizacao',
-            value: 'localizacao'
-          },
-          {
-            sortable: false,
-            text: 'Data de aquisição',
-            value: 'estado',
-          }
+
+        direction: 'left',
+        fab: false,
+        fling: false,
+        hover: true,
+        tabs: null,
+        top: false,
+        right: true,
+        bottom: true,
+        left: false,
+        transition: 'scale-transition',
+
+        sheet: false,
+        tiles: [
+          { img: 'https://image.flaticon.com/icons/svg/179/179483.svg', title: 'PDF' },
+          { img: 'https://image.flaticon.com/icons/svg/888/888850.svg', title: 'Excel' },
+          { img: 'https://image.flaticon.com/icons/png/512/377/377324.png', title: 'CSV' },
+          { img: 'https://image.flaticon.com/icons/svg/136/136525.svg', title: 'JSON' },
         ],
       };
     },
 
     methods: {
-      ...mapActions('patrimonio', ['carregarBens','carregarBem']),
-      showPatrimonio(item){
-        this.carregarBem(item)
-        this.$router.push({ name: 'Ver patrimonio', params: { id: item.id }})
-      }
+      ...mapActions('patrimonio', ['carregarBens']),
     },
     mounted() {
-      // this.carregarBens()
+      this.carregarBens()
     },
+
+    watch: {
+        top (val) {
+            this.bottom = !val
+        },
+        right (val) {
+            this.left = !val
+        },
+        bottom (val) {
+            this.top = !val
+        },
+        left (val) {
+            this.right = !val
+        }
+    }
 };
 </script>

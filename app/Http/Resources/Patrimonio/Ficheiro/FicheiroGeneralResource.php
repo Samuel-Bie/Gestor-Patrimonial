@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Patrimonio\Ficheiro;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FicheiroGeneralResource extends JsonResource
@@ -15,7 +16,8 @@ class FicheiroGeneralResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'src'              => $this->path,
+            'id' => $this->chave(),
+            'src'              => URL::asset('storage/'.$this->path),
             'links' => [
                 'self' => [
                     'href' => $this->link()
