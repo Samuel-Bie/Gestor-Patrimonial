@@ -25,14 +25,14 @@ class CreateMovimentacoesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('patrimonio_id');
             $table->string('referencia_autorizacao')->nullable()->comment('referencia de autorizacao');
-            $table->date('data_autorizacao')->nullable();
+            $table->dateTime('data_autorizacao')->nullable();
             $table->string('entidade_autorizadora')->nullable();
-            $table->text('motivo')->nullable();
+            $table->longText('motivo')->nullable();
             $table->string('destino')->nullable();
-            $table->string('referencia_entrega')->nullable();
-            $table->date('data_entrega')->nullable();
+            $table->string('ref_entrega')->nullable();
+            $table->dateTime('data_entrega')->nullable();
             $table->string('funcionario_receptor')->nullable();
-            $table->string('obs', 45)->nullable();
+            $table->longText('obs')->nullable();
             $table->unsignedBigInteger('users_id');
 
             $table->index(["patrimonio_id"], 'fk_movimentacoes_patrimonio1_idx');

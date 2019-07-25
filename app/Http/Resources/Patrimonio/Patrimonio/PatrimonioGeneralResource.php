@@ -24,6 +24,7 @@ class PatrimonioGeneralResource extends JsonResource
             'valor_aquisicao'   => $this->valor_aquisicao,
             'ugb'               => $this->localizacao->ugb->designacao,
             'tipo' => $this->tipoName(),
+            'created_at' => $this->created_at->format('Y-m-d h:i'),
             'links' => [
                 'self' => [
                     'href' => $this->link()

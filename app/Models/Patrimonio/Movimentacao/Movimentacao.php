@@ -3,6 +3,7 @@
 namespace App\Models\Patrimonio\Movimentacao;
 
 use App\Models\User\User;
+use App\Models\Patrimonio\Ficheiro;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,6 +24,11 @@ class Movimentacao extends Model
     public function patrimonio()
     {
         return $this->belongsTo(Patrimonio::class, 'patrimonio_id');
+    }
+
+    public function ficheiros()
+    {
+        return $this->hasMany(Ficheiro::class, 'movimentacoes_id');
     }
 
     public function user()

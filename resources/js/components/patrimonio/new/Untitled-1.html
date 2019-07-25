@@ -1,196 +1,67 @@
 <template>
-    <div>
-        <v-container>
-            <v-layout justify-center align-center>
-                <v-flex xs12>
-                    <div v-if="!loading">
-                        <material-card color="info" :title="classe.designacao" :text="details.nip+' '">
-                            <v-card-text>
-                                <div>
-                                    <v-container class="pa-0" grid-list-xl fluid>
-                                        <v-layout row wrap m0>
-                                            <v-flex xs12 m0>
-                                                <span class="heading-4 text-info">Entidade utilizadora</span>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-container>
-
-                                    <v-container class="pa-0" grid-list-xl fluid>
-                                        <v-layout align-end wrap>
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">UGB</h6>
-                                                <small
-                                                    class="small">{{ details.localizacao.ugb.codigo }}<br>{{ details.localizacao.ugb.designacao }}</small>
-                                            </v-flex>
-
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">UGE</h6>
-                                                <small
-                                                    class="small">{{ details.localizacao.uge.codigo }}<br>{{ details.localizacao.uge.designacao }}</small>
-                                            </v-flex>
-
-                                            <v-flex xs6 md3 v-if="details.localizacao.setor!==null">
-                                                <h6 class="heading-6 text-uppercase">Setor</h6>
-                                                <small
-                                                    class="small">{{ details.localizacao.setor.codigo }}<br>{{ details.localizacao.setor.designacao }}</small>
-                                            </v-flex>
-                                            <!-- {{ details }} -->
-                                        </v-layout>
-
-                                        <v-layout align-end wrap>
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Provincia</h6>
-                                                <small class="small">{{ details.localizacao.ugb.provincia }}</small>
-                                            </v-flex>
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Distrito</h6>
-                                                <small class="small">{{ details.localizacao.ugb.destrito }}</small>
-                                            </v-flex>
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Posto Administrativo</h6>
-                                                <small
-                                                    class="small">{{ details.localizacao.ugb.posto_administrativo }}</small>
-                                            </v-flex>
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Localidade</h6>
-                                                <small class="small">{{ details.localizacao.ugb.localidade }}</small>
-                                            </v-flex>
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Bairro</h6>
-                                                <small class="small">{{ details.localizacao.ugb.localidade }}<br>Classe:
-                                                    {{ details.localizacao.ugb.classificador_territorial }}</small>
-                                            </v-flex>
-                                            <v-flex xs6 md6>
-                                                <h6 class="heading-6 text-uppercase">Endereco</h6>
-                                                <small class="small">{{ details.localizacao.ugb.endereco }}</small>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-container>
-                                </div>
-                            </v-card-text>
-                        </material-card>
-
-                        <material-card color="info">
-                            <v-card-text>
-                                <div>
-                                    <v-container class="pa-0" grid-list-xl fluid>
-                                        <v-layout row wrap m0>
-                                            <v-flex xs12 m0>
-                                                <span class="heading-4 text-info">Identificação</span>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-container>
-
-                                    <v-container class="pa-0" grid-list-xl fluid>
-                                        <v-layout align-end wrap>
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Classificador</h6>
-                                                <small
-                                                    class="small">{{ classe.codigo }}<br>{{ classe.designacao }}</small>
-                                            </v-flex>
-
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Forma de aquisição</h6>
-                                                <small
-                                                    class="small">{{ getFormaAquisicao.codigo }}<br>{{ getFormaAquisicao.designacao }}</small>
-                                            </v-flex>
-
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Estado de aquisição</h6>
-                                                <small class="small">{{ details.estado_aquisicao }}</small>
-                                            </v-flex>
-
-                                            <v-flex xs6 md3>
-                                                <h6 class="heading-6 text-uppercase">Estado de conservação</h6>
-                                                <small class="small">{{ details.estado_conservacao }}</small>
-                                            </v-flex>
-                                            <!-- {{ details }} -->
-                                        </v-layout>
-                                    </v-container>
-
-                                    <patrimonio-identificacao-parts-imovel v-if="imovel !==null" :details="details" :imovel="imovel">
-                                    </patrimonio-identificacao-parts-imovel>
-                                    <patrimonio-identificacao-parts-movel v-if="movel !==null" :details="details" :movel="movel">
-                                    </patrimonio-identificacao-parts-movel>
-                                    <patrimonio-identificacao-parts-veiculo v-if="veiculo !==null" :details="details" :veiculo="veiculo">
-                                    </patrimonio-identificacao-parts-veiculo>
-                                    <patrimonio-identificacao-parts-livro v-if="livro !==null" :details="details" :livro="livro">
-                                    </patrimonio-identificacao-parts-livro>
-
-                                </div>
-                            </v-card-text>
-                        </material-card>
-
-
-                        <material-card color="info" class="mt-4">
-                            <v-card-text>
-                                <div>
-                                    <v-container class="pa-0" grid-list-xl fluid>
-                                        <v-layout row wrap m0>
-                                            <v-flex xs12 m0>
-                                                <span class="heading-4 text-info">Informações adicionais</span>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-container>
-                                    <patrimonio-identificacao-parts-details :details="details" :imovel="imovel" :movel="movel"
-                                        :veiculo="veiculo" :livro="livro"></patrimonio-identificacao-parts-details>
-                                </div>
-                            </v-card-text>
-                        </material-card>
-
-                        <material-card color="info" class="mt-4" v-if="details.ficheiros.length > 0">
-                            <v-card-text>
-                                <div>
-                                    <v-container class="pa-0" grid-list-xl fluid>
-                                        <v-layout row wrap m0>
-                                            <v-flex xs12 m0>
-                                                <span class="heading-4 text-info">Ficheiros</span>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-container>
-                                    <patrimonio-files :files="details.ficheiros"></patrimonio-files>
-                                </div>
-                            </v-card-text>
-                        </material-card>
-                    </div>
-
-
-                    <div v-else>
-                        <material-card color="info" title="Carregando">
-                            <v-card-text>
-                                <v-container class="pa-0" grid-list-xl fluid>
-                                    <template>
-                                        <v-progress-linear :indeterminate="true"></v-progress-linear>
-                                    </template>
-                                </v-container>
-                            </v-card-text>
-
-                        </material-card>
-                    </div>
-                </v-flex>
-            </v-layout>
-            <template>
-                <v-card id="create">
-                    <v-speed-dial v-model="fab" :top="top" :bottom="bottom" :right="right" :left="left"
-                        :direction="direction" :open-on-hover="hover" :transition="transition">
-                        <template v-slot:activator>
-                            <v-btn v-model="fab" color="blue darken-2" dark fab>
-                                <v-icon>mdi-cogs</v-icon>
-                                <v-icon>mdi-close</v-icon>
-                            </v-btn>
-                        </template>
-                        <v-btn fab dark small color="green">
-                            <v-icon>mdi-pencil</v-icon>
-                        </v-btn>
-                        <v-btn fab dark small color="indigo">
-                            <v-icon>mdi-plus</v-icon>
-                        </v-btn>
-                        <v-btn fab dark small color="red">
-                            <v-icon>mdi-trash-can-outline</v-icon>
-                        </v-btn>
-                    </v-speed-dial>
-                </v-card>
-            </template>
-        </v-container>
-    </div>
+    <v-container fill-height fluid grid-list-xl>
+        <v-layout justify-center wrap>
+            <v-flex xs12 md8>
+                <material-card color="green" title="Edit Profile" text="Complete your profile">
+                    <v-form>
+                        <v-container py-0>
+                            <v-layout wrap>
+                                <v-flex xs12 md4>
+                                    <v-text-field label="Company (disabled)" disabled />
+                                </v-flex>
+                                <v-flex xs12 md4>
+                                    <v-text-field class="purple-input" label="User Name" />
+                                </v-flex>
+                                <v-flex xs12 md4>
+                                    <v-text-field label="Email Address" class="purple-input" />
+                                </v-flex>
+                                <v-flex xs12 md6>
+                                    <v-text-field label="First Name" class="purple-input" />
+                                </v-flex>
+                                <v-flex xs12 md6>
+                                    <v-text-field label="Last Name" class="purple-input" />
+                                </v-flex>
+                                <v-flex xs12 md12>
+                                    <v-text-field label="Adress" class="purple-input" />
+                                </v-flex>
+                                <v-flex xs12 md4>
+                                    <v-text-field label="City" class="purple-input" />
+                                </v-flex>
+                                <v-flex xs12 md4>
+                                    <v-text-field label="Country" class="purple-input" />
+                                </v-flex>
+                                <v-flex xs12 md4>
+                                    <v-text-field class="purple-input" label="Postal Code" type="number" />
+                                </v-flex>
+                                <v-flex xs12>
+                                    <v-textarea class="purple-input" label="About Me"
+                                        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+                                </v-flex>
+                                <v-flex xs12 text-xs-right>
+                                    <v-btn class="mx-0 font-weight-light" color="success">
+                                        Update Profile
+                                    </v-btn>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-form>
+                </material-card>
+            </v-flex>
+            <v-flex xs12 md4>
+                <material-card class="v-card-profile">
+                    <v-avatar slot="offset" class="mx-auto d-block" size="130">
+                        <img src="https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg">
+                    </v-avatar>
+                    <v-card-text class="text-xs-center">
+                        <h6 class="category text-gray font-weight-thin mb-3">CEO / CO-FOUNDER</h6>
+                        <h4 class="card-title font-weight-light">Alec Thompson</h4>
+                        <p class="card-description font-weight-light">Don't be scared of the truth because we need to
+                            restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick
+                            Owens’ bed design but the back is...</p>
+                        <v-btn color="success" round class="font-weight-light">Follow</v-btn>
+                    </v-card-text>
+                </material-card>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>

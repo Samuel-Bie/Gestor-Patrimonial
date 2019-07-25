@@ -3,6 +3,7 @@
 namespace App\Models\Patrimonio\Manutencao;
 
 use App\Models\User\User;
+use App\Models\Patrimonio\Ficheiro;
 use App\Models\Patrimonio\Patrimonio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Manutencao extends Model
 {
     use SoftDeletes;
-    protected $table        = 'manuntencao';
+    protected $table        = 'manutencao';
     protected $primaryKey   = "id";
     protected $perPage      = 15;
     protected $dates        = ['deleted_at'];
@@ -23,6 +24,11 @@ class Manutencao extends Model
     public function patrimonio()
     {
         return $this->belongsTo(Patrimonio::class, 'patrimonio_id');
+    }
+
+    public function ficheiros()
+    {
+        return $this->hasMany(Ficheiro::class, 'manutencao_id');
     }
 
     public function user()

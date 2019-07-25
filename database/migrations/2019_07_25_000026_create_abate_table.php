@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateManuntencaoTable extends Migration
+class CreateAbateTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'manuntencao';
+    public $tableName = 'abate';
 
     /**
      * Run the migrations.
-     * @table manuntencao
+     * @table abate
      *
      * @return void
      */
@@ -23,35 +23,31 @@ class CreateManuntencaoTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('referencia_autorizacao')->nullable()->comment('referencia de autorizacao');
-            $table->date('data_autorizacao')->nullable();
+            $table->integer('nr_auto_ver_incap');
+            $table->dateTime('data_despacho')->nullable()->comment('Data de despacho do numero de auto');
             $table->string('entidade_autorizadora')->nullable();
-            $table->text('motivo')->nullable();
+            $table->float('valor_atual')->nullable();
+            $table->longText('motivo')->nullable();
             $table->string('destino')->nullable();
-            $table->string('referencia_entrega')->nullable();
-            $table->date('data_entrega')->nullable();
-            $table->string('funcionario_receptor')->nullable();
-            $table->string('obs', 45)->nullable();
-            $table->string('entidate_manuntencao')->nullable();
-            $table->integer('periodo_manuntencao')->nullable()->comment('Periodo em dias');
-            $table->string('local_manuntencao')->nullable();
-            $table->string('obs_manuntencao')->nullable();
+            $table->string('ref_entrega', 45)->nullable();
+            $table->dateTime('data_entrega')->nullable();
+            $table->longText('obs')->nullable();
             $table->unsignedInteger('patrimonio_id');
             $table->unsignedBigInteger('users_id');
 
-            $table->index(["patrimonio_id"], 'fk_manuntencao_patrimonio1_idx');
+            $table->index(["users_id"], 'fk_dados_abate_users1_idx');
 
-            $table->index(["users_id"], 'fk_manuntencao_users1_idx');
+            $table->index(["patrimonio_id"], 'fk_dados_abate_patrimonio1_idx');
             $table->softDeletes();
             $table->nullableTimestamps();
 
 
-            $table->foreign('patrimonio_id', 'fk_manuntencao_patrimonio1_idx')
+            $table->foreign('patrimonio_id', 'fk_dados_abate_patrimonio1_idx')
                 ->references('id')->on('patrimonio')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('users_id', 'fk_manuntencao_users1_idx')
+            $table->foreign('users_id', 'fk_dados_abate_users1_idx')
                 ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');

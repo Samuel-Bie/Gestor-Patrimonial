@@ -31,12 +31,12 @@ class Ficheiro extends Model
 
     public function abate()
     {
-        return $this->belongsTo(Abate::class, 'dados_abate_id');
+        return $this->belongsTo(Abate::class, 'abate_id');
     }
 
     public function transferencia()
     {
-        return $this->belongsTo(Transferencia::class, 'dados_transferencia_id');
+        return $this->belongsTo(Transferencia::class, 'transferencia_id');
     }
 
     public function movimentacao()
@@ -44,7 +44,7 @@ class Ficheiro extends Model
         return $this->belongsTo(Movimentacao::class, 'movimentacoes_id');
     }
 
-    public function manuntencao()
+    public function manutencao()
     {
         return $this->belongsTo(Manutencao::class, 'manutencao_id');
     }
@@ -62,7 +62,7 @@ class Ficheiro extends Model
             return $this->transferencia->link();
         if($this->movimentacao()->exists())
             return $this->movimentacao->link();
-        if($this->manuntencao()->exists())
-            return $this->manuntencao->link();
+        if($this->manutencao()->exists())
+            return $this->manutencao->link();
     }
 }

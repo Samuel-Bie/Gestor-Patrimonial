@@ -79,6 +79,8 @@ class GenerateResources extends Command
         Artisan::call('make:resource Patrimonio/Operations/Transferencia/TransferenciaBasicResource');
         Artisan::call('make:resource Patrimonio/Operations/Transferencia/TransferenciaGeneralResource');
         Artisan::call('make:resource Patrimonio/Operations/Transferencia/TransferenciaCollection');
+        Artisan::call('make:resource Patrimonio/Operations/PatrimonioOperationBasicResource');
+
 
         Artisan::call('make:resource Patrimonio/Tools/FormaDeAquisicao/FormaDeAquisicaoBasicResource');
         Artisan::call('make:resource Patrimonio/Tools/FormaDeAquisicao/FormaDeAquisicaoGeneralResource');

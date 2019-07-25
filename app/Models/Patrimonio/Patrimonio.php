@@ -154,10 +154,10 @@ class Patrimonio extends Model
 
         /* Operations link */
             public function movimentacoesLink(){
-
+                return URL::route('movimentacao.index', ['patrimonio' => $this->chave()]);
             }
             public function manutencoesLink(){
-
+                return URL::route('manutencao.index', ['patrimonio' => $this->chave()]);
             }
         /* Operations link */
     /* Helpers */

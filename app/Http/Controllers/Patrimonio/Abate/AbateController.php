@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Patrimonio\Patrimonio;
 use App\Models\Patrimonio\Abate\Abate;
 use App\Http\Resources\Patrimonio\Operations\Abate\AbateCollection;
+use App\Http\Resources\Patrimonio\Operations\Abate\AbateGeneralResource;
+use App\Http\Resources\Patrimonio\Operations\Abate\AbateBasicResource;
 
 class AbateController extends Controller
 {
@@ -15,10 +17,14 @@ class AbateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Patrimonio $patrimonio)
     {
+        $abate = $patrimonio->abate;
+        return new AbateBasicResource($abate);
+
         $abates = Abate::paginate();
-        return (new AbateCollection($abates));
+
+        return (new AbateBasicResource($abates));
     }
 
     /**
@@ -38,9 +44,9 @@ class AbateController extends Controller
      * @param  \App\Models\Patrimonio\Abate\Abate  $Abate
      * @return \Illuminate\Http\Response
      */
-    public function show(Abate $Abate)
+    public function show(Patrimonio $patrimonio, Abate $abate)
     {
-        //
+        return new AbateGeneralResource($abate);
     }
 
     /**

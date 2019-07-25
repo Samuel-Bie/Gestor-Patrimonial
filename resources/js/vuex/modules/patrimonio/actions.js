@@ -59,5 +59,18 @@ export default {
         .catch((error) => {
             console.log(error)
         })
+    },
+
+    carregarTimeline({commit}, payload){
+        commit('setLoading', true, { root: true })
+        axios.get(`api/patrimonio/${payload}/operacoes`)
+        .then((response) => {
+            const data = response.data.data
+            commit('set_timeline', data)
+            commit('setLoading', false, { root: true })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }

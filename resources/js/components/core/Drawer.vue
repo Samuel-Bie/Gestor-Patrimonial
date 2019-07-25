@@ -101,18 +101,19 @@ export default {
       {
         to: '/dashboard',
         icon: 'mdi-view-dashboard',
-        text: 'Dashboard'
+        text: 'Página inicial'
       },
-      {
-        to: '/user-profile',
-        icon: 'mdi-account',
-        text: 'User Profile'
-      },
+
       {
         to: '/patrimonio',
         icon: 'mdi-office-building',
         text: 'Patrimonio'
-      }
+      },
+      {
+        to: '/user-profile',
+        icon: 'mdi-account',
+        text: 'Perfil'
+      },
     ],
     responsive: false
   }),

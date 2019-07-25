@@ -14,6 +14,21 @@ class ManutencaoBasicResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'data'      => $this->created_at->format('Y-m-d H:i'),
+            'referencia_autorizacao'   => $this->referencia_autorizacao,
+            'data_autorizacao'         => $this->data_autorizacao,
+            'entidade_autorizadora' => $this->entidade_autorizadora,
+            'motivo'                => $this->motivo,
+            'destino'               => $this->destino,
+            'ref_entrega'           => $this->ref_entrega,
+            'data_entrega'          => $this->data_entrega,
+            'funcionario_receptor'  => $this->funcionario_receptor,
+            'obs'                   => $this->obs,
+            'entidade_manutencao'   => $this->entidade_manutencao,
+            'periodo_manutencao'    => $this->periodo_manutencao,
+            'local_manutencao'      => $this->local_manutencao,
+            'obs_manutencao'        => $this->obs_manutencao,
+        ];
     }
 }

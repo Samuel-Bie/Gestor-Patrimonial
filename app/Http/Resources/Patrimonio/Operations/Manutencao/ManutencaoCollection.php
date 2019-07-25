@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Patrimonio\Operations\Manutencao;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Models\Patrimonio\Manutencao\Manutencao;
 
 class ManutencaoCollection extends ResourceCollection
 {
@@ -14,6 +15,9 @@ class ManutencaoCollection extends ResourceCollection
      */
     public function toArray($request)
     {
+        $this->collection->transform(function (Manutencao $manutencao) {
+            return (new ManutencaoBasicResource($manutencao));
+        });
         return parent::toArray($request);
     }
 }

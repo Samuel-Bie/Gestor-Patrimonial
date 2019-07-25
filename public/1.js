@@ -1310,7 +1310,7 @@ var render = function() {
           ],
           _vm._v(" "),
           _c("patrimonio-timeline", {
-            attrs: { dialog: _vm.timeline },
+            attrs: { dialog: _vm.timeline, patrimonio: _vm.id },
             on: {
               close: function($event) {
                 _vm.timeline = false

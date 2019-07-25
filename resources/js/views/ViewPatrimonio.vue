@@ -215,7 +215,7 @@
             </template>
 
 
-            <patrimonio-timeline :dialog="timeline" @close="timeline=false"></patrimonio-timeline>
+            <patrimonio-timeline :dialog="timeline" :patrimonio="id" @close="timeline=false"></patrimonio-timeline>
         </v-container>
     </div>
 </template>

@@ -13,6 +13,6 @@ export default {
     authUserSuccess:false,
   /* autenicate users */
 
-  APP_PASSPORT_CLIENT_SECRET:'IUmdAORWZdCwYFWPsQmQZ0zBXXYpAzRMOtlA6ebx',
+  APP_PASSPORT_CLIENT_SECRET:'PkLTp5rA1YIrsTAyEgvYDVc8XZtELiOBPvhSuoPa',
   APP_PASSPORT_CLIENT_ID: 2
 }

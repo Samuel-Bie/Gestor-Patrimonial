@@ -58,16 +58,16 @@ class PatrimonioBasicResource extends JsonResource
             ],
             'operacoes' =>[
                 'abate' => $this->abate()->exists()? [
-                    'href' => $this->linkTipo()
+                    'href' => $this->abate->link()
                 ]: null,
                 'transferencia' => $this->transferencia()->exists()? [
-                    'href' => $this->linkTipo()
+                    'href' => $this->transferencia->link()
                 ]: null,
                 'movimentacoes' => $this->movimentacoes()->exists()? [
-                    'href' => $this->linkTipo()
+                    'href' => $this->movimentacoesLink()
                 ]: null,
                 'manutencoes' => $this->manutencoes()->exists()? [
-                    'href' => $this->linkTipo()
+                    'href' => $this->manutencoesLink()
                 ]: null,
 
             ],

@@ -20,12 +20,14 @@ Route::middleware(['auth:api'])->group(function () {
             Route::get('{patrimonio}/info',     'Patrimonio\InformacaoController@show')->name('patrimonio.info');
             Route::get('{patrimonio}/localizacao', 'Patrimonio\LocalizacaoController@show')->name('patrimonio.localizacao.show');
 
-            /* Movimentacaoes */
+            /* Operações */
+                Route::get('/{patrimonio}/operacoes',               'Patrimonio\PatrimonioController@operacoes')->name('operacoes.show');
                 Route::apiResource('{patrimonio}/abate',            'Patrimonio\Abate\AbateController');
                 Route::apiResource('{patrimonio}/transferencia',    'Patrimonio\Transferencia\TransferenciaController');
+
                 Route::apiResource('{patrimonio}/manutencao',       'Patrimonio\Manutencao\ManutencaoController');
                 Route::apiResource('{patrimonio}/movimentacao',     'Patrimonio\Movimentacao\MovimentacaoController');
-            /* Movimentacaoes */
+            /* Operações */
 
         });
 

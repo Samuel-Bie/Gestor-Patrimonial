@@ -35,4 +35,8 @@ export default {
     },
   /* Tipos de patrimonio */
 
+  set_timeline(state, payload){
+    state.timeline = payload
+  },
+
 }

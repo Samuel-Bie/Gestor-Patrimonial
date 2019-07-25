@@ -27,6 +27,7 @@ use App\Models\Patrimonio\Tools\ClassificadorGeral;
 use App\Http\Resources\Patrimonio\Ficheiro\FicheiroCollection;
 use App\Http\Resources\Patrimonio\Patrimonio\PatrimonioCollection;
 use App\Http\Resources\Patrimonio\Patrimonio\PatrimonioBasicResource;
+use App\Http\Resources\Patrimonio\Operations\PatrimonioOperationBasicResource;
 
 class PatrimonioController extends Controller
 {
@@ -227,6 +228,11 @@ class PatrimonioController extends Controller
     public function show(Patrimonio $patrimonio)
     {
         return new PatrimonioBasicResource($patrimonio);
+    }
+
+    public function operacoes(Patrimonio $patrimonio){
+
+        return new PatrimonioOperationBasicResource($patrimonio);
     }
 
     public function files(Patrimonio $patrimonio)

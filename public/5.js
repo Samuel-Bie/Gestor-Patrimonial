@@ -76,84 +76,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({//
 });
 
@@ -348,7 +270,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                  Update Profile\n                "
+                                        "\n                                    Update Profile\n                                "
                                       )
                                     ]
                                   )
@@ -420,7 +342,7 @@ var render = function() {
                         { staticClass: "card-description font-weight-light" },
                         [
                           _vm._v(
-                            "Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is..."
+                            "Don't be scared of the truth because we need to\n                        restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick\n                        Owens’ bed design but the back is..."
                           )
                         ]
                       ),

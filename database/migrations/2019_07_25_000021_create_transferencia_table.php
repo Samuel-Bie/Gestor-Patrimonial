@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDadosTransferenciaTable extends Migration
+class CreateTransferenciaTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'dados_transferencia';
+    public $tableName = 'transferencia';
 
     /**
      * Run the migrations.
-     * @table dados_transferencia
+     * @table transferencia
      *
      * @return void
      */
@@ -24,16 +24,16 @@ class CreateDadosTransferenciaTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('referencia_autorizacao')->nullable()->comment('referencia de autorizacao');
-            $table->date('data_autorizacao')->nullable();
+            $table->dateTime('data_autorizacao')->nullable();
             $table->string('entidade_autorizadora')->nullable();
-            $table->text('motivo')->nullable();
+            $table->longText('motivo')->nullable();
             $table->string('destino')->nullable();
             $table->float('valor_atual')->nullable();
             $table->float('custo_transferencia')->nullable();
-            $table->string('referencia_entrega')->nullable();
+            $table->string('ref_entrega')->nullable();
             $table->date('data_entrega')->nullable();
             $table->string('funcionario_receptor')->nullable();
-            $table->string('obs', 45)->nullable();
+            $table->longText('obs')->nullable();
             $table->unsignedInteger('patrimonio_id');
             $table->unsignedBigInteger('users_id');
 

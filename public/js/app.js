@@ -2188,15 +2188,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       links: [{
         to: '/dashboard',
         icon: 'mdi-view-dashboard',
-        text: 'Dashboard'
-      }, {
-        to: '/user-profile',
-        icon: 'mdi-account',
-        text: 'User Profile'
+        text: 'Página inicial'
       }, {
         to: '/patrimonio',
         icon: 'mdi-office-building',
         text: 'Patrimonio'
+      }, {
+        to: '/user-profile',
+        icon: 'mdi-account',
+        text: 'Perfil'
       }],
       responsive: false
     };
@@ -3946,6 +3946,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -4004,40 +4011,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['dialog'],
+  props: ['dialog', 'patrimonio'],
   data: function data() {
     return {
       notifications: false,
       sound: true,
-      widgets: false,
-      items: [{
-        title: 'Registro',
-        color: 'lighten-2 green',
-        icon: 'mdi-content-save-outline',
-        year: '1975'
-      }, {
-        title: 'Manutencao ',
-        color: 'darken-1 accent',
-        icon: 'mdi-wrench-outline',
-        year: '1980'
-      }, {
-        title: 'Transferencia',
-        color: 'lighten-1 yellow',
-        icon: 'mdi-swap-horizontal',
-        year: '1986'
-      }, {
-        title: 'Abate',
-        color: 'red',
-        icon: 'mdi-delete-outline',
-        year: '1995'
-      }]
+      widgets: false
     };
   },
-  methods: {
+  computed: _objectSpread({
+    loader: function loader() {
+      return this.dialog && this.loading;
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    loading: 'getLoading',
+    timeline: 'patrimonio/getTimeline'
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('patrimonio', ['carregarTimeline']), {
     closeDialog: function closeDialog() {
       this.$emit('close');
     }
+  }),
+  created: function created() {
+    this.carregarTimeline(this.patrimonio);
   }
 });
 
@@ -38477,85 +38502,90 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c(
-                "v-container",
-                { attrs: { "grid-list-xs": "" } },
-                [
-                  _c(
-                    "v-flex",
-                    { attrs: { xs12: "" } },
+              !_vm.loading
+                ? _c(
+                    "v-container",
+                    { attrs: { "grid-list-xs": "" } },
                     [
                       _c(
-                        "v-timeline",
-                        { attrs: { "align-top": "" } },
-                        _vm._l(_vm.items, function(item, i) {
-                          return _c(
-                            "v-timeline-item",
-                            {
-                              key: i,
-                              attrs: {
-                                color: item.color,
-                                icon: item.icon,
-                                "fill-dot": ""
-                              },
-                              scopedSlots: _vm._u(
+                        "v-flex",
+                        { attrs: { xs12: "" } },
+                        [
+                          _c(
+                            "v-timeline",
+                            { attrs: { "align-top": "" } },
+                            _vm._l(_vm.timeline, function(item, i) {
+                              return _c(
+                                "v-timeline-item",
+                                {
+                                  key: i,
+                                  attrs: {
+                                    color: item.color,
+                                    icon: item.icon,
+                                    "fill-dot": ""
+                                  },
+                                  scopedSlots: _vm._u(
+                                    [
+                                      {
+                                        key: "opposite",
+                                        fn: function() {
+                                          return [
+                                            _c("span", {
+                                              class:
+                                                "headline font-weight-bold " +
+                                                item.color +
+                                                "--text",
+                                              domProps: {
+                                                textContent: _vm._s(item.data)
+                                              }
+                                            })
+                                          ]
+                                        },
+                                        proxy: true
+                                      }
+                                    ],
+                                    null,
+                                    true
+                                  )
+                                },
                                 [
-                                  {
-                                    key: "opposite",
-                                    fn: function() {
-                                      return [
-                                        _c("span", {
-                                          class:
-                                            "headline font-weight-bold " +
-                                            item.color +
-                                            "--text",
-                                          domProps: {
-                                            textContent: _vm._s(item.year)
-                                          }
-                                        })
-                                      ]
-                                    },
-                                    proxy: true
-                                  }
-                                ],
-                                null,
-                                true
-                              )
-                            },
-                            [
-                              _vm._v(" "),
-                              _c(
-                                "v-card",
-                                { attrs: { color: item.color, dark: "" } },
-                                [
-                                  _c("v-card-title", { staticClass: "title" }, [
-                                    _vm._v(_vm._s(item.title))
-                                  ]),
                                   _vm._v(" "),
                                   _c(
-                                    "v-card-text",
-                                    { staticClass: "white text--primary" },
+                                    "v-card",
+                                    { attrs: { color: item.color, dark: "" } },
                                     [
-                                      _c("p", [
-                                        _vm._v(
-                                          "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
-                                        )
-                                      ]),
+                                      _c(
+                                        "v-card-title",
+                                        { staticClass: "title" },
+                                        [_vm._v(_vm._s(item.tipo))]
+                                      ),
                                       _vm._v(" "),
                                       _c(
-                                        "v-btn",
-                                        {
-                                          staticClass: "mx-0",
-                                          attrs: {
-                                            color: item.color,
-                                            outline: ""
-                                          }
-                                        },
+                                        "v-card-text",
+                                        { staticClass: "white text--primary" },
                                         [
-                                          _vm._v(
-                                            "\n                          Button\n                      "
+                                          _c("p", [
+                                            _vm._v(_vm._s(item.descricao))
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              staticClass: "mx-0",
+                                              attrs: {
+                                                color: "info",
+                                                outline: "",
+                                                flat: ""
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                          Detalhes\n                      "
+                                              )
+                                            ]
                                           )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ],
                                     1
@@ -38563,20 +38593,69 @@ var render = function() {
                                 ],
                                 1
                               )
-                            ],
+                            }),
                             1
                           )
-                        }),
+                        ],
                         1
                       )
                     ],
                     1
                   )
-                ],
-                1
-              )
+                : [
+                    _c(
+                      "div",
+                      { staticClass: "text-xs-center" },
+                      [
+                        _c(
+                          "v-dialog",
+                          {
+                            attrs: {
+                              "hide-overlay": "",
+                              persistent: "",
+                              width: "300"
+                            },
+                            model: {
+                              value: _vm.loader,
+                              callback: function($$v) {
+                                _vm.loader = $$v
+                              },
+                              expression: "loader"
+                            }
+                          },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { color: "primary", dark: "" } },
+                              [
+                                _c(
+                                  "v-card-text",
+                                  [
+                                    _vm._v(
+                                      "\n                  Por favor aguarde\n                  "
+                                    ),
+                                    _c("v-progress-linear", {
+                                      staticClass: "mb-0",
+                                      attrs: {
+                                        indeterminate: "",
+                                        color: "white"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ]
             ],
-            1
+            2
           )
         ],
         1
@@ -92705,6 +92784,21 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log(error);
     });
+  },
+  carregarTimeline: function carregarTimeline(_ref3, payload) {
+    var commit = _ref3.commit;
+    commit('setLoading', true, {
+      root: true
+    });
+    axios.get("api/patrimonio/".concat(payload, "/operacoes")).then(function (response) {
+      var data = response.data.data;
+      commit('set_timeline', data);
+      commit('setLoading', false, {
+        root: true
+      });
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -92720,6 +92814,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/vuex/modules/patrimonio/state.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // https://vuex.vuejs.org/en/getters.html
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -92753,6 +92853,71 @@ __webpack_require__.r(__webpack_exports__);
   },
   getVeiculo: function getVeiculo(state) {
     return state.veiculo;
+  },
+  getTimeline: function getTimeline(state) {
+    /* abate,creation, manutencoes,movimentacoes, transferencia,  */
+    if (!state.timeline) return state.timeline;
+    var pureTimeline = state.timeline;
+    var newTimeline = [];
+    newTimeline.push(_objectSpread({
+      color: 'lighten-2 blue',
+      icon: 'mdi-content-save-outline'
+    }, pureTimeline.creation, {
+      data: pureTimeline.creation.created_at,
+      tipo: 'Criacao',
+      descricao: 'Entrada no sistema do bem ' + pureTimeline.creation.tipo
+    }));
+    if (pureTimeline.abate) newTimeline.push(_objectSpread({
+      tipo: 'Abate',
+      icon: 'mdi-delete-outline',
+      color: 'red'
+    }, pureTimeline.abate, {
+      descricao: 'Realizacao do abate, com destino ' + pureTimeline.abate.destino
+    }));
+    if (pureTimeline.transferencia) newTimeline.push(_objectSpread({
+      tipo: 'Transferencia',
+      icon: 'mdi-swap-horizontal',
+      color: 'lighten-2 green'
+    }, pureTimeline.transferencia, {
+      descricao: 'Realizacao do transferencia para destino ' + pureTimeline.transferencia.destino + ' pelo motivo: ' + pureTimeline.transferencia.motivo
+    }));
+    var movs = [];
+
+    if (pureTimeline.movimentacoes.length) {
+      movs = pureTimeline.movimentacoes.map(function (element, index) {
+        newTimeline.push(_objectSpread({
+          tipo: 'Movimentacao',
+          icon: 'mdi-file-move',
+          color: 'lighten-1 yellow'
+        }, element, {
+          descricao: 'Movimentacao da localizacao do bem para ' + element.destino
+        }));
+        return _objectSpread({
+          tipo: 'Movimentacao'
+        }, element);
+      });
+    }
+
+    var manutencoes = [];
+
+    if (pureTimeline.manutencoes.length) {
+      manutencoes = pureTimeline.manutencoes.map(function (element, index) {
+        newTimeline.push(_objectSpread({
+          tipo: 'Manutencao',
+          icon: 'mdi-wrench-outline',
+          color: 'darken-1 accent'
+        }, element, {
+          descricao: 'Registro de manutencao por motivos de ' + element.motivo
+        }));
+        return _objectSpread({
+          tipo: 'Manutencao'
+        }, element);
+      });
+    }
+
+    return newTimeline.sort(function (operationA, operationB) {
+      return operationA.date < operationB.date;
+    });
   }
 });
 
@@ -92830,6 +92995,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   set_veiculo: function set_veiculo(state, payload) {
     state.veiculo = payload;
+  },
+
+  /* Tipos de patrimonio */
+  set_timeline: function set_timeline(state, payload) {
+    state.timeline = payload;
   }
 });
 
@@ -92857,13 +93027,14 @@ __webpack_require__.r(__webpack_exports__);
   imovel: null,
   livro: null,
   movel: null,
-  veiculo: null
+  veiculo: null,
+
   /* Tipos de bens */
 
   /* Criacao de bens */
 
   /* Criacao de bens */
-
+  timeline: null
 });
 
 /***/ }),
@@ -93163,7 +93334,7 @@ __webpack_require__.r(__webpack_exports__);
   authUserSuccess: false,
 
   /* autenicate users */
-  APP_PASSPORT_CLIENT_SECRET: 'IUmdAORWZdCwYFWPsQmQZ0zBXXYpAzRMOtlA6ebx',
+  APP_PASSPORT_CLIENT_SECRET: 'PkLTp5rA1YIrsTAyEgvYDVc8XZtELiOBPvhSuoPa',
   APP_PASSPORT_CLIENT_ID: 2
 });
 

@@ -25,20 +25,20 @@ class CreateFicheirosTable extends Migration
             $table->increments('id');
             $table->text('path')->nullable();
             $table->unsignedInteger('patrimonio_id')->nullable();
-            $table->unsignedInteger('dados_abate_id')->nullable();
-            $table->unsignedInteger('dados_transferencia_id')->nullable();
+            $table->unsignedInteger('abate_id')->nullable();
+            $table->unsignedInteger('transferencia_id')->nullable();
             $table->unsignedInteger('movimentacoes_id')->nullable();
-            $table->unsignedInteger('manuntencao_id')->nullable();
-
-            $table->index(["manuntencao_id"], 'fk_ficheiros_manuntencao1_idx');
+            $table->unsignedInteger('manutencao_id')->nullable();
 
             $table->index(["patrimonio_id"], 'fk_ficheiros_patrimonio1_idx');
 
             $table->index(["movimentacoes_id"], 'fk_ficheiros_movimentacoes1_idx');
 
-            $table->index(["dados_transferencia_id"], 'fk_ficheiros_dados_transferencia1_idx');
+            $table->index(["abate_id"], 'fk_ficheiros_abate1_idx');
 
-            $table->index(["dados_abate_id"], 'fk_ficheiros_dados_abate1_idx');
+            $table->index(["transferencia_id"], 'fk_ficheiros_transferencia1_idx');
+
+            $table->index(["manutencao_id"], 'fk_ficheiros_manutencao1_idx');
             $table->softDeletes();
             $table->nullableTimestamps();
 
@@ -48,13 +48,13 @@ class CreateFicheirosTable extends Migration
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('dados_abate_id', 'fk_ficheiros_dados_abate1_idx')
-                ->references('id')->on('dados_abate')
+            $table->foreign('abate_id', 'fk_ficheiros_abate1_idx')
+                ->references('id')->on('abate')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('dados_transferencia_id', 'fk_ficheiros_dados_transferencia1_idx')
-                ->references('id')->on('dados_transferencia')
+            $table->foreign('transferencia_id', 'fk_ficheiros_transferencia1_idx')
+                ->references('id')->on('transferencia')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
@@ -63,8 +63,8 @@ class CreateFicheirosTable extends Migration
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('manuntencao_id', 'fk_ficheiros_manuntencao1_idx')
-                ->references('id')->on('manuntencao')
+            $table->foreign('manutencao_id', 'fk_ficheiros_manutencao1_idx')
+                ->references('id')->on('manutencao')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

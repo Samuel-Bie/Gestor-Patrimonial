@@ -13,11 +13,11 @@
 
         </v-toolbar>
 
-        <v-container grid-list-xs>
+        <v-container grid-list-xs v-if="!loading">
             <v-flex xs12>
                 <v-timeline align-top>
                     <v-timeline-item
-                    v-for="(item, i) in items"
+                    v-for="(item, i) in timeline"
                     :key="i"
                     :color="item.color"
                     :icon="item.icon"
@@ -26,7 +26,7 @@
                     <template v-slot:opposite>
                         <span
                         :class="`headline font-weight-bold ${item.color}--text`"
-                        v-text="item.year"
+                        v-text="item.data"
                         ></span>
                     </template>
 
@@ -34,15 +34,16 @@
                         :color="item.color"
                         dark
                     >
-                        <v-card-title class="title">{{ item.title }}</v-card-title>
+                        <v-card-title class="title">{{ item.tipo }}</v-card-title>
                         <v-card-text class="white text--primary">
-                        <p>Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.</p>
+                        <p>{{item.descricao}}</p>
                         <v-btn
-                            :color="item.color"
+                            color="info"
                             class="mx-0"
                             outline
+                            flat
                         >
-                            Button
+                            Detalhes
                         </v-btn>
                         </v-card-text>
                     </v-card>
@@ -51,49 +52,70 @@
             </v-flex>
         </v-container>
 
+
+        <template v-else>
+            <div class="text-xs-center">
+                <v-dialog
+                v-model="loader"
+                hide-overlay
+                persistent
+                width="300"
+                >
+                <v-card
+                    color="primary"
+                    dark
+                >
+                    <v-card-text>
+                    Por favor aguarde
+                    <v-progress-linear
+                        indeterminate
+                        color="white"
+                        class="mb-0"
+                    ></v-progress-linear>
+                    </v-card-text>
+                </v-card>
+                </v-dialog>
+            </div>
+            </template>
+
       </v-card>
     </v-dialog>
   </v-layout>
 </template>
 
 <script>
+
+    import {
+        mapMutations,
+        mapState,
+        mapActions,
+        mapGetters
+    } from 'vuex'
+
     export default {
-        props:['dialog'],
+        props:['dialog', 'patrimonio'],
         data: () => ({
             notifications: false,
             sound: true,
             widgets: false,
-            items: [
-                {
-                    title: 'Registro',
-                    color: 'lighten-2 green',
-                    icon: 'mdi-content-save-outline',
-                    year: '1975'
-                },
-                {
-                    title: 'Manutencao ',
-                    color: 'darken-1 accent',
-                    icon: 'mdi-wrench-outline',
-                    year: '1980'
-                },
-                {
-                    title: 'Transferencia',
-                    color: 'lighten-1 yellow',
-                    icon: 'mdi-swap-horizontal',
-                    year: '1986'
-                },
-                {
-                    title: 'Abate',
-                    color: 'red',
-                    icon: 'mdi-delete-outline',
-                    year: '1995'
-                }
-            ]
         }),
+        computed: {
+            loader(){
+                return this.dialog && this.loading
+            },
+            ...mapGetters({
+                loading: 'getLoading',
+                timeline: 'patrimonio/getTimeline',
+            }),
+        },
         methods: {
+            ...mapActions('patrimonio', ['carregarTimeline']),
             closeDialog(){
                 this.$emit('close')
             }
         },
-  }
+        created () {
+            this.carregarTimeline(this.patrimonio)
+        }
+    }
 </script>

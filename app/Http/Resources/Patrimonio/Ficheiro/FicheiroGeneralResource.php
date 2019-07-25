@@ -15,9 +15,15 @@ class FicheiroGeneralResource extends JsonResource
      */
     public function toArray($request)
     {
+
+        $url = $this->path;
+
+        if(!parse_url($url, PHP_URL_SCHEME)){
+            $url = URL::asset($this->path);
+        }
         return [
             'id' => $this->chave(),
-            'src'              => URL::asset('storage/'.$this->path),
+            'src'              => $url,
             'links' => [
                 'self' => [
                     'href' => $this->link()
