@@ -19,7 +19,7 @@ export default [
     },
     {
       path: '/user-profile',
-      name: 'User Profile',
+      name: 'Perfil do usuario',
       view: 'UserProfile',
       auth: true
 

@@ -61,21 +61,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({//
 });
 
@@ -113,8 +98,8 @@ var render = function() {
                 {
                   attrs: {
                     color: "green",
-                    title: "Edit Profile",
-                    text: "Complete your profile"
+                    title: "Editar perfil",
+                    text: "Dados importantes"
                   }
                 },
                 [
@@ -134,10 +119,7 @@ var render = function() {
                                 { attrs: { xs12: "", md4: "" } },
                                 [
                                   _c("v-text-field", {
-                                    attrs: {
-                                      label: "Company (disabled)",
-                                      disabled: ""
-                                    }
+                                    attrs: { label: "Unizambeze", disabled: "" }
                                   })
                                 ],
                                 1
@@ -149,19 +131,7 @@ var render = function() {
                                 [
                                   _c("v-text-field", {
                                     staticClass: "purple-input",
-                                    attrs: { label: "User Name" }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                { attrs: { xs12: "", md4: "" } },
-                                [
-                                  _c("v-text-field", {
-                                    staticClass: "purple-input",
-                                    attrs: { label: "Email Address" }
+                                    attrs: { label: "Email" }
                                   })
                                 ],
                                 1
@@ -173,7 +143,7 @@ var render = function() {
                                 [
                                   _c("v-text-field", {
                                     staticClass: "purple-input",
-                                    attrs: { label: "First Name" }
+                                    attrs: { label: "Apelido" }
                                   })
                                 ],
                                 1
@@ -185,58 +155,7 @@ var render = function() {
                                 [
                                   _c("v-text-field", {
                                     staticClass: "purple-input",
-                                    attrs: { label: "Last Name" }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                { attrs: { xs12: "", md12: "" } },
-                                [
-                                  _c("v-text-field", {
-                                    staticClass: "purple-input",
-                                    attrs: { label: "Adress" }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                { attrs: { xs12: "", md4: "" } },
-                                [
-                                  _c("v-text-field", {
-                                    staticClass: "purple-input",
-                                    attrs: { label: "City" }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                { attrs: { xs12: "", md4: "" } },
-                                [
-                                  _c("v-text-field", {
-                                    staticClass: "purple-input",
-                                    attrs: { label: "Country" }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                { attrs: { xs12: "", md4: "" } },
-                                [
-                                  _c("v-text-field", {
-                                    staticClass: "purple-input",
-                                    attrs: {
-                                      label: "Postal Code",
-                                      type: "number"
-                                    }
+                                    attrs: { label: "Nome" }
                                   })
                                 ],
                                 1
@@ -249,7 +168,7 @@ var render = function() {
                                   _c("v-textarea", {
                                     staticClass: "purple-input",
                                     attrs: {
-                                      label: "About Me",
+                                      label: "Sobre",
                                       value:
                                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                     }
@@ -270,7 +189,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                    Update Profile\n                                "
+                                        "\n                                    Atualizar perfil\n                                "
                                       )
                                     ]
                                   )
@@ -308,14 +227,7 @@ var render = function() {
                       attrs: { slot: "offset", size: "130" },
                       slot: "offset"
                     },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src:
-                            "https://demos.creative-tim.com/vue-material-dashboard/img/marc.aba54d65.jpg"
-                        }
-                      })
-                    ]
+                    [_c("img", { attrs: { src: "img/bie.jpg" } })]
                   ),
                   _vm._v(" "),
                   _c(
@@ -328,13 +240,13 @@ var render = function() {
                           staticClass:
                             "category text-gray font-weight-thin mb-3"
                         },
-                        [_vm._v("CEO / CO-FOUNDER")]
+                        [_vm._v("Programador")]
                       ),
                       _vm._v(" "),
                       _c(
                         "h4",
                         { staticClass: "card-title font-weight-light" },
-                        [_vm._v("Alec Thompson")]
+                        [_vm._v("Samuel Bie")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -342,7 +254,7 @@ var render = function() {
                         { staticClass: "card-description font-weight-light" },
                         [
                           _vm._v(
-                            "Don't be scared of the truth because we need to\n                        restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick\n                        Owens’ bed design but the back is..."
+                            "Nada há tão perfeito que não possa ser melhorado"
                           )
                         ]
                       ),
@@ -353,7 +265,7 @@ var render = function() {
                           staticClass: "font-weight-light",
                           attrs: { color: "success", round: "" }
                         },
-                        [_vm._v("Follow")]
+                        [_vm._v("Contraar")]
                       )
                     ],
                     1

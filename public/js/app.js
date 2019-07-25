@@ -92017,7 +92017,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   view: 'Pagina Inicial'
 }, _defineProperty(_ref, "view", 'Dashboard'), _defineProperty(_ref, "auth", true), _ref), {
   path: '/user-profile',
-  name: 'User Profile',
+  name: 'Perfil do usuario',
   view: 'UserProfile',
   auth: true
 }, {

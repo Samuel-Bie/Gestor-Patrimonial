@@ -46,55 +46,39 @@
       </v-flex>
     </v-layout>
 
+
     <template>
-      <v-card id="create">
-          <v-speed-dial
-              v-model="fab"
-
-              :top="top"
-              :bottom="bottom"
-              :right="right"
-              :left="left"
-              :direction="direction"
-              :open-on-hover="hover"
-              :transition="transition"
-              >
-              <template v-slot:activator>
-                  <v-btn
-                  v-model="fab"
-                  color="blue darken-2"
-                  dark
-                  fab
-                  >
-                  <v-icon>mdi-plus</v-icon>
-                  <v-icon>mdi-close</v-icon>
-                  </v-btn>
-              </template>
-
-                  <router-link :to="{ name: 'Criar patrimonio'}">
-                    <v-btn
-                      fab
-                      dark
-                      small
-                      color="indigo"
-                      >
+        <v-card id="create">
+            <v-speed-dial v-model="fab" :top="top" :bottom="bottom" :right="right" :left="left" :direction="direction"
+                :open-on-hover="hover" :transition="transition">
+                <template v-slot:activator>
+                    <v-btn v-model="fab" color="blue darken-2" dark fab>
                         <v-icon>mdi-plus</v-icon>
+                        <v-icon>mdi-close</v-icon>
                     </v-btn>
-                  </router-link>
+                </template>
 
+                <router-link :to="{ name: 'Criar patrimonio'}">
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on }">
+                      <v-btn fab dark small color="indigo" v-on="on">
+                          <v-icon>mdi-plus</v-icon>
+                      </v-btn>
+                     </template>
+                    <span class="white--text">Adicionar</span>
+                  </v-tooltip>
+                </router-link>
 
-                  <v-btn
-                    fab
-                    dark
-                    small
-                    color="red"
-                    >
-                      <v-icon>mdi-database-import</v-icon>
-                  </v-btn>
-
-
-          </v-speed-dial>
-      </v-card>
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-btn fab dark small color="red"  v-on="on">
+                        <v-icon>mdi-database-import</v-icon>
+                    </v-btn>
+                    </template>
+                  <span class="white--text">Importar registros</span>
+                </v-tooltip>
+            </v-speed-dial>
+        </v-card>
     </template>
 
   </v-container>

@@ -253,6 +253,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
@@ -358,7 +381,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-4c84583c] {\n  position: fixed;\n  z-index:100;\n}\n#create .v-btn--floating[data-v-4c84583c] {\n  position: relative;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-4c84583c] {\n  position: fixed;\n  z-index:100;\n}\n#create .v-btn--floating[data-v-4c84583c] {\n  position: relative;\n}\n", ""]);
 
 // exports
 
@@ -1264,42 +1287,170 @@ var render = function() {
                   [
                     _vm._v(" "),
                     _c(
-                      "v-btn",
+                      "v-tooltip",
                       {
-                        attrs: { fab: "", dark: "", small: "", color: "green" }
-                      },
-                      [_c("v-icon", [_vm._v("mdi-pencil")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { fab: "", dark: "", small: "", color: "indigo" }
-                      },
-                      [_c("v-icon", [_vm._v("mdi-plus")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      { attrs: { fab: "", dark: "", small: "", color: "red" } },
-                      [_c("v-icon", [_vm._v("mdi-delete-outline")])],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        attrs: { fab: "", dark: "", small: "", color: "blue" },
-                        on: {
-                          click: function($event) {
-                            _vm.timeline = true
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        fab: "",
+                                        dark: "",
+                                        small: "",
+                                        color: "green"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("mdi-pencil")])],
+                                  1
+                                )
+                              ]
+                            }
                           }
-                        }
+                        ])
                       },
-                      [_c("v-icon", [_vm._v("mdi-timeline-outline")])],
-                      1
+                      [
+                        _vm._v(" "),
+                        _c("span", { staticClass: "white--text" }, [
+                          _vm._v("Editar dados")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        fab: "",
+                                        dark: "",
+                                        small: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("mdi-plus")])],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [
+                        _vm._v(" "),
+                        _c("span", { staticClass: "white--text" }, [
+                          _vm._v("Operar")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        fab: "",
+                                        dark: "",
+                                        small: "",
+                                        color: "red"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _c("v-icon", [_vm._v("mdi-delete-outline")])
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [
+                        _vm._v(" "),
+                        _c("span", { staticClass: "white--text" }, [
+                          _vm._v("Abater")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        fab: "",
+                                        dark: "",
+                                        small: "",
+                                        color: "blue"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.timeline = true
+                                        }
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _c("v-icon", [
+                                      _vm._v("mdi-timeline-outline")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [
+                        _vm._v(" "),
+                        _c("span", { staticClass: "white--text" }, [
+                          _vm._v("Historico")
+                        ])
+                      ]
                     )
                   ],
                   1

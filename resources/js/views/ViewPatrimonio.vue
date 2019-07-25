@@ -196,20 +196,43 @@
                                 <v-icon>mdi-close</v-icon>
                             </v-btn>
                         </template>
-                        <v-btn fab dark small color="green">
-                            <v-icon>mdi-pencil</v-icon>
-                        </v-btn>
-                        <v-btn fab dark small color="indigo">
-                            <v-icon>mdi-plus</v-icon>
-                        </v-btn>
 
-                        <v-btn fab dark small color="red">
-                            <v-icon>mdi-delete-outline</v-icon>
-                        </v-btn>
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-btn fab dark small color="green" v-on="on">
+                                    <v-icon>mdi-pencil</v-icon>
+                                </v-btn>
+                            </template>
+                            <span class="white--text">Editar dados</span>
+                        </v-tooltip>
 
-                        <v-btn @click="timeline=true" fab dark small color="blue">
-                            <v-icon>mdi-timeline-outline</v-icon>
-                        </v-btn>
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-btn fab dark small v-on="on" color="indigo">
+                                    <v-icon>mdi-plus</v-icon>
+                                </v-btn>
+                            </template>
+                            <span class="white--text">Operar</span>
+                        </v-tooltip>
+
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-btn fab dark small color="red"  v-on="on">
+                                    <v-icon>mdi-delete-outline</v-icon>
+                                </v-btn>
+                                </template>
+                            <span class="white--text">Abater</span>
+                        </v-tooltip>
+
+
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-btn @click="timeline=true"  v-on="on" fab dark small color="blue">
+                                    <v-icon>mdi-timeline-outline</v-icon>
+                                </v-btn>
+                            </template>
+                            <span class="white--text">Historico</span>
+                        </v-tooltip>
                     </v-speed-dial>
                 </v-card>
             </template>

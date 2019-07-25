@@ -117,22 +117,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Patrimonio',
@@ -199,7 +183,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-195cdc92] {\n  position: fixed;\n  z-index:100;\n}\n#create .v-btn--floating[data-v-195cdc92] {\n  position: relative;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-195cdc92] {\n  position: fixed;\n  z-index:100;\n}\n#create .v-btn--floating[data-v-195cdc92] {\n  position: relative;\n}\n", ""]);
 
 // exports
 
@@ -425,22 +409,84 @@ var render = function() {
                   { attrs: { to: { name: "Criar patrimonio" } } },
                   [
                     _c(
-                      "v-btn",
+                      "v-tooltip",
                       {
-                        attrs: { fab: "", dark: "", small: "", color: "indigo" }
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        fab: "",
+                                        dark: "",
+                                        small: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("mdi-plus")])],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
                       },
-                      [_c("v-icon", [_vm._v("mdi-plus")])],
-                      1
+                      [
+                        _vm._v(" "),
+                        _c("span", { staticClass: "white--text" }, [
+                          _vm._v("Adicionar")
+                        ])
+                      ]
                     )
                   ],
                   1
                 ),
                 _vm._v(" "),
                 _c(
-                  "v-btn",
-                  { attrs: { fab: "", dark: "", small: "", color: "red" } },
-                  [_c("v-icon", [_vm._v("mdi-database-import")])],
-                  1
+                  "v-tooltip",
+                  {
+                    attrs: { top: "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "activator",
+                        fn: function(ref) {
+                          var on = ref.on
+                          return [
+                            _c(
+                              "v-btn",
+                              _vm._g(
+                                {
+                                  attrs: {
+                                    fab: "",
+                                    dark: "",
+                                    small: "",
+                                    color: "red"
+                                  }
+                                },
+                                on
+                              ),
+                              [_c("v-icon", [_vm._v("mdi-database-import")])],
+                              1
+                            )
+                          ]
+                        }
+                      }
+                    ])
+                  },
+                  [
+                    _vm._v(" "),
+                    _c("span", { staticClass: "white--text" }, [
+                      _vm._v("Importar registros")
+                    ])
+                  ]
                 )
               ],
               1
