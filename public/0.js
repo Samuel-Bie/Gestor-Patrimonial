@@ -10,9 +10,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -91,39 +89,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Patrimonio',
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('app', ['image', 'color'])),
+  name: "Patrimonio",
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("app", ["image", "color"])),
   data: function data() {
     return {
-      direction: 'left',
+      direction: "left",
       fab: false,
       fling: false,
       hover: true,
@@ -132,24 +104,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       right: true,
       bottom: true,
       left: false,
-      transition: 'scale-transition',
-      sheet: false,
-      tiles: [{
-        img: 'https://image.flaticon.com/icons/svg/179/179483.svg',
-        title: 'PDF'
-      }, {
-        img: 'https://image.flaticon.com/icons/svg/888/888850.svg',
-        title: 'Excel'
-      }, {
-        img: 'https://image.flaticon.com/icons/png/512/377/377324.png',
-        title: 'CSV'
-      }, {
-        img: 'https://image.flaticon.com/icons/svg/136/136525.svg',
-        title: 'JSON'
-      }]
+      transition: "scale-transition",
+      importer: false
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('patrimonio', ['carregarBens'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("patrimonio", ["carregarBens"]), {
+    displayImporter: function displayImporter() {
+      console.log('ola');
+    }
+  }),
   mounted: function mounted() {
     this.carregarBens();
   },
@@ -183,7 +146,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-195cdc92] {\n  position: fixed;\n  z-index:100;\n}\n#create .v-btn--floating[data-v-195cdc92] {\n  position: relative;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-195cdc92] {\r\n  position: fixed;\r\n  z-index: 100;\n}\n#create .v-btn--floating[data-v-195cdc92] {\r\n  position: relative;\n}\r\n", ""]);
 
 // exports
 
@@ -246,92 +209,8 @@ var render = function() {
           _c(
             "v-flex",
             { attrs: { xs12: "" } },
-            [
-              [
-                _c(
-                  "v-bottom-sheet",
-                  {
-                    scopedSlots: _vm._u([
-                      {
-                        key: "activator",
-                        fn: function() {
-                          return [
-                            _c(
-                              "v-btn",
-                              { attrs: { color: "primary", dark: "" } },
-                              [
-                                _c("v-icon", [_vm._v("mdi-share-variant")]),
-                                _vm._v(" Exportar\n            ")
-                              ],
-                              1
-                            )
-                          ]
-                        },
-                        proxy: true
-                      }
-                    ]),
-                    model: {
-                      value: _vm.sheet,
-                      callback: function($$v) {
-                        _vm.sheet = $$v
-                      },
-                      expression: "sheet"
-                    }
-                  },
-                  [
-                    _vm._v(" "),
-                    _c(
-                      "v-list",
-                      [
-                        _c("v-subheader", [_vm._v("Exportar em")]),
-                        _vm._v(" "),
-                        _vm._l(_vm.tiles, function(tile) {
-                          return _c(
-                            "v-list-tile",
-                            {
-                              key: tile.title,
-                              on: {
-                                click: function($event) {
-                                  _vm.sheet = false
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "v-list-tile-avatar",
-                                [
-                                  _c(
-                                    "v-avatar",
-                                    { attrs: { size: "32px", tile: "" } },
-                                    [
-                                      _c("img", {
-                                        attrs: {
-                                          src: "" + tile.img,
-                                          alt: tile.title
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("v-list-tile-title", [
-                                _vm._v(_vm._s(tile.title))
-                              ])
-                            ],
-                            1
-                          )
-                        })
-                      ],
-                      2
-                    )
-                  ],
-                  1
-                )
-              ]
-            ],
-            2
+            [_c("patrimonio-listagem-export-options")],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -469,6 +348,11 @@ var render = function() {
                                     dark: "",
                                     small: "",
                                     color: "red"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.importer = true
+                                    }
                                   }
                                 },
                                 on
@@ -494,7 +378,16 @@ var render = function() {
           ],
           1
         )
-      ]
+      ],
+      _vm._v(" "),
+      _c("patrimonio-listagem-import", {
+        attrs: { importer: _vm.importer },
+        on: {
+          closed: function($event) {
+            _vm.importer = false
+          }
+        }
+      })
     ],
     2
   )

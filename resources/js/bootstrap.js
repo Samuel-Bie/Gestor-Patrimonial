@@ -38,7 +38,7 @@ if (token) {
 }
 
 window.axios.defaults.headers.common['Accept']          = 'application/json';
-window.axios.defaults.headers.common['Accept-Encoding'] = 'application/json';
+// window.axios.defaults.headers.common['Accept-Encoding'] = 'application/json';
 window.axios.defaults.headers.common['Content-Type']    = 'application/json';
 
 let url = document.head.querySelector('meta[name="baseurl"]');
