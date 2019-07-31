@@ -3,7 +3,7 @@
         <v-layout wrap>
 
             <v-flex sm6 xs12 md6 lg3>
-                <material-stats-card color="green" icon="mdi-store" title="Inventario" value="350000"
+                <material-stats-card color="green" icon="mdi-store" title="Inventario" value="1500"
                     sub-icon="mdi-calendar" sub-text="Desde 1 de Janeiro" />
             </v-flex>
             <v-flex sm6 xs12 md6 lg3>

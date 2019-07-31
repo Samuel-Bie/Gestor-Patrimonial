@@ -63,7 +63,18 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan key:generate --ansi",
+            "@php artisan clear-compiled",
+            "@php artisan auth:clear-resets",
+            "@php artisan cache:clear",
+            "@php artisan config:clear",
+            "@php artisan config:cache",
+            "@php artisan route:clear",
+            "@php artisan route:cache",
+            "@php artisan view:cache",
+            "@php artisan view:clear",
+            "@php artisan storage:link"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
