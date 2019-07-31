@@ -84,13 +84,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Patrimonio',
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('app', ['image', 'color'])),
+  name: "Patrimonio",
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("app", ["image", "color"])),
   data: function data() {
     return {
-      direction: 'left',
+      direction: "left",
       fab: false,
       fling: false,
       hover: true,
@@ -99,10 +104,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       right: true,
       bottom: true,
       left: false,
-      transition: 'scale-transition'
+      transition: "scale-transition",
+      importer: false
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('patrimonio', ['carregarBens'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("patrimonio", ["carregarBens"]), {
+    displayImporter: function displayImporter() {
+      console.log('ola');
+    }
+  }),
   mounted: function mounted() {
     this.carregarBens();
   },
@@ -136,7 +146,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-195cdc92] {\n  position: fixed;\n  z-index:100;\n}\n#create .v-btn--floating[data-v-195cdc92] {\n  position: relative;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* This is for documentation purposes and will not be needed in your application */\n#create .v-speed-dial[data-v-195cdc92] {\r\n  position: fixed;\r\n  z-index: 100;\n}\n#create .v-btn--floating[data-v-195cdc92] {\r\n  position: relative;\n}\r\n", ""]);
 
 // exports
 
@@ -338,6 +348,11 @@ var render = function() {
                                     dark: "",
                                     small: "",
                                     color: "red"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.importer = true
+                                    }
                                   }
                                 },
                                 on
@@ -363,7 +378,16 @@ var render = function() {
           ],
           1
         )
-      ]
+      ],
+      _vm._v(" "),
+      _c("patrimonio-listagem-import", {
+        attrs: { importer: _vm.importer },
+        on: {
+          closed: function($event) {
+            _vm.importer = false
+          }
+        }
+      })
     ],
     2
   )
