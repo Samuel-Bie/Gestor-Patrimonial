@@ -7,38 +7,7 @@
     <v-layout wrap >
 
       <v-flex xs12>
-        <template>
-          <v-bottom-sheet v-model="sheet">
-            <template v-slot:activator>
-
-            <v-btn
-                color="primary"
-                dark
-              >
-                <v-icon>mdi-share-variant</v-icon> Exportar
-              </v-btn>
-
-            </template>
-            <v-list>
-              <v-subheader>Exportar em</v-subheader>
-              <v-list-tile
-                v-for="tile in tiles"
-                :key="tile.title"
-                @click="sheet = false"
-              >
-                <v-list-tile-avatar>
-                  <v-avatar size="32px" tile>
-                    <img
-                      :src="`${tile.img}`"
-                      :alt="tile.title"
-                    >
-                  </v-avatar>
-                </v-list-tile-avatar>
-                <v-list-tile-title>{{ tile.title }}</v-list-tile-title>
-              </v-list-tile>
-            </v-list>
-          </v-bottom-sheet>
-        </template>
+        <patrimonio-listagem-export-options></patrimonio-listagem-export-options>
       </v-flex>
 
       <v-flex md12 mt-1 >
@@ -101,62 +70,53 @@
 
 <script>
 
-import {
-  mapMutations,
-  mapState,
-  mapActions,
-  mapGetters
-} from 'vuex'
+  import {
+    mapMutations,
+    mapState,
+    mapActions,
+    mapGetters
+  } from 'vuex'
 
-export default {
-    name: 'Patrimonio',
-    computed: {
-      ...mapState('app', ['image', 'color']),
-    },
-    data() {
-      return {
+  export default {
+      name: 'Patrimonio',
+      computed: {
+        ...mapState('app', ['image', 'color']),
+      },
+      data() {
+        return {
+          direction: 'left',
+          fab: false,
+          fling: false,
+          hover: true,
+          tabs: null,
+          top: false,
+          right: true,
+          bottom: true,
+          left: false,
+          transition: 'scale-transition',
+        };
+      },
 
-        direction: 'left',
-        fab: false,
-        fling: false,
-        hover: true,
-        tabs: null,
-        top: false,
-        right: true,
-        bottom: true,
-        left: false,
-        transition: 'scale-transition',
+      methods: {
+        ...mapActions('patrimonio', ['carregarBens']),
+      },
+      mounted() {
+        this.carregarBens()
+      },
 
-        sheet: false,
-        tiles: [
-          { img: 'https://image.flaticon.com/icons/svg/179/179483.svg', title: 'PDF' },
-          { img: 'https://image.flaticon.com/icons/svg/888/888850.svg', title: 'Excel' },
-          { img: 'https://image.flaticon.com/icons/png/512/377/377324.png', title: 'CSV' },
-          { img: 'https://image.flaticon.com/icons/svg/136/136525.svg', title: 'JSON' },
-        ],
-      };
-    },
-
-    methods: {
-      ...mapActions('patrimonio', ['carregarBens']),
-    },
-    mounted() {
-      this.carregarBens()
-    },
-
-    watch: {
-        top (val) {
-            this.bottom = !val
-        },
-        right (val) {
-            this.left = !val
-        },
-        bottom (val) {
-            this.top = !val
-        },
-        left (val) {
-            this.right = !val
-        }
-    }
-};
+      watch: {
+          top (val) {
+              this.bottom = !val
+          },
+          right (val) {
+              this.left = !val
+          },
+          bottom (val) {
+              this.top = !val
+          },
+          left (val) {
+              this.right = !val
+          }
+      }
+  }
 </script>
