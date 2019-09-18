@@ -257,10 +257,8 @@ h2.title {
 }
 
 .v-toolbar .v-toolbar__content .v-toolbar__items .toolbar-items {
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   border-radius: 3px;
-  display: -webkit-box;
   display: flex;
   min-height: 48px;
   padding: 10px 15px;
@@ -461,9 +459,7 @@ strong {
 @media all and (max-width: 991px) {
   .v-footer {
     height: auto !important;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
   }
 
   .footer-items,
@@ -739,8 +735,7 @@ table thead tr th span {
 
 .card-tabs .v-list .v-input,
 .card-tabs .v-list .v-input__slot {
-  -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .mdi-checkbox-blank-outline:before {
@@ -1300,7 +1295,6 @@ table thead tr th span {
 .v-menu__content .v-avatar,
 .v-menu__content .v-responsive {
   border: 3px solid #ffffff;
-  -webkit-transition: all .34s;
   transition: all .34s;
 }
 
@@ -1343,20 +1337,17 @@ table thead tr th span {
 .dropdown-menu .v-list__tile {
   border-radius: 2px;
   color: #333 !important;
-  display: -webkit-box;
   display: flex;
   font-size: 0.8125rem;
   font-weight: 400;
   margin: 0 5px;
   padding: 10px 1.5rem;
   text-transform: none;
-  -webkit-transition: all 0.15s linear, color, background-color, box-shadow 0ms;
   transition: all 0.15s linear, color, background-color, box-shadow 0ms;
   white-space: nowrap;
 }
 
 .dropdown-menu .v-list__tile .v-list__tile__title {
-  -webkit-transition: none;
   transition: none;
 }
 

@@ -77,7 +77,7 @@ var render = function() {
                   color: "green",
                   icon: "mdi-store",
                   title: "Inventario",
-                  value: "350000",
+                  value: "1500",
                   "sub-icon": "mdi-calendar",
                   "sub-text": "Desde 1 de Janeiro"
                 }
